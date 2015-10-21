@@ -22,7 +22,7 @@
         {
             Standard = 0,
             Confort = 1,
-            Luxus = 2
+            Superior = 2
         }
     }
 }
