@@ -1,0 +1,32 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hotel Administration</title>
+
+    <script src="Scripts/CookieService.js"></script>
+    <script type="text/javascript">
+        var cookie = getCookie("FHDW.Hotel.Admin");
+        if (!cookie) {
+            window.location.href = "Login.html";
+        }
+    </script>
+
+    <script src="Scripts/Framework/jquery.min.js"></script>
+    <script src="Scripts/Framework/knockout.js"></script>
+    <script src="Scripts/Framework/bootstrap.min.js"></script>
+
+    <script src="Scripts/AdministrationService.js"></script>
+
+    <link href="Theme/Framework/bootstrap.min.css" rel="stylesheet" />
+    <link href="Theme/Framework/bootstrap-theme.min.css" rel="stylesheet" />
+
+    <link href="Theme/Administration.css" rel="stylesheet" />
+</head>
+<body>
+<input type="button" id="btnLogout" class="btn btn-primary" value="Logout" onclick="deleteCookie(); window.location.href = 'Login.html';"/>
+
+<script type="text/javascript">
+    ko.applyBindings(new Main.AdministrationService());
+</script>
+</body>
+</html>
