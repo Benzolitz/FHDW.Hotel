@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using FHDW.Hotel.BLL;
 
 namespace FHDW.Hotel.Web.Controllers
 {
@@ -10,6 +11,15 @@ namespace FHDW.Hotel.Web.Controllers
     /// </summary>
     public class AdminController : BaseController
     {
+        #region Dependencies
+        private AdminService AdminService;
+        #endregion
+
+        public AdminController()
+        {
+            AdminService = new AdminService();
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +29,8 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, "Test");
+                var admin = AdminService.GetByUsername(p_username);
+                return Request.CreateResponse(HttpStatusCode.OK, admin);
             }
             catch (Exception ex)
             {

@@ -2,7 +2,6 @@
     export class BaseRequest {
         
         //#region Member
-        private _serviceUrl: string = "";
         private _controller: string;
         //#endregion
 
@@ -13,7 +12,7 @@
         public RequestOptions(p_verb: string, p_action?: string): JQueryAjaxSettings {
             var self = this;
             return {
-                url: self._serviceUrl + self._controller,
+                url: "http://localhost:35588/api/" + self._controller,
                 cache: false,
                 type: p_verb,
                 contentType: "application/json; charset=utf-8",
@@ -69,10 +68,12 @@
             var d = $.Deferred();
 
             $.ajax(p_options)
-                .then(data => {
-                    d.resolve(data.Result.Value);
+                .then((p_data) => {
+                    d.resolve(p_data.Result.Value);
                 }).fail((p_jqXhr: JQueryXHR, p_textStatus: string, p_errorThrow: string) => {
                     var serverErrorMessage = this.deserializeXhr(p_jqXhr);
+
+                    alert(serverErrorMessage);
 
                     d.reject(p_jqXhr, p_textStatus, p_errorThrow);
                 });

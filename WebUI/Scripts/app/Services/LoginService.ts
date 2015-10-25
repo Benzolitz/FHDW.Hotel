@@ -26,13 +26,17 @@
         }
 
         public Login(): void {
-            // TODO: Check Logindata!
-            
-            // createCookie is a global function created in CookieService.js.
-            // TypeScript can't find the function, but it works nontheless.
-            this._cookieService.CreateCookie(this.Username());
+            this._adminRequest.GetByUsername(this.Username()).then((p_admin : Models.Admin) => {
+                // Sha256 is not recognized by TypeScript, but is aviable nonetheless.
+                // var hash = Sha256.hash(this.Password());
 
-            window.location.href = "Administration.html";
+                if ("" === p_admin.PasswordHash) {
+                    this._cookieService.CreateCookie(p_admin.ID, p_admin.Username, p_admin.LoginGuid);
+                    window.location.href = "Administration.html";
+                } else {
+                    $("#divNotifier").val("Benutzername, oder Passwort falsch!");
+                }
+            });
         }
     }
 }

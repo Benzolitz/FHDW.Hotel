@@ -20,10 +20,11 @@
         /// <summary>
         /// 
         /// </summary>
-        public CreateCookie(p_username: string): void {
+        public CreateCookie(p_id: number, p_username: string, p_loginGuid: string): void {
             var d = new Date();
             d.setTime(d.getTime() + (7200000)); // Keep Admin login for two hours.
-            document.cookie = "FHDW.Hotel.Admin=" + p_username + ";expires=" + d.toUTCString();
+            
+            document.cookie = "FHDW.Hotel.Admin=ID=" + p_id + "Username=" + p_username + "LoginGuid=" + p_loginGuid + ";expires=" + d.toUTCString();
         }
         
         /// <summary>
