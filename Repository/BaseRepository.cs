@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace FHDW.Hotel.Repository
@@ -15,19 +16,20 @@ namespace FHDW.Hotel.Repository
         /// </summary>
         /// <param name="p_query"></param>
         /// <returns></returns>
-        public object ExecuteQuery(string p_query)
+        public object ExecuteQuery<T>(string p_query)
         {
             try
             {
-                using (MySqlConnection con = new MySqlConnection(connectionString ))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    using (MySqlCommand com = new MySqlCommand(p_query, con))
+                    connection.Open();
+                    using (MySqlCommand command = new MySqlCommand(p_query, connection))
                     {
-                        return com.ExecuteNonQuery();
+                        return command.ExecuteReader();
                     }   
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

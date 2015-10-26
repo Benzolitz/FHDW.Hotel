@@ -15,7 +15,7 @@
             
             // createCookie is a global function created in CookieService.js.
             // TypeScript can't find the function, but it works nontheless.
-            createCookie(this.Username());
+            //createCookie(this.Username());
 
             window.location.href = "Administration.html";
         }
