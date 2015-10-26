@@ -25,10 +25,9 @@
   <ItemGroup>
     <Content Include="Administration.html" />
     <Content Include="Login.html" />
-    <Content Include="Scripts\Bootstrapper.js" />
-    <Content Include="Scripts\CookieService.js" />
     <Content Include="Scripts\Framework\jquery.min.js" />
     <Content Include="Scripts\Framework\knockout.js" />
+    <Content Include="Scripts\Framework\SHA256.js" />
     <Content Include="Theme\Administration.css" />
     <Content Include="Theme\Framework\bootstrap-theme.min.css" />
     <Content Include="Theme\Framework\bootstrap.min.css" />
@@ -64,8 +63,20 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\AdministrationService.ts" />
-    <TypeScriptCompile Include="Scripts\LoginService.ts" />
+    <TypeScriptCompile Include="Scripts\app\Data\AdminRequest.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\app\Data\BaseRequest.ts" />
+    <TypeScriptCompile Include="Scripts\app\Data\RoomRequest.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\app\Models\Admin.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\app\Services\AdministrationService.ts" />
+    <TypeScriptCompile Include="Scripts\app\Services\CookieService.ts" />
+    <TypeScriptCompile Include="Scripts\app\Services\LoginService.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
   </ItemGroup>
   <PropertyGroup>

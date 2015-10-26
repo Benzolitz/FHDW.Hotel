@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAdminRepository.cs" />
     <Compile Include="IBookingRepository.cs" />
     <Compile Include="IGuestRepository.cs" />
     <Compile Include="IHotelRepository.cs" />

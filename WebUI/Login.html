@@ -1,0 +1,46 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hotel Login</title>
+
+    <!-- Initialize all Scripts -->
+    <script src="Scripts/Framework/jquery.min.js"></script>
+    <script src="Scripts/Framework/knockout.js"></script>
+    <script src="Scripts/Framework/bootstrap.min.js"></script>
+    <script src="Scripts/Framework/SHA256.js"></script>
+
+    <script src="Scripts/app/Data/BaseRequest.js"></script>
+    <script src="Scripts/app/Data/AdminRequest.js"></script>
+
+    <script src="Scripts/app/Services/CookieService.js"></script>
+    <script src="Scripts/app/Services/LoginService.js"></script>
+
+    <!-- Initialize all Themes -->
+    <link href="Theme/Framework/bootstrap.min.css" rel="stylesheet" />
+    <link href="Theme/Framework/bootstrap-theme.min.css" rel="stylesheet" />
+
+    <link href="Theme/Login.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="divLoginBox" class="container">
+        <h2 class="form-signin-heading" style="text-align: center;">Administration Login</h2>
+
+        <div style="margin-top: 10px;"></div>
+        <input type="email" id="txtUsername" class="form-control" placeholder="Username" data-bind="value: Username" autofocus />
+
+        <div style="margin-top: 10px;"></div>
+        <input type="password" id="txtPassword" class="form-control" placeholder="Password" data-bind="value: Password" />
+
+        <div style="margin-top: 10px;"></div>
+        <button class="btn btn-primary pull-right col-xs-4 col-sm-4 col-md-4 col-lg-4" type="button" data-bind="click: Login">Sign in</button>
+
+        <div style="margin-top: 10px;"></div>
+        <div id="divNotifier" style="color: #F00;"></div>
+    </div>
+    <!-- Initialize all Knockout elements -->
+    <script type="text/javascript">
+        ko.applyBindings(new Services.LoginService());
+    </script>
+</body>
+</html>
