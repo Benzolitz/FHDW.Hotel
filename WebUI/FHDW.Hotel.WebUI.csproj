@@ -27,10 +27,10 @@
     <Content Include="Login.html" />
     <Content Include="Scripts\Framework\jquery.min.js" />
     <Content Include="Scripts\Framework\knockout.js" />
-    <Content Include="Scripts\Framework\SHA256.js" />
     <Content Include="Theme\Administration.css" />
     <Content Include="Theme\Framework\bootstrap-theme.min.css" />
     <Content Include="Theme\Framework\bootstrap.min.css" />
+    <Content Include="Theme\Framework\font-awesome.min.css" />
     <Content Include="Theme\Framework\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\Framework\bootstrap.min.js" />
     <Content Include="Theme\Login.css" />

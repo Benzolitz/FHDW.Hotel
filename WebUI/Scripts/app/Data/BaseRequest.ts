@@ -69,7 +69,7 @@
 
             $.ajax(p_options)
                 .then((p_data) => {
-                    d.resolve(p_data.Result.Value);
+                    d.resolve(p_data);
                 }).fail((p_jqXhr: JQueryXHR, p_textStatus: string, p_errorThrow: string) => {
                     var serverErrorMessage = this.deserializeXhr(p_jqXhr);
 

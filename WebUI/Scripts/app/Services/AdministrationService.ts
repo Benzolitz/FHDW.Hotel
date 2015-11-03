@@ -1,6 +1,10 @@
 ﻿module Services {
     export class AdministrationService {
 
+        //#region Observable
+        public Username = ko.observable("");
+        //#endregion
+
         //#region Member
         private _cookieService: CookieService;
         //#endregion
@@ -14,6 +18,8 @@
             var cookie = this._cookieService.GetCookie("FHDW.Hotel.Admin");
             if (!cookie) {
                 window.location.href = "Login.html";
+            } else {
+                this.Username(this._cookieService.ReadCookieKey(cookie, "Username"));
             }
         }
 

@@ -14,6 +14,9 @@ namespace FHDW.Hotel.Web.Controllers
         private RoomService RoomService { get; set; }
         #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
         public RoomController()
         {
             RoomService = new RoomService();

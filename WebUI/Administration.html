@@ -3,26 +3,89 @@
     <meta charset="utf-8" />
     <title>Hotel Administration</title>
 
+    <!-- JS-Frameworks -->
     <script src="Scripts/Framework/jquery.min.js"></script>
     <script src="Scripts/Framework/knockout.js"></script>
     <script src="Scripts/Framework/bootstrap.min.js"></script>
 
-    <script src="Scripts/app/Data/AdminRequest.js"></script>
+    <!-- Requests -->
+    <script src="Scripts/app/Data/BaseRequest.js"></script>
     <script src="Scripts/app/Data/RoomRequest.js"></script>
 
+    <!-- Services -->
     <script src="Scripts/app/Services/CookieService.js"></script>
     <script src="Scripts/app/Services/AdministrationService.js"></script>
 
+    <!-- Models -->
+    <script src="Scripts/app/Models/Admin.js"></script>
+
+    <!-- CSS-Frameworks -->
     <link href="Theme/Framework/bootstrap.min.css" rel="stylesheet" />
     <link href="Theme/Framework/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Theme/Framework/font-awesome.min.css" rel="stylesheet" />
 
+    <!-- Current Page -->
     <link href="Theme/Administration.css" rel="stylesheet" />
 </head>
 <body>
-    <input type="button" id="btnLogout" class="btn btn-primary" value="Logout" data-bind="click: Logout" />
-
+    <div class="row">
+        <div class="col-md-12">
+            <div id="divAdminNav" class="row">
+                <nav class="navbar" navbar-default>
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <p class="navbar-text"><strong>Administration</strong></p>
+                        </div>
+                        <div class="navbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#">Zimmerverwaltung</a></li>
+                                <li><a href="#">Hotelverwaltung</a></li>
+                            </ul>
+                            <div class="pull-right">
+                                <p class="navbar-text">Signed in as <span data-bind="text: Username"></span></p>
+                                <input type="button" id="btnLogout" class="btn btn-primary" value="Logout" data-bind="click: Logout" />
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="divContentRow" class="row">
+                <div id="divContentCol" class="col-md-9">
+                    <fieldset>
+                        <legend>Hotel &lt;XYZ&gt;</legend>
+                        <div>
+                            <table border="1" width="100%">
+                                <thead>
+                                <tr>
+                                    <th width="2%"></th>
+                                    <th width="2%"></th>
+                                    <th>ID</th>
+                                    <th>Raumnummer</th>
+                                    <th>Preis</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><input type="button" class="btn btn-sm" value="Ä" /></td>
+                                    <td><input type="button" class="btn btn-sm" value="X" /></td>
+                                    <td>1</td>
+                                    <td>23</td>
+                                    <td>34</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <input type="button" class="btn btn-primary" value="Neues Zimmer" style="margin-top: 10px;"/>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
         ko.applyBindings(new Services.AdministrationService());
     </script>
 </body>
 </html>
+

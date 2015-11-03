@@ -3,24 +3,28 @@
     <meta charset="utf-8" />
     <title>Hotel Login</title>
 
-    <!-- Initialize all Scripts -->
+    <!-- JS-Frameworks -->
     <script src="Scripts/Framework/jquery.min.js"></script>
     <script src="Scripts/Framework/knockout.js"></script>
     <script src="Scripts/Framework/bootstrap.min.js"></script>
-    <script src="Scripts/Framework/SHA256.js"></script>
 
+    <!-- Requests -->
     <script src="Scripts/app/Data/BaseRequest.js"></script>
     <script src="Scripts/app/Data/AdminRequest.js"></script>
 
+    <!-- Services -->
     <script src="Scripts/app/Services/CookieService.js"></script>
     <script src="Scripts/app/Services/LoginService.js"></script>
 
-    <!-- Initialize all Themes -->
+    <!-- Models -->
+    <script src="Scripts/app/Models/Admin.js"></script>
+
+    <!-- CSS-Frameworks -->
     <link href="Theme/Framework/bootstrap.min.css" rel="stylesheet" />
     <link href="Theme/Framework/bootstrap-theme.min.css" rel="stylesheet" />
 
+    <!-- Current Page -->
     <link href="Theme/Login.css" rel="stylesheet" />
-
 </head>
 <body>
     <div id="divLoginBox" class="container">
@@ -36,7 +40,7 @@
         <button class="btn btn-primary pull-right col-xs-4 col-sm-4 col-md-4 col-lg-4" type="button" data-bind="click: Login">Sign in</button>
 
         <div style="margin-top: 10px;"></div>
-        <div id="divNotifier" style="color: #F00;"></div>
+        <div id="divLoginNotifier" style="color: #F00;"></div>
     </div>
     <!-- Initialize all Knockout elements -->
     <script type="text/javascript">

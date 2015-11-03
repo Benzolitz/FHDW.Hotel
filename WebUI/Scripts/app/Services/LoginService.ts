@@ -26,15 +26,12 @@
         }
 
         public Login(): void {
-            this._adminRequest.GetByUsername(this.Username()).then((p_admin : Models.Admin) => {
-                // Sha256 is not recognized by TypeScript, but is aviable nonetheless.
-                // var hash = Sha256.hash(this.Password());
-
-                if ("" === p_admin.PasswordHash) {
+            this._adminRequest.GetAdminData(this.Username(), this.Password()).then((p_admin : Models.Admin) => {
+                if (p_admin.Username) {
                     this._cookieService.CreateCookie(p_admin.ID, p_admin.Username, p_admin.LoginGuid);
                     window.location.href = "Administration.html";
                 } else {
-                    $("#divNotifier").val("Benutzername, oder Passwort falsch!");
+                    $("#divLoginNotifier").val("Benutzername, oder Passwort falsch!");
                 }
             });
         }
