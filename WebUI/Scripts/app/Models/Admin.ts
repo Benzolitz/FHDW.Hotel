@@ -3,8 +3,7 @@
 
         public ID: number;
         public Username: string;
-        public PasswordHash: string;
-        public LoginGuid: string;
+        public Password: string;
 
     }
 }

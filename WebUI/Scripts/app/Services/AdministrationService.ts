@@ -2,7 +2,7 @@
     export class AdministrationService {
 
         //#region Observable
-        public Username = ko.observable("");
+        public Admin = ko.observable(new Models.Admin());
         public Hotels = ko.observableArray(new Array<Models.Hotel>());
         //#endregion
 
@@ -24,7 +24,13 @@
             if (!cookie) {
                 window.location.href = "Login.html";
             } else {
-                this.Username(this._cookieService.ReadCookieKey(cookie, "Username"));
+                var admin = JSON.parse(cookie);
+
+                if (!admin) {
+                    window.location.href = "Login.html";
+                } else {
+                    this.Admin(admin);
+                }
             }
         }
 

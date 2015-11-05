@@ -72,6 +72,7 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Scripts\app\Models\Enums.ts" />
+    <TypeScriptCompile Include="Scripts\app\Models\Address.ts" />
     <TypeScriptCompile Include="Scripts\app\Models\Room.ts" />
     <TypeScriptCompile Include="Scripts\app\Models\Hotel.ts" />
     <TypeScriptCompile Include="Scripts\app\Models\Admin.ts">

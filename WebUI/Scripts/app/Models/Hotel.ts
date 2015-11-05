@@ -3,9 +3,7 @@
 
         public ID: number;
         public Name: string;
-        public Adress: string;
-        public Postalcode: string;
-        public City: string;
+        public Adress: Address;
 
         public Rooms: Array<Room>;
 

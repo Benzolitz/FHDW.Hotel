@@ -7,7 +7,7 @@
         public PersonCount: number;
         public Price: number;
 
-        public Rooms: Array<Room>;
+        public Hotel: Hotel;
 
     }
 }
