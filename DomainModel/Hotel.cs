@@ -9,10 +9,8 @@ namespace FHDW.Hotel.DomainModel
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public string Adress { get; set; }
-        public string Postalcode { get; set; }
-        public string City { get; set; }
-
+        public Address Address { get; set; }
+        
         public ICollection<Room> Rooms { get; set; }
     }
 }

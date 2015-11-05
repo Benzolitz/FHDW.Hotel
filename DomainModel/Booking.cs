@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FHDW.Hotel.DomainModel
 {
@@ -8,9 +9,8 @@ namespace FHDW.Hotel.DomainModel
     public class Booking
     {
         public int ID { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public int RoomCount { get; set; }
-        public int PersonCount { get; set; }
+        public DateTime Arrival { get; set; }
+        public DateTime Departure { get; set; }
+        public ICollection<Room> Rooms { get; set; }
     }
 }

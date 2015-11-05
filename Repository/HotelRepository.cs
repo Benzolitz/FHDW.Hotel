@@ -12,7 +12,7 @@ namespace FHDW.Hotel.Repository
         /// 
         /// </summary>
         /// <returns></returns>
-        public ICollection<DomainModel.Hotel> Get()
+        public ICollection<DomainModel.Hotel> GetCollection()
         {
             // var query = base.ExecuteQuery("SELECT * FROM hotel");
             // MessageBox.Show(query.ToString());

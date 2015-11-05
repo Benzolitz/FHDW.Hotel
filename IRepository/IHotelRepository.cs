@@ -7,6 +7,6 @@ namespace FHDW.Hotel.IRepository
     /// </summary>
     public interface IHotelRepository
     {
-        ICollection<DomainModel.Hotel> Get();
+        ICollection<DomainModel.Hotel> GetCollection();
     }
 }

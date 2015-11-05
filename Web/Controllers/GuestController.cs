@@ -23,7 +23,7 @@ namespace FHDW.Hotel.Web.Controllers
         }
 
         /// <summary>
-        /// Get a list of all Bookings.
+        /// GetCollection a list of all Bookings.
         /// </summary>
         /// <returns></returns>
         public HttpResponseMessage Get()

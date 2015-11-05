@@ -37,7 +37,7 @@ namespace FHDW.Hotel.Web.Controllers
                 var admin = new Admin();
 
                 if (p_username == "root" && p_password == "toor")
-                    admin = new Admin { ID = 41, Username = "root", LoginGuid = Guid.NewGuid().ToString() };
+                    admin = new Admin { ID = 41, Username = "root"};
 
                 // var admin = AdminService.GetByUsername(p_username);
                 return Request.CreateResponse(HttpStatusCode.OK, admin);

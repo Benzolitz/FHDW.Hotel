@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace FHDW.Hotel.DomainModel
+﻿namespace FHDW.Hotel.DomainModel
 {
     /// <summary>
     /// 
@@ -12,8 +10,6 @@ namespace FHDW.Hotel.DomainModel
         public Enums.RoomType Type { get; set; }
         public int PersonCount { get; set; }
         public float Price { get; set; }
-
-        public ICollection<Room> Rooms { get; set; }
-        public int GuestID { get; set; }
+        public Hotel Hotel { get; set; }
     }
 }

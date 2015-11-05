@@ -67,9 +67,13 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Scripts\app\Data\BaseRequest.ts" />
+    <TypeScriptCompile Include="Scripts\app\Data\HotelRequest.ts" />
     <TypeScriptCompile Include="Scripts\app\Data\RoomRequest.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\app\Models\Enums.ts" />
+    <TypeScriptCompile Include="Scripts\app\Models\Room.ts" />
+    <TypeScriptCompile Include="Scripts\app\Models\Hotel.ts" />
     <TypeScriptCompile Include="Scripts\app\Models\Admin.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
