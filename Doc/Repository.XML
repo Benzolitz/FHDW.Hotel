@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FHDW.Hotel.Repository</name>
+    </assembly>
+    <members>
+        <member name="T:FHDW.Hotel.Repository.AdminRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.AdminRepository.GetByUsername(System.String)">
+            <summary>
+            Get the Adminobject with the given username.
+            </summary>
+            <param name="p_username">Username of the Admin.</param>
+            <returns>If found an Adminobject. NULL otherwise.</returns>
+        </member>
+        <member name="T:FHDW.Hotel.Repository.BookingRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.Repository.GuestRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.Repository.HotelRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.HotelRepository.GetCollection">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FHDW.Hotel.Repository.RoomRepository">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,4 +1,6 @@
-﻿using FHDW.Hotel.IRepository;
+﻿using System.Collections.Generic;
+using FHDW.Hotel.DomainModel;
+using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository;
 
 namespace FHDW.Hotel.BLL
@@ -15,6 +17,15 @@ namespace FHDW.Hotel.BLL
         public RoomService()
         {
             RoomRepository = new RoomRepository();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ICollection<Room> GetCollection()
+        {
+            return RoomRepository.GetCollection();
         }
     }
 }

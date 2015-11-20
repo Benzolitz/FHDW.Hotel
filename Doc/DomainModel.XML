@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FHDW.Hotel.DomainModel</name>
+    </assembly>
+    <members>
+        <member name="T:FHDW.Hotel.DomainModel.Admin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.DomainModel.Booking">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.DomainModel.Enums">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.DomainModel.Enums.RoomType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.DomainModel.Enums.RoomCategory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.DomainModel.Enums.SortOrder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.DomainModel.Guest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.DomainModel.Hotel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.DomainModel.Room">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

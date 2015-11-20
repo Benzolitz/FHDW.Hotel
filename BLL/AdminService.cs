@@ -33,8 +33,10 @@ namespace FHDW.Hotel.BLL
         public Admin CheckLogin(string p_username, string p_password)
         {
             var admin = AdminRepository.GetByUsername(p_username);
-            
-            return Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(p_password))) != admin?.Password ? null : admin;
+
+            if (admin == null) return null;
+
+            return Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(p_password))) != admin.Password ? null : admin;
         }
     }
 }

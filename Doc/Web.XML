@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FHDW.Hotel.Web</name>
+    </assembly>
+    <members>
+        <member name="T:FHDW.Hotel.Web.Controllers.AdminController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.AdminController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.AdminController.Get(System.String,System.String)">
+            <summary>
+            Check if the given Logindata is valid and return an Adminobject.
+            </summary>
+            <param name="p_username">Username of the Admin.</param>
+            <param name="p_password">Password of the Admin.</param>
+            <returns>A valid Adminobject or NULL.</returns>
+        </member>
+        <member name="T:FHDW.Hotel.Web.Controllers.BaseController">
+            <summary>
+            The BaseController will be used as the super class for all controller.
+            Redundant Methods and workloads will be handled here.
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleError(System.Exception)">
+            <summary>
+            Handle all general Exceptions.
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FHDW.Hotel.Web.Controllers.BookingController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Get(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Get(FHDW.Hotel.DomainModel.Guest)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FHDW.Hotel.Web.Controllers.GuestController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.GuestController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Get(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Get(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Post(FHDW.Hotel.DomainModel.Guest)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FHDW.Hotel.Web.Controllers.HotelController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.HotelController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.HotelController.Get">
+            <summary>
+            GetCollection a list of all Bookings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.HotelController.Get(System.Int32)">
+            <summary>
+            GetCollection a list of all Bookings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FHDW.Hotel.Web.Controllers.RoomController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(FHDW.Hotel.DomainModel.Enums.RoomType)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(FHDW.Hotel.DomainModel.Enums.RoomCategory)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.Int32,System.Int32,System.Int32,System.String,FHDW.Hotel.DomainModel.Enums.SortOrder)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Post(FHDW.Hotel.DomainModel.Room)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Put(FHDW.Hotel.DomainModel.Room)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Delete(FHDW.Hotel.DomainModel.Room)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FHDW.Hotel.Web.WebApiApplication">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.WebApiApplication.Application_Start">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.WebApiApplication.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+        </member>
+    </members>
+</doc>

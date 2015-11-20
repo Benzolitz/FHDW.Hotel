@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -32,7 +33,9 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Room1", "Room2" });
+                ICollection<Room> rooms = RoomService.GetCollection();
+
+                return Request.CreateResponse(HttpStatusCode.OK, rooms);
             }
             catch (Exception ex)
             {

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FHDW.Hotel.IRepository</name>
+    </assembly>
+    <members>
+        <member name="T:FHDW.Hotel.IRepository.IAdminRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.IRepository.IBookingRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.IRepository.IGuestRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.IRepository.IHotelRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.IRepository.IRoomRepository">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
