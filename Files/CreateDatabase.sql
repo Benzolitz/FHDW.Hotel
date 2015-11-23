@@ -20,12 +20,12 @@ CREATE TABLE IF NOT EXISTS hotel(
 
 CREATE TABLE IF NOT EXISTS guest(
 	ID INT NOT NULL, 
-	Firstname VARCHAR(20), 
-	Nachname VARCHAR(20), 
-	Emailaddress VARCHAR(50), 
+	Firstname VARCHAR(20) NOT NULL, 
+	Nachname VARCHAR(20) NOT NULL, 
+	Emailaddress VARCHAR(50) UNIQUE NOT NULL, 
 	Birthplace VARCHAR(20), 
 	Birthday DateTime, 
-	Password VARCHAR(35), 
+	Password VARCHAR(35) NOT NULL, 
 	Phonenumber VARCHAR(30), 
 	ContactAddressID INT NOT NULL, 
 	BillingAddressID INT, 
