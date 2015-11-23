@@ -21,8 +21,17 @@
         public enum RoomCategory
         {
             Standard = 0,
-            Confort = 1,
+            Comfort = 1,
             Superior = 2
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum SortOrder
+        {
+            ASC = 0,
+            DESC = 1
         }
     }
 }

@@ -20,11 +20,11 @@
         /// <summary>
         /// 
         /// </summary>
-        public CreateCookie(p_id: number, p_username: string, p_loginGuid: string): void {
+        public CreateCookie(p_admin: Models.Admin): void {
             var d = new Date();
             d.setTime(d.getTime() + (7200000)); // Keep Admin login for two hours.
             
-            document.cookie = "FHDW.Hotel.Admin=ID=" + p_id + "#Username=" + p_username + "#LoginGuid=" + p_loginGuid + "#expires=" + d.toUTCString();
+            document.cookie = "FHDW.Hotel.Admin=" + JSON.stringify(p_admin) + ";expires=" + d.toUTCString();
         }
         
         /// <summary>
@@ -32,20 +32,6 @@
         /// </summary>
         public DeleteCookie(): void {
             document.cookie = "FHDW.Hotel.Admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ReadCookieKey(p_cookie: string, p_key: string): string {
-            var entries = p_cookie.split("#");
-
-            for (var i = 0; i < entries.length; i++) {
-                var keyValue = entries[i].split("=");
-                if (keyValue[0] === p_key) return keyValue[1];
-            }
-
-            return "";
         }
     }
 }

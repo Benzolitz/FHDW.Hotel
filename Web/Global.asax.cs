@@ -4,13 +4,23 @@ using System.Web.Http;
 
 namespace FHDW.Hotel.Web
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WebApiApplication : HttpApplication
     {
+        /// <summary>
+        /// 
+        /// </summary>
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(Register);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
         public static void Register(HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes();

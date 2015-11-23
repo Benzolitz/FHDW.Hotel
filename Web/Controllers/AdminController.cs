@@ -25,21 +25,16 @@ namespace FHDW.Hotel.Web.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Check if the given Logindata is valid and return an Adminobject.
         /// </summary>
-        /// <param name="p_username"></param>
-        /// <param name="p_password"></param>
-        /// <returns></returns>
+        /// <param name="p_username">Username of the Admin.</param>
+        /// <param name="p_password">Password of the Admin.</param>
+        /// <returns>A valid Adminobject or NULL.</returns>
         public HttpResponseMessage Get([FromUri(Name = "Username")]string p_username, [FromUri(Name = "Password")]string p_password)
         {
             try
             {
-                var admin = new Admin();
-
-                if (p_username == "root" && p_password == "toor")
-                    admin = new Admin { ID = 41, Username = "root", LoginGuid = Guid.NewGuid().ToString() };
-
-                // var admin = AdminService.GetByUsername(p_username);
+                var admin = AdminService.CheckLogin(p_username, p_password);
                 return Request.CreateResponse(HttpStatusCode.OK, admin);
             }
             catch (Exception ex)

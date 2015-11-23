@@ -27,8 +27,8 @@
 
         public Login(): void {
             this._adminRequest.GetAdminData(this.Username(), this.Password()).then((p_admin : Models.Admin) => {
-                if (p_admin.Username) {
-                    this._cookieService.CreateCookie(p_admin.ID, p_admin.Username, p_admin.LoginGuid);
+                if (p_admin) {
+                    this._cookieService.CreateCookie(p_admin);
                     window.location.href = "Administration.html";
                 } else {
                     $("#divLoginNotifier").val("Benutzername, oder Passwort falsch!");

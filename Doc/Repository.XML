@@ -11,10 +11,10 @@
         </member>
         <member name="M:FHDW.Hotel.Repository.AdminRepository.GetByUsername(System.String)">
             <summary>
-            
+            Get the Adminobject with the given username.
             </summary>
-            <param name="p_username"></param>
-            <returns></returns>
+            <param name="p_username">Username of the Admin.</param>
+            <returns>If found an Adminobject. NULL otherwise.</returns>
         </member>
         <member name="T:FHDW.Hotel.Repository.BookingRepository">
             <summary>
@@ -31,7 +31,7 @@
             
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Repository.HotelRepository.Get">
+        <member name="M:FHDW.Hotel.Repository.HotelRepository.GetCollection">
             <summary>
             
             </summary>

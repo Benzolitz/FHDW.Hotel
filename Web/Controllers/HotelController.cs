@@ -24,15 +24,14 @@ namespace FHDW.Hotel.Web.Controllers
         }
 
         /// <summary>
-        /// Get a list of all Bookings.
+        /// GetCollection a list of all Bookings.
         /// </summary>
         /// <returns></returns>
         public HttpResponseMessage Get()
         {
             try
             {
-                var test = HotelService.Get();
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Hotel1", "Hotel2" });
+                return Request.CreateResponse(HttpStatusCode.OK, HotelService.GetCollection());
             }
             catch (Exception ex)
             {
@@ -41,7 +40,7 @@ namespace FHDW.Hotel.Web.Controllers
         }
 
         /// <summary>
-        /// Get a list of all Bookings.
+        /// GetCollection a list of all Bookings.
         /// </summary>
         /// <returns></returns>
         public HttpResponseMessage Get([FromUri(Name = "ID")]int p_id)

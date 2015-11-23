@@ -29,6 +29,11 @@
             
             </summary>
         </member>
+        <member name="T:FHDW.Hotel.DomainModel.Enums.SortOrder">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:FHDW.Hotel.DomainModel.Guest">
             <summary>
             
