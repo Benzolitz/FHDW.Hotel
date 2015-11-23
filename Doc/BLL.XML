@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FHDW.Hotel.BLL</name>
+    </assembly>
+    <members>
+        <member name="T:FHDW.Hotel.BLL.AdminService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.BLL.AdminService.GetByUsername(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="p_username"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FHDW.Hotel.BLL.BookingService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.BLL.GuestService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.BLL.HotelService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.BLL.RoomService">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
