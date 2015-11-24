@@ -6,6 +6,7 @@
     public class Room
     {
         public int ID { get; set; }
+        public string RoomNumber { get; set; }
         public Enums.RoomCategory Category { get; set; }
         public Enums.RoomType Type { get; set; }
         public int PersonCount { get; set; }

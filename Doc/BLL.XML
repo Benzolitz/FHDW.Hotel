@@ -37,16 +37,27 @@
             
             </summary>
         </member>
+        <member name="M:FHDW.Hotel.BLL.HotelService.#ctor">
+            <summary>
+            Initialize all Dependencies.
+            </summary>
+        </member>
         <member name="M:FHDW.Hotel.BLL.HotelService.GetCollection">
             <summary>
-            
+            Get a Collection of all Hotels.
             </summary>
-            <returns></returns>
+            <returns>Hotel-Collection</returns>
         </member>
         <member name="T:FHDW.Hotel.BLL.RoomService">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:FHDW.Hotel.BLL.RoomService.GetCollection">
+            <summary>
+            
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

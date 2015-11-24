@@ -16,6 +16,18 @@
             <param name="p_username">Username of the Admin.</param>
             <returns>If found an Adminobject. NULL otherwise.</returns>
         </member>
+        <member name="T:FHDW.Hotel.Repository.BaseRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.BaseRepository.ExecuteQuery``1(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="p_query"></param>
+            <returns></returns>
+        </member>
         <member name="T:FHDW.Hotel.Repository.BookingRepository">
             <summary>
             

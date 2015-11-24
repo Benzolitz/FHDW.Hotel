@@ -81,6 +81,7 @@
     <TypeScriptCompile Include="Scripts\app\Services\AdministrationService.ts" />
     <TypeScriptCompile Include="Scripts\app\Services\CookieService.ts" />
     <TypeScriptCompile Include="Scripts\app\Services\LoginService.ts" />
+    <TypeScriptCompile Include="Scripts\app\Services\RoomService.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
   </ItemGroup>

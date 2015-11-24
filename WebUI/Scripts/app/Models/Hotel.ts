@@ -2,8 +2,7 @@
     export class Hotel {
 
         public ID: number;
-        public Name: string;
-        public Adress: Address;
+        public Address: Address;
 
         public Rooms: Array<Room>;
 

@@ -29,7 +29,7 @@ namespace FHDW.Hotel.Repository
                     ID = 4,
                     PersonCount = 2,
                     Price = 123456,
-                    Type = Enums.RoomType.Doubble
+                    Type = Enums.RoomType.Double
                 }
             };
         }

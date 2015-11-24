@@ -8,12 +8,16 @@
 
         //#region Member
         private _cookieService: CookieService;
+        private _roomService: RoomService;
+
         private _hotelRequest: Data.HotelRequest;
         //#endregion
 
         constructor() {
             this._cookieService = new CookieService();
             this.checkCookie();
+
+            this._roomService = new RoomService();
 
             this._hotelRequest = new Data.HotelRequest();
             this.getHotelData();
@@ -44,5 +48,28 @@
                 this.Hotels(p_hotels);
             });
         }
+
+
+        //#region RoomHelper
+        public GetRoomTypeName(p_roomType: Enums.RoomType): string {
+            return Enums.RoomType[p_roomType];
+        }
+
+        public GetRoomCategoryName(p_roomType: Enums.RoomCategory): string {
+            return Enums.RoomCategory[p_roomType];
+        }
+
+        public AddRoom(p_hotelId: number): void {
+            this._roomService.AddRoom(new Models.Room());
+        }
+
+        public EditRoom(p_room: Models.Room): void {
+            this._roomService.UpdateRoom(p_room);
+        }
+
+        public DeleteRoom(p_room: Models.Room): void {
+            this._roomService.DeleteRoom(p_room);
+        }
+        //#endregion
     }
 }

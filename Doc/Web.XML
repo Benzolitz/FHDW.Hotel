@@ -159,7 +159,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.Int32,System.Int32,System.Int32,System.String,FHDW.Hotel.DomainModel.Enums.SortOrder)">
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(FHDW.Hotel.DomainModel.Hotel)">
             <summary>
             
             </summary>

@@ -111,7 +111,7 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "HotelID")] int p_hotelId, [FromUri(Name = "PageIndex")] int p_pageIndex, [FromUri(Name = "PageSize")] int p_pageSize, [FromUri(Name = "OrderBy")] string p_orderBy, [FromUri(Name = "SortOrder")] Enums.SortOrder p_sortOrder)
+        public HttpResponseMessage Get([FromUri(Name = "Hotel")] DomainModel.Hotel p_hotel)
         {
             try
             {

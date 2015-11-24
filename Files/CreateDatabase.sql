@@ -60,7 +60,8 @@ CREATE TABLE IF NOT EXISTS roomtype(
 
 CREATE TABLE IF NOT EXISTS room(
 	ID INT NOT NULL, 
-	Price Decimal(5,2), 
+	RoomNumber varchar(5) NOT NULL, 
+	Price Decimal(5,2) NOT NULL, 
 	HotelID INT NOT NULL, 
 	TypeID INT NOT NULL,  
 	CategoryID INT NOT NULL, 
