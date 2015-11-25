@@ -1,11 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FHDW.Hotel.Repository
 {
@@ -14,24 +7,17 @@ namespace FHDW.Hotel.Repository
     /// </summary>
     public class BaseRepository
     {
-        static void Main(String[] args)
+        private BaseRepository()
         {
-            string connStr = CreateConnStr("localhost", "fhdwhotel", "root", "admin");
+            var connStr = createConnStr("localhost", "fhdwhotel", "root", "admin");
             MySqlConnection connection = new MySqlConnection(connStr);
 
             connection.Open();
         }
 
-        public static string CreateConnStr(string server, string databaseName, string user, string pass)
+        private string createConnStr(string p_serverAddress, string p_databaseName, string p_user, string p_password)
         {
-            string connStr = "server=" + server + ";database=" + databaseName + ";uid=" + user + ";password=" + pass + ";";
-            return connStr;
+            return $"server={p_serverAddress};database={p_databaseName};uid={p_user};password={p_password};";
         }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_query"></param>
-        /// <returns></returns>
     }
 }
