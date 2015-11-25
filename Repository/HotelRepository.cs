@@ -19,6 +19,17 @@ namespace FHDW.Hotel.Repository
             return hotels;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
+        public DomainModel.Hotel GetById(int p_id)
+        {
+            return new DomainModel.Hotel();
+        }
+
+        #region Testdata
         private ICollection<DomainModel.Hotel> getHotelTests()
         {
             var hotel1 = new DomainModel.Hotel
@@ -89,5 +100,6 @@ namespace FHDW.Hotel.Repository
 
             return new List<DomainModel.Hotel> { hotel1, hotel2 };
         }
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -32,11 +33,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Booking1", "Booking2" });
+                return Request.CreateResponse(HttpStatusCode.OK, BookingService.GetCollection());
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -48,11 +49,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Booking1", "Booking2" });
+                return Request.CreateResponse(HttpStatusCode.OK, BookingService.GetById(p_id));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -60,15 +61,15 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "Guest")] Guest p_guestId)
+        public HttpResponseMessage Get([FromUri(Name = "Guest")] Guest p_guest)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Booking1", "Booking2" });
+                return Request.CreateResponse(HttpStatusCode.OK, BookingService.GetByGuestId(p_guest.ID));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
     }

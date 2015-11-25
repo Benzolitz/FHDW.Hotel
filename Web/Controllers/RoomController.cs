@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -33,13 +32,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                ICollection<Room> rooms = RoomService.GetCollection();
-
-                return Request.CreateResponse(HttpStatusCode.OK, rooms);
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetCollection());
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -51,11 +48,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Room1", "Room2" });
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetById(p_id));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -67,11 +64,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Room1", "Room2" });
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetByType(p_type));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -83,11 +80,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Room1", "Room2" });
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetByCategory(p_category));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -99,11 +96,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Room1", "Room2" });
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetAvailableRooms(p_arrival, p_departure));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -115,11 +112,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Room1", "Room2" });
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetByHotelId(p_hotel.ID));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -131,11 +128,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Room1", "Room2" });
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.Save(p_room));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -147,11 +144,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Room1", "Room2" });
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.Save(p_room));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -163,11 +160,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Room1", "Room2" });
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.DeleteById(p_id));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -179,11 +176,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, new[] { "Room1", "Room2" });
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.Delete(p_room));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
     }

@@ -22,12 +22,22 @@ namespace FHDW.Hotel.BLL
         }
 
         /// <summary>
-        /// Get a Collection of all Hotels.
+        /// GetById a Collection of all Hotels.
         /// </summary>
         /// <returns>Hotel-Collection</returns>
         public ICollection<DomainModel.Hotel> GetCollection()
         {
             return HotelRepository.GetCollection();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
+        public DomainModel.Hotel GetById(int p_id)
+        {
+            return HotelRepository.GetById(p_id);
         }
     }
 }

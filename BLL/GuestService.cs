@@ -1,4 +1,6 @@
-﻿using FHDW.Hotel.IRepository;
+﻿using System.Collections.Generic;
+using FHDW.Hotel.DomainModel;
+using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository;
 
 namespace FHDW.Hotel.BLL
@@ -12,9 +14,52 @@ namespace FHDW.Hotel.BLL
         private IGuestRepository GuestRepository { get; set; }
         #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
         public GuestService()
         {
             GuestRepository = new GuestRepository();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ICollection<Guest> GetCollection()
+        {
+            return GuestRepository.GetCollection();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
+        public Guest GetById(int p_id)
+        {
+            return GuestRepository.GetById(p_id);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_email"></param>
+        /// <param name="p_password"></param>
+        /// <returns></returns>
+        public Guest CheckLogin(string p_email, string p_password)
+        {
+            return GuestRepository.GetByEmail(p_email);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_guest"></param>
+        /// <returns></returns>
+        public Guest SaveGuest(Guest p_guest)
+        {
+            return p_guest.ID == 0 ? GuestRepository.Insert(p_guest) : GuestRepository.Update(p_guest);
         }
     }
 }

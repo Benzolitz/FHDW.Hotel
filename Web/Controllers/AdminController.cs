@@ -3,7 +3,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using FHDW.Hotel.BLL;
-using FHDW.Hotel.DomainModel;
 
 namespace FHDW.Hotel.Web.Controllers
 {
@@ -39,7 +38,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
     }

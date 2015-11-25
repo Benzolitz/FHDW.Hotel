@@ -35,7 +35,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
 
@@ -47,11 +47,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, "Hallo Eduard");
+                return Request.CreateResponse(HttpStatusCode.OK, HotelService.GetById(p_id));
             }
             catch (Exception ex)
             {
-                return base.HandleError(ex);
+                return base.HandleGeneralError(ex);
             }
         }
     }
