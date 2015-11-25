@@ -5,32 +5,32 @@ using FHDW.Hotel.IRepository;
 namespace FHDW.Hotel.Repository
 {
     /// <summary>
-    /// 
+    /// Every Request returning a <seealso cref="Hotel">Hotel</seealso>-Object will be handled in this Repository.
     /// </summary>
-    public class HotelRepository : IHotelRepository
+    public class HotelRepository : BaseRepository, IHotelRepository
     {
         /// <summary>
-        /// 
+        /// Get a List of all Hotels in the database.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List with all Hotels. If no Hotel exists, return an empty List.</returns>
         public ICollection<DomainModel.Hotel> GetCollection()
         {
-            var hotels = getHotelTests();
+            var hotels = getHotelTestdata();
             return hotels;
         }
 
         /// <summary>
-        /// 
+        /// Get a specific Hotel.
         /// </summary>
-        /// <param name="p_id"></param>
-        /// <returns></returns>
+        /// <param name="p_id">ID of the Hotel</param>
+        /// <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
         public DomainModel.Hotel GetById(int p_id)
         {
             return new DomainModel.Hotel();
         }
 
         #region Testdata
-        private ICollection<DomainModel.Hotel> getHotelTests()
+        private ICollection<DomainModel.Hotel> getHotelTestdata()
         {
             var hotel1 = new DomainModel.Hotel
             {

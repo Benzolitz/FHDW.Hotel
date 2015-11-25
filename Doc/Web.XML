@@ -28,9 +28,93 @@
             Redundant Methods and workloads will be handled here.
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleError(System.Exception)">
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleBadRequestError(System.Exception)">
             <summary>
-            Handle all general Exceptions.
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleUnauthorizationError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleForbiddenError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleNotFoundError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleNotAcceptableError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandlRequestTimeoutError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleConflictError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleGoneError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleLengthRequiredError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandlePreconditionFailedError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleExpectationFailedError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleInternalServerError(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="p_exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleGeneralError(System.Exception)">
+            <summary>
+            
             </summary>
             <param name="p_exception"></param>
             <returns></returns>
