@@ -4,6 +4,7 @@
         //#region Observable
         public Admin = ko.observable(new Models.Admin());
         public Hotels = ko.observableArray(new Array<Models.Hotel>());
+        public Room = ko.observable(new Models.Room());
         //#endregion
 
         //#region Member
@@ -60,15 +61,21 @@
         }
 
         public AddRoom(p_hotelId: number): void {
-            this._roomService.AddRoom(new Models.Room());
+            var currentHotel = $.grep(this.Hotels(), e => e.ID === p_hotelId)[0];
+
+            var newRoom = new Models.Room();
+            newRoom.Hotel = currentHotel;
+
+            this.Room(newRoom);
+            (<any>$("#modalRoom")).modal("show"); 
         }
 
         public EditRoom(p_room: Models.Room): void {
-            this._roomService.UpdateRoom(p_room);
+
         }
 
         public DeleteRoom(p_room: Models.Room): void {
-            this._roomService.DeleteRoom(p_room);
+
         }
         //#endregion
     }
