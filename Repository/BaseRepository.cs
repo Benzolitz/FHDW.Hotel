@@ -16,7 +16,7 @@ namespace FHDW.Hotel.Repository
     {
         static void Main(String[] args)
         {
-            string connStr = CreateConnStr("localhost", "hotelappdb", "root", "admin");
+            string connStr = CreateConnStr("localhost", "fhdwhotel", "root", "admin");
             MySqlConnection connection = new MySqlConnection(connStr);
 
             connection.Open();
