@@ -6,15 +6,15 @@
     <members>
         <member name="T:FHDW.Hotel.Repository.AdminRepository">
             <summary>
-            Every Request returning an <seealso cref="T:FHDW.Hotel.DomainModel.Admin">Admin</seealso>-Object will be handled in this Repository.
+            Every Request returning an Admin-Object will be handled in this Repository.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.Repository.AdminRepository.GetByUsername(System.String)">
             <summary>
-            Request an <seealso cref="!:NULL">Admin</seealso>-Object from the Database, with the username.
+            Request an Admin-Object from the Database, with the username.
             </summary>
             <param name="p_username">Username of the Administrator.</param>
-            <returns>The found Adminobject will be returned. If no Admin was found, <see langword="NULL">NULL</see> will be returned. </returns>
+            <returns>The found Adminobject will be returned. If no Admin was found, NULL will be returned. </returns>
         </member>
         <member name="T:FHDW.Hotel.Repository.BaseRepository">
             <summary>
@@ -28,7 +28,7 @@
         </member>
         <member name="T:FHDW.Hotel.Repository.BookingRepository">
             <summary>
-            Every Request returning a <seealso cref="T:FHDW.Hotel.DomainModel.Booking">Booking</seealso>-Object will be handled in this Repository.
+            Every Request returning a Booking-Object will be handled in this Repository.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.Repository.BookingRepository.GetCollection">
@@ -53,7 +53,7 @@
         </member>
         <member name="T:FHDW.Hotel.Repository.GuestRepository">
             <summary>
-            Every Request returning a <seealso cref="T:FHDW.Hotel.DomainModel.Guest">Guest</seealso>-Object will be handled in this Repository.
+            Every Request returning a Guest-Object will be handled in this Repository.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.Repository.GuestRepository.GetCollection">
@@ -92,7 +92,7 @@
         </member>
         <member name="T:FHDW.Hotel.Repository.HotelRepository">
             <summary>
-            Every Request returning a <seealso cref="N:FHDW.Hotel">Hotel</seealso>-Object will be handled in this Repository.
+            Every Request returning a Hotel-Object will be handled in this Repository.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.Repository.HotelRepository.GetCollection">
@@ -110,7 +110,7 @@
         </member>
         <member name="T:FHDW.Hotel.Repository.RoomRepository">
             <summary>
-            Every Request returning a <seealso cref="T:FHDW.Hotel.DomainModel.Room">Room</seealso>-Object will be handled in this Repository.
+            Every Request returning a Room-Object will be handled in this Repository.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.Repository.RoomRepository.GetCollection">

@@ -5,15 +5,15 @@ using FHDW.Hotel.IRepository;
 namespace FHDW.Hotel.Repository
 {
     /// <summary>
-    /// Every Request returning an <seealso cref="Admin">Admin</seealso>-Object will be handled in this Repository.
+    /// Every Request returning an Admin-Object will be handled in this Repository.
     /// </summary>
     public class AdminRepository : BaseRepository, IAdminRepository
     {
         /// <summary>
-        /// Request an <seealso cref="NULL">Admin</seealso>-Object from the Database, with the username.
+        /// Request an Admin-Object from the Database, with the username.
         /// </summary>
         /// <param name="p_username">Username of the Administrator.</param>
-        /// <returns>The found Adminobject will be returned. If no Admin was found, <see langword="NULL">NULL</see> will be returned. </returns>
+        /// <returns>The found Adminobject will be returned. If no Admin was found, NULL will be returned. </returns>
         public Admin GetByUsername(string p_username)
         {
             var cmd = new SqlCommand

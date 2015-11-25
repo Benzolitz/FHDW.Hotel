@@ -5,7 +5,7 @@ using FHDW.Hotel.IRepository;
 namespace FHDW.Hotel.Repository
 {
     /// <summary>
-    /// Every Request returning a <seealso cref="Booking">Booking</seealso>-Object will be handled in this Repository.
+    /// Every Request returning a Booking-Object will be handled in this Repository.
     /// </summary>
     public class BookingRepository : BaseRepository, IBookingRepository
     {
