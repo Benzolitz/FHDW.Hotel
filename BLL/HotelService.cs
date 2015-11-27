@@ -5,8 +5,9 @@ using FHDW.Hotel.Repository;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// 
+    /// Handle all Requests for the Hotel.
     /// </summary>
+    /// <creator>Lucas Engel</creator>
     public class HotelService
     {
         #region Dependencies
@@ -14,7 +15,7 @@ namespace FHDW.Hotel.BLL
         #endregion
 
         /// <summary>
-        /// Initialize all Dependencies.
+        /// Initialize the HotelService.
         /// </summary>
         public HotelService()
         {

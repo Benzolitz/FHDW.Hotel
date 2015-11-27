@@ -6,12 +6,13 @@
     <members>
         <member name="T:FHDW.Hotel.BLL.AdminService">
             <summary>
-            
+            Handle all Requests for the Admin.
             </summary>
+            <creator>Lucas Engel</creator>
         </member>
         <member name="M:FHDW.Hotel.BLL.AdminService.#ctor">
             <summary>
-            Initialize all Dependencies
+            Initialize the AdminService.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.AdminService.CheckLogin(System.String,System.String)">
@@ -24,12 +25,13 @@
         </member>
         <member name="T:FHDW.Hotel.BLL.BookingService">
             <summary>
-            
+            Handle all Requests for the Booking.
             </summary>
+            <creator>Lucas Engel</creator>
         </member>
         <member name="M:FHDW.Hotel.BLL.BookingService.#ctor">
             <summary>
-            
+            Initialize the BookingService.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.BookingService.GetCollection">
@@ -54,12 +56,13 @@
         </member>
         <member name="T:FHDW.Hotel.BLL.GuestService">
             <summary>
-            
+            Handle all Requests for the Guest.
             </summary>
+            <creator>Lucas Engel</creator>
         </member>
         <member name="M:FHDW.Hotel.BLL.GuestService.#ctor">
-            <summary>
-            
+            <summary>      
+            Initialize the GuestService.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.GuestService.GetCollection">
@@ -92,12 +95,13 @@
         </member>
         <member name="T:FHDW.Hotel.BLL.HotelService">
             <summary>
-            
+            Handle all Requests for the Hotel.
             </summary>
+            <creator>Lucas Engel</creator>
         </member>
         <member name="M:FHDW.Hotel.BLL.HotelService.#ctor">
             <summary>
-            Initialize all Dependencies.
+            Initialize the HotelService.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.HotelService.GetCollection">
@@ -115,7 +119,13 @@
         </member>
         <member name="T:FHDW.Hotel.BLL.RoomService">
             <summary>
-            
+            Handle all Requests for the Room.
+            </summary>
+            <creator>Lucas Engel</creator>
+        </member>
+        <member name="M:FHDW.Hotel.BLL.RoomService.#ctor">
+            <summary>
+            Initialize the RoomService.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.RoomService.GetCollection">

@@ -7,14 +7,18 @@ using FHDW.Hotel.Repository;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// 
+    /// Handle all Requests for the Room.
     /// </summary>
+    /// <creator>Lucas Engel</creator>
     public class RoomService
     {
         #region Dependencies
         private IRoomRepository RoomRepository { get; set; }
         #endregion
 
+        /// <summary>
+        /// Initialize the RoomService.
+        /// </summary>
         public RoomService()
         {
             RoomRepository = new RoomRepository();

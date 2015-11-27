@@ -24,7 +24,7 @@ namespace FHDW.Hotel.Web.Controllers
         }
 
         /// <summary>
-        /// GetCollection a list of all Bookings.
+        /// 
         /// </summary>
         /// <returns></returns>
         public HttpResponseMessage Get()
@@ -40,7 +40,7 @@ namespace FHDW.Hotel.Web.Controllers
         }
 
         /// <summary>
-        /// GetCollection a list of all Bookings.
+        /// 
         /// </summary>
         /// <returns></returns>
         public HttpResponseMessage Get([FromUri(Name = "ID")]int p_id)

@@ -193,13 +193,13 @@
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.HotelController.Get">
             <summary>
-            GetCollection a list of all Bookings.
+            
             </summary>
             <returns></returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.HotelController.Get(System.Int32)">
             <summary>
-            GetCollection a list of all Bookings.
+            
             </summary>
             <returns></returns>
         </member>

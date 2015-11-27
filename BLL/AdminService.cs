@@ -8,16 +8,17 @@ using FHDW.Hotel.Repository;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// 
+    /// Handle all Requests for the Admin.
     /// </summary>
+    /// <creator>Lucas Engel</creator>
     public class AdminService
     {
         #region Dependencies
-        private IAdminRepository AdminRepository;
+        private readonly IAdminRepository AdminRepository;
         #endregion
 
         /// <summary>
-        /// Initialize all Dependencies
+        /// Initialize the AdminService.
         /// </summary>
         public AdminService()
         {

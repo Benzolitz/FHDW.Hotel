@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository;
@@ -7,8 +6,9 @@ using FHDW.Hotel.Repository;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// 
+    /// Handle all Requests for the Booking.
     /// </summary>
+    /// <creator>Lucas Engel</creator>
     public class BookingService
     {
         #region Dependencies
@@ -16,7 +16,7 @@ namespace FHDW.Hotel.BLL
         #endregion
 
         /// <summary>
-        /// 
+        /// Initialize the BookingService.
         /// </summary>
         public BookingService()
         {

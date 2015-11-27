@@ -6,16 +6,17 @@ using FHDW.Hotel.Repository;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// 
+    /// Handle all Requests for the Guest.
     /// </summary>
+    /// <creator>Lucas Engel</creator>
     public class GuestService
     {
         #region Dependencies
         private IGuestRepository GuestRepository { get; set; }
         #endregion
 
-        /// <summary>
-        /// 
+        /// <summary>      
+        /// Initialize the GuestService.
         /// </summary>
         public GuestService()
         {
