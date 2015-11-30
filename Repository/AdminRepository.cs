@@ -23,6 +23,9 @@ namespace FHDW.Hotel.Repository
 
             cmd.Parameters.Add(new SqlParameter("@Username", p_username));
 
+
+            
+            
             return p_username.ToLower() == "root"
                 ? new Admin { ID = 1, Username = "root", Password = "zlymc9E7NhGNVKfPE66wygEjg793HnE0IbTR/YQfU5o=" } // Passwörter werden als Hash in der Datenbank gespeichert.
                 : null;

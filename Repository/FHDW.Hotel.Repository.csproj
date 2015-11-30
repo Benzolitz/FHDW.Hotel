@@ -57,7 +57,6 @@
   <ItemGroup>
     <Compile Include="AdminRepository.cs" />
     <Compile Include="BaseRepository.cs" />
-    <Compile Include="BookingRepository.cs" />
     <Compile Include="GuestRepository.cs" />
     <Compile Include="HotelRepository.cs" />
     <Compile Include="RoomRepository.cs" />

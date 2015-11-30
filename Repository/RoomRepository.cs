@@ -42,10 +42,11 @@ namespace FHDW.Hotel.Repository
         /// <summary>
         /// Get a List of all Rooms, wich are not already booked in a specific timeframe.
         /// </summary>
+        /// <param name="p_hotelId"></param>
         /// <param name="p_arrival">The Arrivaldate of the Guest.</param>
         /// <param name="p_departure">The Departuredate of the Guest.</param>
         /// <returns>List with all Rooms. If no Room exists, return an empty List.</returns>
-        public ICollection<Room> GetAvailableRooms(DateTime p_arrival, DateTime p_departure)
+        public ICollection<Room> GetAvailableRooms(int p_hotelId, DateTime p_arrival, DateTime p_departure)
         {
             return new List<Room>();
         }

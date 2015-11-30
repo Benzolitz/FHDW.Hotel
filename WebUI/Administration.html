@@ -42,8 +42,8 @@
                     </div>
                     <div class="navbar">
                         <ul class="nav navbar-nav">
-                            <li><a href="#" onclick="alert('Funktion noch nicht verfügbar!')"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Zimmerverwaltung</a></li>
-                            <li><a href="#" onclick="alert('Funktion noch nicht verfügbar!')"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Hotelverwaltung</a></li>
+                            <li><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Zimmerverwaltung</li>
+                            <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Hotelverwaltung</li>
                         </ul>
                         <div class="pull-right">
                             <p class="navbar-text">Signed in as <span data-bind="text: Admin.Username"></span></p>
@@ -111,6 +111,30 @@
                         <div class="row">
                             <div class="col-md-6">
                                 Hotel:
+                            </div>
+                            <div class="col-md-6">
+                                <span data-bind="text: 'Hotel' + Hotel.Address.City"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Zimmerart:
+                            </div>
+                            <div class="col-md-6">
+                                <span data-bind="text: 'Hotel' + Hotel.Address.City"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Zimmerkategorie:
+                            </div>
+                            <div class="col-md-6">
+                                <span data-bind="text: 'Hotel' + Hotel.Address.City"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Raumnummer:
                             </div>
                             <div class="col-md-6">
                                 <span data-bind="text: 'Hotel' + Hotel.Address.City"></span>

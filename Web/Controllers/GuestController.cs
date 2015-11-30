@@ -28,38 +28,6 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Get()
-        {
-            try
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, GuestService.GetCollection());
-            }
-            catch (Exception ex)
-            {
-                return base.HandleGeneralError(ex);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "ID")] int p_id)
-        {
-            try
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, GuestService.GetById(p_id));
-            }
-            catch (Exception ex)
-            {
-                return base.HandleGeneralError(ex);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public HttpResponseMessage Get([FromUri(Name = "EMail")] string p_email, [FromUri(Name = "Password")] string p_password)
         {
             try
@@ -77,6 +45,22 @@ namespace FHDW.Hotel.Web.Controllers
         /// </summary>
         /// <returns></returns>
         public HttpResponseMessage Post([FromUri(Name = "Guest")] Guest p_guest)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, GuestService.SaveGuest(p_guest));
+            }
+            catch (Exception ex)
+            {
+                return base.HandleGeneralError(ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public HttpResponseMessage Put([FromUri(Name = "Guest")] Guest p_guest)
         {
             try
             {
