@@ -1,6 +1,6 @@
 ﻿module Services {
     export class AdministrationService {
-
+        
         //#region Observable
         public Admin = ko.observable(new Models.Admin());
         public Hotels = ko.observableArray(new Array<Models.Hotel>());

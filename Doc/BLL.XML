@@ -148,10 +148,11 @@
             <param name="p_category"></param>
             <returns></returns>
         </member>
-        <member name="M:FHDW.Hotel.BLL.RoomService.GetAvailableRooms(System.DateTime,System.DateTime)">
+        <member name="M:FHDW.Hotel.BLL.RoomService.GetAvailableRooms(System.Int32,System.DateTime,System.DateTime)">
             <summary>
             
             </summary>
+            <param name="p_hotelId"></param>
             <param name="p_arrival"></param>
             <param name="p_departure"></param>
             <returns></returns>

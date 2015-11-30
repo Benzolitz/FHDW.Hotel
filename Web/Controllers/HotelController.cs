@@ -43,7 +43,7 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "ID")]int p_id)
+        public HttpResponseMessage Get([FromUri(Name = "ID")] int p_id)
         {
             try
             {

@@ -26,25 +26,6 @@ namespace FHDW.Hotel.BLL
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
-        public ICollection<Guest> GetCollection()
-        {
-            return GuestRepository.GetCollection();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_id"></param>
-        /// <returns></returns>
-        public Guest GetById(int p_id)
-        {
-            return GuestRepository.GetById(p_id);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="p_email"></param>
         /// <param name="p_password"></param>
         /// <returns></returns>

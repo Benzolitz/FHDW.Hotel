@@ -28,22 +28,6 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Get()
-        {
-            try
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetCollection());
-            }
-            catch (Exception ex)
-            {
-                return base.HandleGeneralError(ex);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public HttpResponseMessage Get([FromUri(Name = "ID")] int p_id)
         {
             try
@@ -60,59 +44,11 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "Type")] Enums.RoomType p_type)
+        public HttpResponseMessage Get([FromUri(Name = "HotelId")] int p_id, [FromUri(Name = "Arrival")] DateTime p_arrival, [FromUri(Name = "Departure")] DateTime p_departure)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetByType(p_type));
-            }
-            catch (Exception ex)
-            {
-                return base.HandleGeneralError(ex);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "Category")] Enums.RoomCategory p_category)
-        {
-            try
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetByCategory(p_category));
-            }
-            catch (Exception ex)
-            {
-                return base.HandleGeneralError(ex);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "Arrival")] DateTime p_arrival, [FromUri(Name = "Departure")] DateTime p_departure)
-        {
-            try
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetAvailableRooms(p_arrival, p_departure));
-            }
-            catch (Exception ex)
-            {
-                return base.HandleGeneralError(ex);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "Hotel")] DomainModel.Hotel p_hotel)
-        {
-            try
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetByHotelId(p_hotel.ID));
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetAvailableRooms(p_id, p_arrival, p_departure));
             }
             catch (Exception ex)
             {

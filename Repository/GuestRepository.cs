@@ -10,25 +10,6 @@ namespace FHDW.Hotel.Repository
     public class GuestRepository : BaseRepository, IGuestRepository
     {
         /// <summary>
-        /// Get a List of all Guests in the database.
-        /// </summary>
-        /// <returns>List with all Guests. If no Guests exists, return an empty List.</returns>
-        public ICollection<Guest> GetCollection()
-        {
-            return new List<Guest>();
-        }
-
-        /// <summary>
-        /// Get a specific Guest.
-        /// </summary>
-        /// <param name="p_id">ID of the Guest</param>
-        /// <returns>The requested Guest. If no Guest exists, return NULL.</returns>
-        public Guest GetById(int p_id)
-        {
-            return new Guest();
-        }
-
-        /// <summary>
         /// Get a specific Guest by their Emailaddress.
         /// </summary>
         /// <param name="p_email">Emailaddress of the Guest.</param>
