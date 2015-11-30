@@ -21,6 +21,19 @@ namespace FHDW.Hotel.Repository
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_hotelId"></param>
+        /// <param name="p_pageIndex"></param>
+        /// <param name="p_pagesize"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public ICollection<Room> GetCollectionByHotelId(int p_hotelId, int p_pageIndex, int p_pagesize)
+        {
+            return new List<Room>();
+        }
+
+        /// <summary>
         /// Get a List of all Rooms, wich are not already booked in a specific timeframe.
         /// </summary>
         /// <param name="p_hotelId"></param>

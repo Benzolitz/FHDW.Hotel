@@ -44,6 +44,22 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
+        public HttpResponseMessage Get([FromUri(Name = "HotelId")] int p_hotelId, [FromUri(Name = "PageIndex")]int p_pageIndex, [FromUri(Name = "PageSize")]int p_pagesize)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetCollectionByHotelId(p_hotelId, p_pageIndex, p_pagesize));
+            }
+            catch (Exception ex)
+            {
+                return base.HandleGeneralError(ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public HttpResponseMessage Get([FromUri(Name = "HotelId")] int p_id, [FromUri(Name = "Arrival")] DateTime p_arrival, [FromUri(Name = "Departure")] DateTime p_departure)
         {
             try

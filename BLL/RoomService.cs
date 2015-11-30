@@ -38,6 +38,19 @@ namespace FHDW.Hotel.BLL
         /// 
         /// </summary>
         /// <param name="p_hotelId"></param>
+        /// <param name="p_pageIndex"></param>
+        /// <param name="p_pagesize"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public ICollection<Room> GetCollectionByHotelId(int p_hotelId, int p_pageIndex, int p_pagesize)
+        {
+            return RoomRepository.GetCollectionByHotelId(p_hotelId, p_pageIndex, p_pagesize);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_hotelId"></param>
         /// <param name="p_arrival"></param>
         /// <param name="p_departure"></param>
         /// <returns></returns>

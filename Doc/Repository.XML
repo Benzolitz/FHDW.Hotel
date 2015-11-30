@@ -82,6 +82,16 @@
             <param name="p_id">ID of the Room.</param>
             <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
         </member>
+        <member name="M:FHDW.Hotel.Repository.RoomRepository.GetCollectionByHotelId(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="p_hotelId"></param>
+            <param name="p_pageIndex"></param>
+            <param name="p_pagesize"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
         <member name="M:FHDW.Hotel.Repository.RoomRepository.GetAvailableRooms(System.Int32,System.DateTime,System.DateTime)">
             <summary>
             Get a List of all Rooms, wich are not already booked in a specific timeframe.

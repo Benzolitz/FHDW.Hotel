@@ -185,6 +185,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.Int32,System.DateTime,System.DateTime)">
             <summary>
             

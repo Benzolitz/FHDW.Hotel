@@ -7,6 +7,7 @@
     <script src="Scripts/Framework/jquery.min.js"></script>
     <script src="Scripts/Framework/knockout.js"></script>
     <script src="Scripts/Framework/bootstrap.min.js"></script>
+    <script src="Scripts/Framework/select2.full.min.js"></script>
 
     <!-- Requests -->
     <script src="Scripts/app/Data/BaseRequest.js"></script>
@@ -21,11 +22,13 @@
     <!-- Models -->
     <script src="Scripts/app/Models/Admin.js"></script>
     <script src="Scripts/app/Models/Enums.js"></script>
+    <script src="Scripts/app/Models/Room.js"></script>
 
     <!-- CSS-Frameworks -->
     <link href="Theme/Framework/bootstrap.min.css" rel="stylesheet"/>
     <link href="Theme/Framework/bootstrap-theme.min.css" rel="stylesheet"/>
     <link href="Theme/Framework/font-awesome.min.css" rel="stylesheet"/>
+    <link href="Theme/Framework/select2-bootstrap.css" rel="stylesheet" />
 
     <!-- Current Page -->
     <link href="Theme/Administration.css" rel="stylesheet"/>
@@ -42,8 +45,8 @@
                     </div>
                     <div class="navbar">
                         <ul class="nav navbar-nav">
-                            <li><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Zimmerverwaltung</li>
-                            <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Hotelverwaltung</li>
+                            <li><a><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Zimmerverwaltung</a></li>
+                            <li><a><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Hotelverwaltung</a></li>
                         </ul>
                         <div class="pull-right">
                             <p class="navbar-text">Signed in as <span data-bind="text: Admin.Username"></span></p>
@@ -54,7 +57,10 @@
             </nav>
         </div>
         <div id="divContentRow" class="row">
-            <div id="divContentCol" class="col-md-9" data-bind="foreach: Hotels">
+            <div class="col-md-9" data-bind="visible: Hotels().length === 0">
+                Keine Hotels verfügbar! 
+            </div>
+            <div id="divContentCol" class="col-md-9" data-bind="visible: Hotels().length > 0, foreach: Hotels">
                 <fieldset>
                     <legend>
                         Hotel <span data-bind="text: Address.City"></span><input type="button" class="btn btn-primary pull-right" value="Neues Zimmer" style="margin-bottom: 5px;" data-bind="click: function() { $parent.AddRoom(ID); }"/>
@@ -109,35 +115,31 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-6">
-                                Hotel:
-                            </div>
-                            <div class="col-md-6">
-                                <span data-bind="text: 'Hotel' + Hotel.Address.City"></span>
+                            <div class="col-md-12">
+                                <label for="lblHotelName">Hotel:</label> <br />
+                                <span id="lblHotelName" data-bind="text: Hotel.Name + ' ' + Hotel.Address.City">asdf</span>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                Zimmerart:
-                            </div>
-                            <div class="col-md-6">
-                                <span data-bind="text: 'Hotel' + Hotel.Address.City"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                Zimmerkategorie:
-                            </div>
-                            <div class="col-md-6">
-                                <span data-bind="text: 'Hotel' + Hotel.Address.City"></span>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-12">
+                                <label for="selRoomCategory">Zimmerkategorie:</label>
+                                <select id="selRoomCategory" class="form-comtrol select2">
+                                    <option value="1">Test</option>
+                                    <option value="2">Hallo</option>
+                                    <option value="3">Welt</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                Raumnummer:
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-12">
+                                <label for="txtRoomType">Zimmertyp:</label>
+                                <input id="txtRoomType" class="form-control" type="text"/>
                             </div>
-                            <div class="col-md-6">
-                                <span data-bind="text: 'Hotel' + Hotel.Address.City"></span>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-12">
+                                <label for="txtRoomNumber">Raumnummer:</label>
+                                <input id="txtRoomNumber" class="form-control" type="text" />
                             </div>
                         </div>
                     </div>

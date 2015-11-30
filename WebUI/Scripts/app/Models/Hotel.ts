@@ -3,6 +3,7 @@
 
         public ID: number;
         public Address: Address;
+        public Name: string;
 
         public Rooms: Array<Room>;
 

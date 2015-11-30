@@ -15,6 +15,8 @@
         //#endregion
 
         constructor() {
+            (<any>$("#selRoomCategory")).select2();
+
             this._cookieService = new CookieService();
             this.checkCookie();
 
