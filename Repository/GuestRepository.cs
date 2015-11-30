@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Data.SqlClient;
+using System.Collections.Generic;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 
@@ -16,7 +17,15 @@ namespace FHDW.Hotel.Repository
         /// <returns>The requested Guest. If no Guest exists, return NULL.</returns>
         public Guest GetByEmail(string p_email)
         {
+            var cmd = new SqlCommand
+            {
+                CommandText = @"SELECT * FROM guest WHERE Emailaddress = @Emailaddress"
+            };
+
+            cmd.Parameters.Add(new SqlParameter("@Emailadress", p_email));
+            
             return new Guest();
+                
         }
 
         /// <summary>
@@ -26,6 +35,14 @@ namespace FHDW.Hotel.Repository
         /// <returns>The Newly created Guest. NULL, or Exception if an error occurs.</returns>
         public Guest Insert(Guest p_guest)
         {
+            var cmd = new SqlCommand
+            {
+                CommandText = @"INSERT INTO guest (ID, Firstname, Lastname, Emailaddress, Birthplace, Birthday, Password, Telephone )
+                                VALUES (@ID, @Firstname, @Lastname, @Emailaddress, @Birthplace, @Birthday, @Password, @Telephone)"
+            };
+
+            cmd.Parameters.Add(new SqlParameter("@ID, @Firstname, @Lastname, @Emailaddress, @Birthplace, @Birthday, @Password, @Telephone", p_guest));
+
             return new Guest();
         }
 
@@ -36,7 +53,21 @@ namespace FHDW.Hotel.Repository
         /// <returns>The updated Guest-Object. NULL, or Exception if an error occurs.</returns>
         public Guest Update(Guest p_guest)
         {
-            return new Guest();
+            var cmd = new SqlCommand
+            {
+                CommandText = @"UPDATE guest
+	                            SET Firstname = @Firstname,
+		                            Lastname =  @Lastname,
+                                    Emailaddress = @Emailaddress, 
+                                    Birthplace = @Birthplace, 
+                                    Birthday =  @Birthday, 
+                                    Password = @Password, 
+                                    Telephone =  @Telephone
+                                    
+	                                WHERE ID = @ID"
+            };
+
+             return new Guest();
         }
     }
 }
