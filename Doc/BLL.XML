@@ -23,37 +23,6 @@
             <param name="p_password">Password of the administrator.</param>
             <returns>Adminobject if correct. NULL if incorrect.</returns>
         </member>
-        <member name="T:FHDW.Hotel.BLL.BookingService">
-            <summary>
-            Handle all Requests for the Booking.
-            </summary>
-            <creator>Lucas Engel</creator>
-        </member>
-        <member name="M:FHDW.Hotel.BLL.BookingService.#ctor">
-            <summary>
-            Initialize the BookingService.
-            </summary>
-        </member>
-        <member name="M:FHDW.Hotel.BLL.BookingService.GetCollection">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.BLL.BookingService.GetByGuestId(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="p_guestId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.BLL.BookingService.GetById(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="p_id"></param>
-            <returns></returns>
-        </member>
         <member name="T:FHDW.Hotel.BLL.GuestService">
             <summary>
             Handle all Requests for the Guest.
@@ -64,19 +33,6 @@
             <summary>      
             Initialize the GuestService.
             </summary>
-        </member>
-        <member name="M:FHDW.Hotel.BLL.GuestService.GetCollection">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.BLL.GuestService.GetById(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="p_id"></param>
-            <returns></returns>
         </member>
         <member name="M:FHDW.Hotel.BLL.GuestService.CheckLogin(System.String,System.String)">
             <summary>
@@ -128,24 +84,11 @@
             Initialize the RoomService.
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.BLL.RoomService.GetCollection">
+        <member name="M:FHDW.Hotel.BLL.RoomService.GetById(System.Int32)">
             <summary>
             
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.BLL.RoomService.GetByType(FHDW.Hotel.DomainModel.Enums.RoomType)">
-            <summary>
-            
-            </summary>
-            <param name="p_type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.BLL.RoomService.GetByCategory(FHDW.Hotel.DomainModel.Enums.RoomCategory)">
-            <summary>
-            
-            </summary>
-            <param name="p_category"></param>
+            <param name="p_id"></param>
             <returns></returns>
         </member>
         <member name="M:FHDW.Hotel.BLL.RoomService.GetAvailableRooms(System.Int32,System.DateTime,System.DateTime)">
@@ -155,20 +98,6 @@
             <param name="p_hotelId"></param>
             <param name="p_arrival"></param>
             <param name="p_departure"></param>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.BLL.RoomService.GetByHotelId(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="p_id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.BLL.RoomService.GetById(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="p_id"></param>
             <returns></returns>
         </member>
         <member name="M:FHDW.Hotel.BLL.RoomService.Save(FHDW.Hotel.DomainModel.Room)">

@@ -9,13 +9,9 @@ namespace FHDW.Hotel.IRepository
     /// </summary>
     public interface IRoomRepository
     {
-        ICollection<Room> GetCollection();
-        ICollection<Room> GetByType(Enums.RoomType p_type);
-        ICollection<Room> GetByCategory(Enums.RoomCategory p_category);
-        ICollection<Room> GetAvailableRooms(int p_hotelId, DateTime p_arrival, DateTime p_departure);
-        ICollection<Room> GetByHotelId(int p_id);
-
         Room GetById(int p_id);
+
+        ICollection<Room> GetAvailableRooms(int p_hotelId, DateTime p_arrival, DateTime p_departure);
 
         Room Insert(Room p_room);
         Room Update(Room p_room);

@@ -163,6 +163,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.HotelController.Get(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:FHDW.Hotel.Web.Controllers.RoomController">
             <summary>
             

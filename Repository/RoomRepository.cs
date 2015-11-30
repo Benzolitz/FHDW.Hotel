@@ -11,32 +11,13 @@ namespace FHDW.Hotel.Repository
     public class RoomRepository : BaseRepository, IRoomRepository
     {
         /// <summary>
-        /// Get a List of all Rooms in the database.
+        /// Get a specific Room by ID.
         /// </summary>
-        /// <returns>List with all Rooms. If no Room exists, return an empty List.</returns>
-        public ICollection<Room> GetCollection()
+        /// <param name="p_id">ID of the Room.</param>
+        /// <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
+        public Room GetById(int p_id)
         {
-            return new List<Room>();
-        }
-
-        /// <summary>
-        /// Get a List of all Rooms with a specific Type.
-        /// </summary>
-        /// <param name="p_type">Type of the requested Rooms.</param>
-        /// <returns>List with all Rooms. If no Room exists, return an empty List.</returns>
-        public ICollection<Room> GetByType(Enums.RoomType p_type)
-        {
-            return new List<Room>();
-        }
-
-        /// <summary>
-        /// Get a List of all Rooms with a specific Category.
-        /// </summary>
-        /// <param name="p_category">Category of the requested Rooms.</param>
-        /// <returns>List with all Rooms. If no Room exists, return an empty List.</returns>
-        public ICollection<Room> GetByCategory(Enums.RoomCategory p_category)
-        {
-            return new List<Room>();
+            return new Room();
         }
 
         /// <summary>
@@ -49,26 +30,6 @@ namespace FHDW.Hotel.Repository
         public ICollection<Room> GetAvailableRooms(int p_hotelId, DateTime p_arrival, DateTime p_departure)
         {
             return new List<Room>();
-        }
-
-        /// <summary>
-        /// Get a List of all Rooms wich are located in a specific Hotel.
-        /// </summary>
-        /// <param name="p_id">ID the Hotel.</param>
-        /// <returns>List with all Rooms. If no Room exists, return an empty List.</returns>
-        public ICollection<Room> GetByHotelId(int p_id)
-        {
-            return new List<Room>();
-        }
-
-        /// <summary>
-        /// Get a specific Room by ID.
-        /// </summary>
-        /// <param name="p_id">ID of the Room.</param>
-        /// <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
-        public Room GetById(int p_id)
-        {
-            return new Room();
         }
 
         /// <summary>
