@@ -16,5 +16,6 @@ namespace FHDW.Hotel.DomainModel
         public Address ContactAddress { get; set; }
         public Address BillingAddress { get; set; }
         public string Telephone { get; set; }
+        public string Password { get; set; }
     }
 }
