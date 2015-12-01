@@ -15,6 +15,7 @@ namespace FHDW.Hotel.Repository
         /// </summary>
         /// <param name="p_email">Emailaddress of the Guest.</param>
         /// <returns>The requested Guest. If no Guest exists, return NULL.</returns>
+        /// <creator>Viktoria Pierenkemper</creator>
         public Guest GetByEmail(string p_email)
         {
             var cmd = new SqlCommand
@@ -33,6 +34,8 @@ namespace FHDW.Hotel.Repository
         /// </summary>
         /// <param name="p_guest">The new Guest.</param>
         /// <returns>The Newly created Guest. NULL, or Exception if an error occurs.</returns>
+        /// <creator>Viktoria Pierenkemper</creator>
+      
         public Guest Insert(Guest p_guest)
         {
             var cmd = new SqlCommand
@@ -51,6 +54,7 @@ namespace FHDW.Hotel.Repository
         /// </summary>
         /// <param name="p_guest">New Guest-Object.</param>
         /// <returns>The updated Guest-Object. NULL, or Exception if an error occurs.</returns>
+        /// <creator>Viktoria Pierenkemper</creator>
         public Guest Update(Guest p_guest)
         {
             var cmd = new SqlCommand
