@@ -21,35 +21,35 @@
         }
 
         public Get<T>(p_params?: Object): JQueryPromise<T> {
-            var options = this.RequestOptions(<any>Verbs.Get);
+            var options = this.RequestOptions(<any>RequestType.Get);
             options.data = $.param(p_params || {});
 
             return this.execute(options);
         }
 
         public GetById<T>(p_id: number): JQueryPromise<T> {
-            var options = this.RequestOptions(<any>Verbs.Get);
+            var options = this.RequestOptions(<any>RequestType.Get);
             options.data = $.param({ "Id": p_id });
 
             return this.execute(options);
         }
 
         public Post<T>(p_data: Object): JQueryPromise<T> {
-            var options = this.RequestOptions(<any>Verbs.Post);
+            var options = this.RequestOptions(<any>RequestType.Post);
             options.data = JSON.stringify(ko.toJS(p_data) || {});
 
             return this.execute(options);
         }
 
         public Put<T>(p_data: Object): JQueryPromise<T> {
-            var options = this.RequestOptions(<any>Verbs.Put);
+            var options = this.RequestOptions(<any>RequestType.Put);
             options.data = JSON.stringify(ko.toJS(p_data) || {});
 
             return this.execute(options);
         }
 
         public Delete<T>(p_params: Object): JQueryPromise<T> {
-            var options = this.RequestOptions(<any>Verbs.Delete);
+            var options = this.RequestOptions(<any>RequestType.Delete);
             options.data = $.param(p_params);
             options.url = options.url + "?" + options.data;
 
@@ -57,7 +57,7 @@
         }
 
         public DeleteById<T>(p_id: number): JQueryPromise<T> {
-            var options = this.RequestOptions(<any>Verbs.Delete);
+            var options = this.RequestOptions(<any>RequestType.Delete);
             options.data = $.param({ "Id": p_id.toString() });
             options.url = options.url + "?" + options.data;
 
@@ -72,8 +72,10 @@
                     d.resolve(p_data);
                 }).fail((p_jqXhr: JQueryXHR, p_textStatus: string, p_errorThrow: string) => {
                     var serverErrorMessage = this.deserializeXhr(p_jqXhr);
+                    
+                    console.log(p_jqXhr);
 
-                    alert(serverErrorMessage);
+                    // alert("Connection with server can not be established! \r\n" + serverErrorMessage);
 
                     d.reject(p_jqXhr, p_textStatus, p_errorThrow);
                 });
@@ -87,11 +89,6 @@
             try {
                 var retVal: any = $.parseJSON(p_xhr.responseText);
                 if (retVal && retVal.Notification) {
-
-                    if (p_xhr.status >= 400 && p_xhr.status < 600) {
-                        retVal.Notification.IsError = true;
-                    }
-
                     return retVal.Notification;
                 }
                 else {
@@ -103,7 +100,7 @@
         }
     }
 
-    enum Verbs {
+    enum RequestType {
         Get     = <any>"GET",
         Put     = <any>"PUT",
         Post    = <any>"POST",

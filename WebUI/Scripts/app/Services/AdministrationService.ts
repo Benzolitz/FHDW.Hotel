@@ -48,7 +48,7 @@
             this._hotelRequest.Get().then((p_hotels: Array<Models.Hotel>) => {
                 this.Hotels(p_hotels);
 
-                $("#sliHotels div").hide();
+                $("#sliHotels > div:gt(0)").hide();
                 $("#sliHotels div:first-child").show();
                 $("#sliHotels div fieldset div").show(); // Workaround: div with the table would be set to display:none for no reason
             });
@@ -82,8 +82,12 @@
         //#endregion
 
         public NextHotel(): void {
-            $(".slideshow div:first-child").fadeOut(500).appendTo(".slideshow");
-            $(".slideshow div:nth-child(2)").fadeIn(1000);
+            $("#sliHotels > div:first")
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo("#sliHotels");
         }
     }
 }
