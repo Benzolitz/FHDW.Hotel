@@ -19,11 +19,11 @@
 #divContentCol {
     display: inline-block;
     float: none;
-    /* reset the text-align */
     text-align: left;
-    /* inline-block space fix */
     margin-right: -4px;
     background-color: #FFF;
     border: 1px solid #EEE;
     padding: 10px;
 }
+
+.slideshow { position: relative; }
