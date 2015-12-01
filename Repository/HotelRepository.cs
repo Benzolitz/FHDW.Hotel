@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Data.SqlClient;
+using System.Collections.Generic;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 
@@ -24,8 +25,16 @@ namespace FHDW.Hotel.Repository
         /// </summary>
         /// <param name="p_id">ID of the Hotel</param>
         /// <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
+        /// <creator>Viktoria Pierenkemper</creator>
         public DomainModel.Hotel GetById(int p_id)
         {
+            var cmd = new SqlCommand
+            {
+                CommandText = @"SELECT * FROM hotel WHERE ID = @ID"
+            };
+
+            cmd.Parameters.Add(new SqlParameter("@ID", p_id));
+            
             return new DomainModel.Hotel();
         }
 

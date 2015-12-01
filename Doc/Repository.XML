@@ -119,7 +119,7 @@
             <summary>
             
             </summary>
-            <param name="p_room"></param>
+            <param name="p_id"></param>
             <returns>The deleted Room-Object. NULL, or Exception if an error occurs.</returns>
         </member>
     </members>
