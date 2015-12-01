@@ -15,8 +15,6 @@
         //#endregion
 
         constructor() {
-            (<any>$("#selRoomCategory")).select2();
-
             this._cookieService = new CookieService();
             this.checkCookie();
 
@@ -49,6 +47,10 @@
         private getHotelData(): void {
             this._hotelRequest.Get().then((p_hotels: Array<Models.Hotel>) => {
                 this.Hotels(p_hotels);
+
+                $("#sliHotels div").hide();
+                $("#sliHotels div:first-child").show();
+                $("#sliHotels div fieldset div").show(); // Workaround: div with the table would be set to display:none for no reason
             });
         }
 
@@ -62,11 +64,9 @@
             return Enums.RoomCategory[p_roomType];
         }
 
-        public AddRoom(p_hotelId: number): void {
-            var currentHotel = $.grep(this.Hotels(), e => e.ID === p_hotelId)[0];
-
+        public AddRoom(p_hotel: Models.Hotel): void {
             var newRoom = new Models.Room();
-            newRoom.Hotel = currentHotel;
+            newRoom.Hotel = p_hotel;
 
             this.Room(newRoom);
             (<any>$("#modalRoom")).modal("show"); 
@@ -80,5 +80,10 @@
 
         }
         //#endregion
+
+        public NextHotel(): void {
+            $(".slideshow div:first-child").fadeOut(500).appendTo(".slideshow");
+            $(".slideshow div:nth-child(2)").fadeIn(1000);
+        }
     }
 }

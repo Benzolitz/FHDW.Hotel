@@ -34,7 +34,6 @@
     <Content Include="Theme\Framework\font-awesome.min.css" />
     <Content Include="Theme\Framework\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\Framework\bootstrap.min.js" />
-    <Content Include="Theme\Framework\select2-bootstrap.css" />
     <Content Include="Theme\Login.css" />
     <Content Include="Theme\ModalRoom.css" />
     <Content Include="web.config" />
