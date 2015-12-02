@@ -37,14 +37,12 @@ namespace FHDW.Hotel.BLL
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="p_hotelId"></param>
-        /// <param name="p_pageIndex"></param>
-        /// <param name="p_pagesize"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public ICollection<Room> GetCollectionByHotelId(int p_hotelId, int p_pageIndex, int p_pagesize)
+        public ICollection<Room> GetCollectionByHotel(DomainModel.Hotel p_hotel)
         {
-            return RoomRepository.GetCollectionByHotelId(p_hotelId, p_pageIndex, p_pagesize);
+            if (p_hotel == null) throw new ArgumentNullException(nameof(p_hotel));
+            return RoomRepository.GetCollectionByHotel(p_hotel);
         }
 
         /// <summary>

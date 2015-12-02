@@ -11,7 +11,7 @@ namespace FHDW.Hotel.IRepository
     {
         Room GetById(int p_id);
 
-        ICollection<Room> GetCollectionByHotelId(int p_hotelId, int p_pageIndex, int p_pagesize);
+        ICollection<Room> GetCollectionByHotel(DomainModel.Hotel p_hotel);
         ICollection<Room> GetAvailableRooms(int p_hotelId, DateTime p_arrival, DateTime p_departure);
 
         Room Insert(Room p_room);

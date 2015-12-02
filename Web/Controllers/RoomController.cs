@@ -44,11 +44,11 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "HotelId")] int p_hotelId, [FromUri(Name = "PageIndex")]int p_pageIndex, [FromUri(Name = "PageSize")]int p_pagesize)
+        public HttpResponseMessage Get([FromUri(Name = "Hotel")] DomainModel.Hotel p_hotel)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetCollectionByHotelId(p_hotelId, p_pageIndex, p_pagesize));
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.GetCollectionByHotel(p_hotel));
             }
             catch (Exception ex)
             {

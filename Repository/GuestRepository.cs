@@ -35,7 +35,6 @@ namespace FHDW.Hotel.Repository
         /// <param name="p_guest">The new Guest.</param>
         /// <returns>The Newly created Guest. NULL, or Exception if an error occurs.</returns>
         /// <creator>Viktoria Pierenkemper</creator>
-      
         public Guest Insert(Guest p_guest)
         {
             var cmd = new SqlCommand

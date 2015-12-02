@@ -5,7 +5,7 @@
         public Address: Address;
         public Name: string;
 
-        public Rooms: Array<Room>;
+        public Rooms = ko.observableArray(new Array<Room>());
 
     }
 }

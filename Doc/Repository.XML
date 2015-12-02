@@ -20,6 +20,7 @@
             <summary>
             
             </summary>
+            <creator>Viktoria Pierenkemper</creator>
         </member>
         <member name="M:FHDW.Hotel.Repository.BaseRepository.#ctor">
             <summary>
@@ -37,6 +38,7 @@
             </summary>
             <param name="p_email">Emailaddress of the Guest.</param>
             <returns>The requested Guest. If no Guest exists, return NULL.</returns>
+            <creator>Viktoria Pierenkemper</creator>
         </member>
         <member name="M:FHDW.Hotel.Repository.GuestRepository.Insert(FHDW.Hotel.DomainModel.Guest)">
             <summary>
@@ -44,6 +46,7 @@
             </summary>
             <param name="p_guest">The new Guest.</param>
             <returns>The Newly created Guest. NULL, or Exception if an error occurs.</returns>
+            <creator>Viktoria Pierenkemper</creator>
         </member>
         <member name="M:FHDW.Hotel.Repository.GuestRepository.Update(FHDW.Hotel.DomainModel.Guest)">
             <summary>
@@ -51,6 +54,7 @@
             </summary>
             <param name="p_guest">New Guest-Object.</param>
             <returns>The updated Guest-Object. NULL, or Exception if an error occurs.</returns>
+            <creator>Viktoria Pierenkemper</creator>
         </member>
         <member name="T:FHDW.Hotel.Repository.HotelRepository">
             <summary>
@@ -69,6 +73,7 @@
             </summary>
             <param name="p_id">ID of the Hotel</param>
             <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
+            <creator>Viktoria Pierenkemper</creator>
         </member>
         <member name="T:FHDW.Hotel.Repository.RoomRepository">
             <summary>
@@ -82,13 +87,11 @@
             <param name="p_id">ID of the Room.</param>
             <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
         </member>
-        <member name="M:FHDW.Hotel.Repository.RoomRepository.GetCollectionByHotelId(System.Int32,System.Int32,System.Int32)">
+        <member name="M:FHDW.Hotel.Repository.RoomRepository.GetCollectionByHotel(FHDW.Hotel.DomainModel.Hotel)">
             <summary>
             
             </summary>
-            <param name="p_hotelId"></param>
-            <param name="p_pageIndex"></param>
-            <param name="p_pagesize"></param>
+            <param name="p_hotel"></param>
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
