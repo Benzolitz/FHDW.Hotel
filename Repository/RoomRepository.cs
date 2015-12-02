@@ -76,7 +76,13 @@ namespace FHDW.Hotel.Repository
                                 VALUES (@ID, @RoomNumber, @Price, @HotelID, @TypeID, @CategoryID)"
             };
 
-            cmd.Parameters.Add(new SqlParameter("@ID, @RoomNumber, @Price, @HotelID, @TypeID, @CategoryID", p_room));
+            cmd.Parameters.Add(new SqlParameter("@ID", p_room.ID));
+            cmd.Parameters.Add(new SqlParameter("@RoomNumber", p_room.RoomNumber));
+            cmd.Parameters.Add(new SqlParameter("@Price", p_room.Price));
+            cmd.Parameters.Add(new SqlParameter("@HotelID", p_room.Hotel));
+            cmd.Parameters.Add(new SqlParameter("@TypeID", p_room.Type));
+            cmd.Parameters.Add(new SqlParameter("@CategoryID", p_room.Category));
+
 
             return new Room();
         }
