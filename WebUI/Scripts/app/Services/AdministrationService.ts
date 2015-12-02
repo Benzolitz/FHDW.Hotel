@@ -5,8 +5,6 @@
         public Admin = ko.observable(new Models.Admin());
         public Hotels = ko.observableArray(new Array<Models.Hotel>());
         public Room = ko.observable(new Models.Room());
-
-        public RoomManagementHotelName: KnockoutComputed<string>;
         //#endregion
 
         //#region Member
@@ -23,10 +21,6 @@
             this._roomRequest = new Data.RoomRequest();
             this._hotelRequest = new Data.HotelRequest();
             this.getHotelData();
-
-            this.RoomManagementHotelName = ko.pureComputed(() => {
-                return this.Room().Hotel.Name + " TEST ";
-            }, this);
         }
 
         private checkCookie(): void {
@@ -51,7 +45,6 @@
 
         private getHotelData(): void {
             this._hotelRequest.Get().then((p_hotels: Array<Models.Hotel>) => {
-                // Request every room for each hotel
                 for (var i = 0; i < p_hotels.length; i++) {
                     var currentHotel: Models.Hotel = p_hotels[i];
                     this.getRoomDataForHotel(currentHotel);
@@ -66,7 +59,6 @@
         private getRoomDataForHotel(p_currentHotel: Models.Hotel): void {
             var self = this;
             this._roomRequest.GetCollectionByHotel(p_currentHotel).then((p_rooms: Array<Models.Room>) => {
-                //// add Rooms to the Hotel
                 p_currentHotel.Rooms = ko.observableArray(new Array<Models.Room>());
                 p_currentHotel.Rooms(p_rooms);
                 self.Hotels.push(p_currentHotel);
@@ -74,7 +66,16 @@
         }
 
 
-        //#region RoomHelper
+        //#region GUI-Methods
+        public NextHotel(): void {
+            $("#sliHotels > div:first")
+                .fadeOut(100)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo("#sliHotels");
+        }
+
         public GetRoomTypeName(p_roomType: Enums.RoomType): string {
             return Enums.RoomType[p_roomType];
         }
@@ -88,15 +89,7 @@
             newRoom.Hotel = p_hotel;
 
             this.Room = ko.observable(newRoom);
-
-            ko.renderTemplate("", ModalRoomService, {
-                afterRender() {
-                    console.log("Render Test!");
-                }
-            });
-
-
-            // (<any>$("#modalRoom")).modal("show"); 
+            (<any>$("#modalRoom")).modal("show"); 
         }
 
         public EditRoom(p_room: Models.Room, p_hotelId: number): void {
@@ -116,18 +109,5 @@
             } 
         }
         //#endregion
-
-        public NextHotel(): void {
-            $("#sliHotels > div:first")
-                .fadeOut(100)
-                .next()
-                .fadeIn(1000)
-                .end()
-                .appendTo("#sliHotels");
-        }
-
-        public ModalTest(): void {
-            console.log("Hallo Modal");
-        }
     }
 }
