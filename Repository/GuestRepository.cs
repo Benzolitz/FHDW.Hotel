@@ -44,7 +44,14 @@ namespace FHDW.Hotel.Repository
                                 VALUES (@ID, @Firstname, @Lastname, @Emailaddress, @Birthplace, @Birthday, @Password, @Telephone)"
             };
 
-            cmd.Parameters.Add(new SqlParameter("@ID, @Firstname, @Lastname, @Emailaddress, @Birthplace, @Birthday, @Password, @Telephone", p_guest));
+            cmd.Parameters.Add(new SqlParameter("@ID", p_guest.ID));
+            cmd.Parameters.Add(new SqlParameter("@Firstname", p_guest.Firstname));
+            cmd.Parameters.Add(new SqlParameter("@Lastname", p_guest.Lastname));
+            cmd.Parameters.Add(new SqlParameter("@Emailaddress", p_guest.Emailaddress));
+            cmd.Parameters.Add(new SqlParameter("@Birthplace", p_guest.Birthplace));
+            cmd.Parameters.Add(new SqlParameter("@Birthday", p_guest.Birthday));
+            cmd.Parameters.Add(new SqlParameter("@@Password", p_guest.Password));
+            cmd.Parameters.Add(new SqlParameter("@@Telephone", p_guest.Telephone));
 
             return new Guest();
         }
