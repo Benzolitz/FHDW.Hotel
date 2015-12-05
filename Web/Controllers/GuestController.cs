@@ -44,7 +44,7 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Post([FromUri(Name = "Guest")] Guest p_guest)
+        public HttpResponseMessage Post([FromBody] Guest p_guest)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Put([FromUri(Name = "Guest")] Guest p_guest)
+        public HttpResponseMessage Put([FromBody] Guest p_guest)
         {
             try
             {

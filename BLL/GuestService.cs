@@ -41,6 +41,8 @@ namespace FHDW.Hotel.BLL
         /// <returns></returns>
         public Guest SaveGuest(Guest p_guest)
         {
+            if (p_guest == null) return null;
+
             return p_guest.ID == 0 ? GuestRepository.Insert(p_guest) : GuestRepository.Update(p_guest);
         }
     }
