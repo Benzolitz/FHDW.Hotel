@@ -4,7 +4,6 @@
         //#region Observable
         public Admin = ko.observable(new Models.Admin());
         public Hotels = ko.observableArray(new Array<Models.Hotel>());
-        public Room = ko.observable(new Models.Room());
         //#endregion
 
         //#region Member
@@ -75,6 +74,9 @@
                 .end()
                 .appendTo("#sliHotels");
         }
+        public PreviousHotel(): void {
+            // TODO: Add previous logic
+        }
 
         public GetRoomTypeName(p_roomType: Enums.RoomType): string {
             return Enums.RoomType[p_roomType];
@@ -88,17 +90,36 @@
             var newRoom = new Models.Room();
             newRoom.Hotel = p_hotel;
 
-            this.Room = ko.observable(newRoom);
-            (<any>$("#modalRoom")).modal("show"); 
+
+            localStorage.setItem("RoomModal", JSON.stringify(newRoom));
+            var roomModal = window.open("RoomModal.html", "Zimmerverwaltung", "toolbar=0,status=0,menubar=0,fullscreen=no,width=520,height=400");
+
+            roomModal.onunload = () => {
+                this.SaveRoom();
+            }
         }
 
         public EditRoom(p_room: Models.Room, p_hotelId: number): void {
-            this.Room = ko.observable(p_room);
-            (<any>$("#modalRoom")).modal("show"); 
+            p_room.Hotel = new Models.Hotel();
+            p_room.Hotel.ID = p_hotelId;
+
+            localStorage.setItem("RoomModal", JSON.stringify(p_room));
+            var roomModal = window.open("RoomModal.html", "Zimmerverwaltung", "toolbar=0,status=0,menubar=0,fullscreen=no,width=520,height=400");
+
+            roomModal.onunload = () => {
+                this.SaveRoom();
+            }
         }
 
         public SaveRoom(): void {
-            console.log(this.Room());
+            var room = localStorage.getItem("RoomModal");
+            if (room) {
+                console.log(JSON.parse(room));
+                this._roomRequest.Put(JSON.parse(room)).then((p_room: Models.Room) => {
+                    
+                });
+            }
+            localStorage.setItem("RoomModal", "");
         }
 
         public DeleteRoom(p_room: Models.Room, p_hotelId: number): void {
@@ -106,7 +127,7 @@
                 this._roomRequest.Delete(p_room).then((p_room: Models.Room) => {
                     alert("Der Raum wurde erfolgreich gelöscht!");
                 });
-            } 
+            }
         }
         //#endregion
     }

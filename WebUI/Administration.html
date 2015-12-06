@@ -8,13 +8,13 @@
     <script src="Scripts/Framework/jquery.min.js"></script>
     <script src="Scripts/Framework/knockout.js"></script>
     <script src="Scripts/Framework/bootstrap.min.js"></script>
-    <script src="Scripts/Framework/select2.full.min.js"></script>
-    
+
     <!-- Models -->
+    <script src="Scripts/app/Models/Hotel.js"></script>
     <script src="Scripts/app/Models/Admin.js"></script>
     <script src="Scripts/app/Models/Enums.js"></script>
     <script src="Scripts/app/Models/Room.js"></script>
-
+    
     <!-- Requests -->
     <script src="Scripts/app/Data/BaseRequest.js"></script>
     <script src="Scripts/app/Data/HotelRequest.js"></script>
@@ -73,16 +73,16 @@
                         </div>
                     </div>
                     <div id="sliHotels" class="slideshow" data-bind="visible: Hotels().length > 0, foreach: Hotels">
-                        <div class="slide" data-bind="attr: { id: 'divHotel' + ID }">
+                        <div class="slide">
                             <fieldset>
                                 <legend>
                                     <div class="pull-left">
-                                        <button type="button" class="btn btn-primary" style="margin-bottom: 5px;" data-bind="click: $parent.NextHotel" disabled="disabled"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                                        <button type="button" class="btn btn-primary" style="margin-bottom: 5px;" data-bind="click: $parent.PreviousHotel" disabled="disabled"><i class="glyphicon glyphicon-chevron-left"></i></button>
                                         <button type="button" class="btn btn-primary" style="margin-bottom: 5px;" data-bind="click: $parent.NextHotel"><i class="glyphicon glyphicon-chevron-right"></i></button>
                                         Hotel <span data-bind="text: Address.City"></span>
                                     </div>
                                     <div class="pull-right">
-                                        <input type="button" class="btn btn-primary" value="Neues Zimmer" style="margin-bottom: 5px;" data-bind="click: function() { $parent.AddRoom($data); }" />
+                                        <input type="button" class="btn btn-primary" value="Neues Zimmer" style="margin-bottom: 5px;" data-bind="click: function() { $root.AddRoom($data); }" />
                                     </div>
                                 </legend>
                                 <div data-bind="visible: Rooms().length > 0">
@@ -100,8 +100,8 @@
                                         </thead>
                                         <tbody data-bind="foreach: Rooms()">
                                             <tr style="border-bottom: 1px solid #CCC;">
-                                                <td><button type="button" class="btn btn-sm btn-primary" data-bind="click: function() { $parents[1].EditRoom($data, $parent.ID); }"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-                                                <td><button type="button" class="btn btn-sm btn-primary" data-bind="click: function() { $parents[1].DeleteRoom($data, $parent.ID); }"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+                                                <td><button type="button" class="btn btn-sm btn-primary" data-bind="click: function() { $root.EditRoom($data, $parents[0].ID); }"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+                                                <td><button type="button" class="btn btn-sm btn-primary" data-bind="click: function() { $root.DeleteRoom($data, $parents[0].ID); }"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
                                                 <td><span data-bind="text: ID"></span></td>
                                                 <td><span data-bind="text: RoomNumber"></span></td>
                                                 <td><span data-bind="text: $parents[1].GetRoomTypeName(Type)"></span></td>
@@ -123,22 +123,3 @@
     </script>
 </body>
 </html>
-
-<!-- Modal -->
-<div id="modalRoom" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Zimmerverwaltung</h4>
-            </div>
-            <div class="modal-body">
-                <button class="btn btn-primary" data-bind="click: ModalTest()">ModalTest</button>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
