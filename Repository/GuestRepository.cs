@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
+using MySql.Data.MySqlClient;
+using System;
 
 namespace FHDW.Hotel.Repository
 {
@@ -18,16 +20,33 @@ namespace FHDW.Hotel.Repository
         /// <creator>Viktoria Pierenkemper</creator>
         public Guest GetByEmail(string p_email)
         {
-            var cmd = new SqlCommand
-            {
-                CommandText = @"SELECT * FROM guest WHERE Emailaddress = @Emailaddress"
-            };
+            string myConnectionString = "SERVER=localhost;" +
+                                       "DATABASE=fhdwhotel;" +
+                                       "UID=root;" +
+                                       "PASSWORD=admin;";
 
-            cmd.Parameters.Add(new SqlParameter("@Emailadress", p_email));
+            MySqlConnection connection = new MySqlConnection(myConnectionString);
+            MySqlCommand command = connection.CreateCommand();
+
+            command.CommandText = @"SELECT * FROM guest WHERE Emailaddress = @Emailaddress";
+
+            MySqlDataReader Reader;
+            connection.Open();
+            Reader = command.ExecuteReader();
+            while (Reader.Read())
+            {
+                string row = "";
+                for (int i = 0; i < Reader.FieldCount; i++)
+                    row += Reader.GetValue(i).ToString() + ", ";
+                Console.WriteLine(row);
+            }
+            
+            command.Parameters.Add(new SqlParameter("@Emailadress", p_email));
             
             return new Guest();
                 
         }
+
 
         /// <summary>
         /// Insert a new Guest into the database.

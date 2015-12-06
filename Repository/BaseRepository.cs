@@ -16,7 +16,7 @@ namespace FHDW.Hotel.Repository
         /// </summary>
         protected BaseRepository()
         {
-            var connStr = CreateConnStr("localhost", "fhdwhotel", "root", "root");
+            var connStr = CreateConnStr("localhost", "fhdwhotel", "root", "admin");
             currentConnection = new MySqlConnection(connStr);
 
             currentConnection.Open();

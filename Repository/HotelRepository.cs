@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
+using MySql.Data.MySqlClient;
+using System;
 
 namespace FHDW.Hotel.Repository
 {
@@ -16,6 +18,27 @@ namespace FHDW.Hotel.Repository
         /// <returns>List with all Hotels. If no Hotel exists, return an empty List.</returns>
         public ICollection<DomainModel.Hotel> GetCollection()
         {
+            string myConnectionString = "SERVER=localhost;" +
+                                        "DATABASE=fhdwhotel;" +
+                                        "UID=root;" +
+                                        "PASSWORD=admin;";
+
+            MySqlConnection connection = new MySqlConnection(myConnectionString);
+            MySqlCommand command = connection.CreateCommand();
+
+            command.CommandText = @"SELECT * FROM hotel";
+
+            MySqlDataReader Reader;
+            connection.Open();
+            Reader = command.ExecuteReader();
+            while (Reader.Read())
+            {
+                string row = "";
+                for (int i = 0; i < Reader.FieldCount; i++)
+                    row += Reader.GetValue(i).ToString() + ", ";
+                Console.WriteLine(row);
+            }
+
             var hotels = getHotelTestdata();
             return hotels;
         }
