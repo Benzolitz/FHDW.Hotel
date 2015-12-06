@@ -23,6 +23,23 @@
             <param name="p_password">Password of the administrator.</param>
             <returns>Adminobject if correct. NULL if incorrect.</returns>
         </member>
+        <member name="T:FHDW.Hotel.BLL.BookingService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.BLL.BookingService.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.BLL.BookingService.Save(FHDW.Hotel.DomainModel.Booking)">
+            <summary>
+            
+            </summary>
+            <param name="p_booking"></param>
+            <returns></returns>
+        </member>
         <member name="T:FHDW.Hotel.BLL.GuestService">
             <summary>
             Handle all Requests for the Guest.

@@ -76,7 +76,7 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Post(Room p_room)
+        public HttpResponseMessage Post([FromBody]Room p_room)
         {
             try
             {
@@ -92,7 +92,7 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Put(Room p_room)
+        public HttpResponseMessage Put([FromBody]Room p_room)
         {
             try
             {
