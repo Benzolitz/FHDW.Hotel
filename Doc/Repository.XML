@@ -27,6 +27,25 @@
             
             </summary>
         </member>
+        <member name="T:FHDW.Hotel.Repository.BookingRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.BookingRepository.Insert(FHDW.Hotel.DomainModel.Booking)">
+            <summary>
+            
+            </summary>
+            <param name="p_booking"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.BookingRepository.Update(FHDW.Hotel.DomainModel.Booking)">
+            <summary>
+            
+            </summary>
+            <param name="p_booking"></param>
+            <returns></returns>
+        </member>
         <member name="T:FHDW.Hotel.Repository.GuestRepository">
             <summary>
             Every Request returning a Guest-Object will be handled in this Repository.

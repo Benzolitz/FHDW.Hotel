@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using FHDW.Hotel.DomainModel;
+﻿using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository;
 

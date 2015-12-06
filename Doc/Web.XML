@@ -119,6 +119,23 @@
             <param name="p_exception"></param>
             <returns></returns>
         </member>
+        <member name="T:FHDW.Hotel.Web.Controllers.BookingController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Put(FHDW.Hotel.DomainModel.Booking)">
+            <summary>
+            
+            </summary>
+            <param name="p_booking"></param>
+            <returns></returns>
+        </member>
         <member name="T:FHDW.Hotel.Web.Controllers.GuestController">
             <summary>
             
