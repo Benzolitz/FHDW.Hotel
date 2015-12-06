@@ -41,7 +41,6 @@ namespace FHDW.Hotel.BLL
         /// <exception cref="NotImplementedException"></exception>
         public ICollection<Room> GetCollectionByHotel(DomainModel.Hotel p_hotel)
         {
-            if (p_hotel == null) throw new ArgumentNullException(nameof(p_hotel));
             return RoomRepository.GetCollectionByHotel(p_hotel);
         }
 
