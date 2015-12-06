@@ -13,8 +13,9 @@ namespace FHDW.Hotel.Web.Controllers
     public class BookingController : BaseController
     {
         #region Dependencies
-        private BookingService BookingService { get; set; }
+        private readonly BookingService BookingService;
         #endregion
+
 
         /// <summary>
         /// 
@@ -27,44 +28,13 @@ namespace FHDW.Hotel.Web.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="p_booking"></param>
         /// <returns></returns>
-        public HttpResponseMessage Get()
+        public HttpResponseMessage Put([FromBody] Booking p_booking)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, BookingService.GetCollection());
-            }
-            catch (Exception ex)
-            {
-                return base.HandleGeneralError(ex);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "ID")] int p_id)
-        {
-            try
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, BookingService.GetById(p_id));
-            }
-            catch (Exception ex)
-            {
-                return base.HandleGeneralError(ex);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public HttpResponseMessage Get([FromUri(Name = "Guest")] Guest p_guest)
-        {
-            try
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, BookingService.GetByGuestId(p_guest.ID));
+                return Request.CreateResponse(HttpStatusCode.OK, BookingService.Save(p_booking));
             }
             catch (Exception ex)
             {

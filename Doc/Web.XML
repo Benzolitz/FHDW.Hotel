@@ -129,22 +129,11 @@
             
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Get">
+        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Put(FHDW.Hotel.DomainModel.Booking)">
             <summary>
             
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Get(System.Int32)">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Get(FHDW.Hotel.DomainModel.Guest)">
-            <summary>
-            
-            </summary>
+            <param name="p_booking"></param>
             <returns></returns>
         </member>
         <member name="T:FHDW.Hotel.Web.Controllers.GuestController">
@@ -157,18 +146,6 @@
             
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Get">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Get(System.Int32)">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Get(System.String,System.String)">
             <summary>
             
@@ -176,6 +153,12 @@
             <returns></returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Post(FHDW.Hotel.DomainModel.Guest)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Put(FHDW.Hotel.DomainModel.Guest)">
             <summary>
             
             </summary>
@@ -213,37 +196,19 @@
             
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.Int32)">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(FHDW.Hotel.DomainModel.Enums.RoomType)">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(FHDW.Hotel.DomainModel.Enums.RoomCategory)">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.DateTime,System.DateTime)">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(FHDW.Hotel.DomainModel.Hotel)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.Int32,System.DateTime,System.DateTime)">
             <summary>
             
             </summary>

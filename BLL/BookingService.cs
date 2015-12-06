@@ -1,22 +1,20 @@
-﻿using System.Collections.Generic;
-using FHDW.Hotel.DomainModel;
+﻿using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository;
 
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// Handle all Requests for the Booking.
+    /// 
     /// </summary>
-    /// <creator>Lucas Engel</creator>
     public class BookingService
     {
         #region Dependencies
-        private IBookingRepository BookingRepository { get; set; }
+        private IBookingRepository BookingRepository;
         #endregion
 
         /// <summary>
-        /// Initialize the BookingService.
+        /// 
         /// </summary>
         public BookingService()
         {
@@ -26,30 +24,11 @@ namespace FHDW.Hotel.BLL
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="p_booking"></param>
         /// <returns></returns>
-        public ICollection<Booking> GetCollection()
+        public Booking Save(Booking p_booking)
         {
-            return BookingRepository.GetCollection();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_guestId"></param>
-        /// <returns></returns>
-        public ICollection<Booking> GetByGuestId(int p_guestId)
-        {
-            return BookingRepository.GetByGuestId(p_guestId);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_id"></param>
-        /// <returns></returns>
-        public Booking GetById(int p_id)
-        {
-            return BookingRepository.GetById(p_id);
+            return p_booking.ID == 0 ? BookingRepository.Insert(p_booking) : BookingRepository.Update(p_booking);
         }
     }
 }

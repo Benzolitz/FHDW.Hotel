@@ -1,8 +1,5 @@
 ﻿module Services {
     export class CookieService {
-
-        constructor() { }
-
         /// <summary>
         /// 
         /// </summary>

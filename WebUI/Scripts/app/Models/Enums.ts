@@ -10,9 +10,4 @@
         Comfort = 1,
         Superior = 2
     }
-
-    export enum SortOrder {
-        ASC = 0,
-        DESC = 1
-    }
 }

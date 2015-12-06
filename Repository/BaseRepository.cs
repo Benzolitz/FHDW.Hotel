@@ -6,9 +6,10 @@ namespace FHDW.Hotel.Repository
     /// <summary>
     /// 
     /// </summary>
+    /// <creator>Viktoria Pierenkemper</creator>
     public class BaseRepository
     {
-        private readonly MySqlConnection currentConnection;
+        protected readonly MySqlConnection currentConnection;
         
         /// <summary>
         /// 

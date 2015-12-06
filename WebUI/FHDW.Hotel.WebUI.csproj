@@ -27,6 +27,7 @@
     <Content Include="Login.html" />
     <Content Include="Scripts\Framework\jquery.min.js" />
     <Content Include="Scripts\Framework\knockout.js" />
+    <Content Include="Scripts\Framework\select2.full.min.js" />
     <Content Include="Theme\Administration.css" />
     <Content Include="Theme\Framework\bootstrap-theme.min.css" />
     <Content Include="Theme\Framework\bootstrap.min.css" />
@@ -82,10 +83,10 @@
     <TypeScriptCompile Include="Scripts\app\Services\AdministrationService.ts" />
     <TypeScriptCompile Include="Scripts\app\Services\CookieService.ts" />
     <TypeScriptCompile Include="Scripts\app\Services\LoginService.ts" />
-    <TypeScriptCompile Include="Scripts\app\Services\RoomService.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>

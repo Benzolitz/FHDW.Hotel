@@ -27,61 +27,33 @@ namespace FHDW.Hotel.BLL
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
-        public ICollection<Room> GetCollection()
-        {
-            return RoomRepository.GetCollection();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_type"></param>
-        /// <returns></returns>
-        public ICollection<Room> GetByType(Enums.RoomType p_type)
-        {
-            return RoomRepository.GetByType(p_type);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_category"></param>
-        /// <returns></returns>
-        public ICollection<Room> GetByCategory(Enums.RoomCategory p_category)
-        {
-            return RoomRepository.GetByCategory(p_category);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_arrival"></param>
-        /// <param name="p_departure"></param>
-        /// <returns></returns>
-        public ICollection<Room> GetAvailableRooms(DateTime p_arrival, DateTime p_departure)
-        {
-            return RoomRepository.GetAvailableRooms(p_arrival, p_departure);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_id"></param>
-        /// <returns></returns>
-        public ICollection<Room> GetByHotelId(int p_id)
-        {
-            return RoomRepository.GetByHotelId(p_id);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="p_id"></param>
         /// <returns></returns>
         public Room GetById(int p_id)
         {
             return RoomRepository.GetById(p_id);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public ICollection<Room> GetCollectionByHotel(DomainModel.Hotel p_hotel)
+        {
+            return RoomRepository.GetCollectionByHotel(p_hotel);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_hotelId"></param>
+        /// <param name="p_arrival"></param>
+        /// <param name="p_departure"></param>
+        /// <returns></returns>
+        public ICollection<Room> GetAvailableRooms(int p_hotelId, DateTime p_arrival, DateTime p_departure)
+        {
+            return RoomRepository.GetAvailableRooms(p_hotelId, p_arrival, p_departure);
         }
 
         /// <summary>

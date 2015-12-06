@@ -176,7 +176,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>35588</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://192.168.2.104:35588/</IISUrl>
+          <IISUrl>http://localhost:35588</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -9,11 +9,6 @@
             
             </summary>
         </member>
-        <member name="T:FHDW.Hotel.IRepository.IBookingRepository">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:FHDW.Hotel.IRepository.IGuestRepository">
             <summary>
             
