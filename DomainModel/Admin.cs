@@ -1,6 +1,4 @@
-﻿using System.Data.Entity;
-
-namespace FHDW.Hotel.DomainModel
+﻿namespace FHDW.Hotel.DomainModel
 {
     /// <summary>
     /// 

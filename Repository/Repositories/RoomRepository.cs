@@ -1,10 +1,10 @@
-﻿using System.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 
-namespace FHDW.Hotel.Repository
+namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
     /// Every Request returning a Room-Object will be handled in this Repository.

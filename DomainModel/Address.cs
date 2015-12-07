@@ -1,8 +1,6 @@
-﻿using System.Data.Entity;
-
-namespace FHDW.Hotel.DomainModel
+﻿namespace FHDW.Hotel.DomainModel
 {
-    public class Address : DbContext
+    public class Address
     {
         public int ID { get; set; }
         public string Street { get; set; }

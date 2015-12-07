@@ -68,12 +68,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminRepository.cs" />
-    <Compile Include="BaseRepository.cs" />
-    <Compile Include="BookingRepository.cs" />
-    <Compile Include="GuestRepository.cs" />
-    <Compile Include="HotelRepository.cs" />
-    <Compile Include="RoomRepository.cs" />
+    <Compile Include="Database\FHDWHotelContext.cs" />
+    <Compile Include="Repositories\AdminRepository.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\BookingRepository.cs" />
+    <Compile Include="Repositories\GuestRepository.cs" />
+    <Compile Include="Repositories\HotelRepository.cs" />
+    <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

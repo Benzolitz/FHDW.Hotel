@@ -1,7 +1,7 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
 
-namespace FHDW.Hotel.Repository
+namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
     /// 
@@ -16,10 +16,8 @@ namespace FHDW.Hotel.Repository
         /// </summary>
         protected BaseRepository()
         {
-            var connStr = CreateConnStr("localhost", "fhdwhotel", "root", "toor");
+            var connStr = CreateConnStr("localhost", "FHDWHotelContext", "root", "root");
             currentConnection = new MySqlConnection(connStr);
-
-            currentConnection.Open();
         }
 
         private static string CreateConnStr(string p_serverAddress, string p_databaseName, string p_user, string p_password)

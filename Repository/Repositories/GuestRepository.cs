@@ -1,11 +1,10 @@
-﻿using System.Data.SqlClient;
-using System.Collections.Generic;
+﻿using System;
+using System.Data.SqlClient;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using MySql.Data.MySqlClient;
-using System;
 
-namespace FHDW.Hotel.Repository
+namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
     /// Every Request returning a Guest-Object will be handled in this Repository.
@@ -21,7 +20,7 @@ namespace FHDW.Hotel.Repository
         public Guest GetByEmail(string p_email)
         {
             string myConnectionString = "SERVER=localhost;" +
-                                       "DATABASE=fhdwhotel;" +
+                                       "DATABASE=FHDWHotelContext;" +
                                        "UID=root;" +
                                        "PASSWORD=admin;";
 

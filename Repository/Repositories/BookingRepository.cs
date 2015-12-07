@@ -1,7 +1,7 @@
 ﻿using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 
-namespace FHDW.Hotel.Repository
+namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
     /// 
