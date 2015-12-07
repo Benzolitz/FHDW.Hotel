@@ -20,7 +20,7 @@ namespace FHDW.Hotel.Repository.Repositories
         public Guest GetByEmail(string p_email)
         {
             string myConnectionString = "SERVER=localhost;" +
-                                       "DATABASE=FHDWHotelContext;" +
+                                       "DATABASE=FhdwHotelContext;" +
                                        "UID=root;" +
                                        "PASSWORD=admin;";
 

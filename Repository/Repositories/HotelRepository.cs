@@ -19,55 +19,6 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <returns>List with all Hotels. If no Hotel exists, return an empty List.</returns>
         public ICollection<DomainModel.Hotel> GetCollection()
         {
-            using (MySqlConnection connection = base.currentConnection)
-            {
-                // Create database if not exists
-                using (FHDWHotelContext contextDb = new FHDWHotelContext(connection, false))
-                {
-                    contextDb.Database.CreateIfNotExists();
-                }
-
-                connection.Open();
-                MySqlTransaction transaction = connection.BeginTransaction();
-
-                try
-                {
-                    // DbConnection that is already opened
-                    using (FHDWHotelContext context = new FHDWHotelContext(connection, false))
-                    {
-
-                        // Interception/SQL logging
-                        context.Database.Log = Console.WriteLine;
-
-                        // Passing an existing transaction to the context
-                        context.Database.UseTransaction(transaction);
-
-                        // DbSet.AddRange
-                        var hotels = new List<DomainModel.Hotel>
-                        {
-                            new DomainModel.Hotel {Name = "Eins"},
-                            new DomainModel.Hotel {Name = "Zwei"},
-                            new DomainModel.Hotel {Name = "Drei"},
-                            new DomainModel.Hotel {Name = "Vier"}
-                        };
-
-
-                        context.Hotel.AddRange(hotels);
-                        
-
-                        context.SaveChanges();
-                    }
-
-                    transaction.Commit();
-                }
-                catch
-                {
-                    transaction.Rollback();
-                    throw;
-                }
-            }
-
-
             return getHotelTestdata();
         }
 

@@ -8,7 +8,7 @@ namespace FHDW.Hotel.Repository.Database
     /// 
     /// </summary>
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
-    public class FHDWHotelContext : DbContext
+    public class FhdwHotelContext : DbContext
     {
         public DbSet<DomainModel.Address> Address { get; set; }
         public DbSet<DomainModel.Admin> Admin { get; set; }
@@ -17,9 +17,12 @@ namespace FHDW.Hotel.Repository.Database
         public DbSet<DomainModel.Hotel> Hotel { get; set; }
         public DbSet<DomainModel.Room> Room { get; set; }
 
-        static FHDWHotelContext()
+        /// <summary>
+        /// 
+        /// </summary>
+        public FhdwHotelContext() : base("fhdwhotel")
         {
-            System.Data.Entity.Database.SetInitializer<FHDWHotelContext>(null);
+            
         }
 
         /// <summary>
@@ -27,7 +30,7 @@ namespace FHDW.Hotel.Repository.Database
         /// </summary>
         /// <param name="p_existingConnection"></param>
         /// <param name="p_contextOwnsConnection"></param>
-        public FHDWHotelContext(DbConnection p_existingConnection, bool p_contextOwnsConnection) : base(p_existingConnection, p_contextOwnsConnection)
+        public FhdwHotelContext(DbConnection p_existingConnection, bool p_contextOwnsConnection) : base(p_existingConnection, p_contextOwnsConnection)
         {
 
         }
