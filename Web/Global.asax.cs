@@ -1,6 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
+using FHDW.Hotel.BLL;
 
 namespace FHDW.Hotel.Web
 {
@@ -9,12 +10,17 @@ namespace FHDW.Hotel.Web
     /// </summary>
     public class WebApiApplication : HttpApplication
     {
+        #region Dependencies
+        public DatabaseService DatabaseService;
+        #endregion
+
         /// <summary>
         /// 
         /// </summary>
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(Register);
+            DatabaseService.CreateDatabaseWithTestData();
         }
 
         /// <summary>
