@@ -1,5 +1,6 @@
 ﻿using System.Data.Common;
 using System.Data.Entity;
+using FHDW.Hotel.DomainModel;
 using MySql.Data.Entity;
 
 namespace FHDW.Hotel.Repository.Database
@@ -10,12 +11,12 @@ namespace FHDW.Hotel.Repository.Database
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class FhdwHotelContext : DbContext
     {
-        public DbSet<DomainModel.Address> Address { get; set; }
-        public DbSet<DomainModel.Admin> Admin { get; set; }
-        public DbSet<DomainModel.Booking> Booking { get; set; }
-        public DbSet<DomainModel.Guest> Guest { get; set; }
+        public DbSet<Address> Address { get; set; }
+        public DbSet<Admin> Admin { get; set; }
+        public DbSet<Booking> Booking { get; set; }
+        public DbSet<Guest> Guest { get; set; }
         public DbSet<DomainModel.Hotel> Hotel { get; set; }
-        public DbSet<DomainModel.Room> Room { get; set; }
+        public DbSet<Room> Room { get; set; }
 
         /// <summary>
         /// 

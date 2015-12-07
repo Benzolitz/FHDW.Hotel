@@ -1,4 +1,6 @@
-﻿namespace FHDW.Hotel.DomainModel
+﻿using System;
+
+namespace FHDW.Hotel.DomainModel
 {
     /// <summary>
     /// 
@@ -32,6 +34,23 @@
         {
             ASC = 0,
             DESC = 1
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class EnumExtensions
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T ParseEnum<T>(string value)
+        {
+            return (T)Enum.Parse(typeof(T), value, true);
         }
     }
 }

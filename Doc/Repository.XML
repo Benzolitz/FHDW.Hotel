@@ -4,12 +4,17 @@
         <name>FHDW.Hotel.Repository</name>
     </assembly>
     <members>
-        <member name="T:FHDW.Hotel.Repository.Database.FHDWHotelContext">
+        <member name="T:FHDW.Hotel.Repository.Database.FhdwHotelContext">
             <summary>
             
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Repository.Database.FHDWHotelContext.#ctor(System.Data.Common.DbConnection,System.Boolean)">
+        <member name="M:FHDW.Hotel.Repository.Database.FhdwHotelContext.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.Database.FhdwHotelContext.#ctor(System.Data.Common.DbConnection,System.Boolean)">
             <summary>
             
             </summary>
@@ -57,6 +62,21 @@
             </summary>
             <param name="p_booking"></param>
             <returns></returns>
+        </member>
+        <member name="T:FHDW.Hotel.Repository.Repositories.DatabaseRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.Repositories.DatabaseRepository.CreateDatabase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.Repositories.DatabaseRepository.InsertTestData(System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Address},System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Admin},System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Booking},System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Guest},System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Hotel},System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Room})">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:FHDW.Hotel.Repository.Repositories.GuestRepository">
             <summary>

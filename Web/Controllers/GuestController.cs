@@ -44,11 +44,11 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Post([FromBody] Guest p_guest)
+        public HttpResponseMessage Post([FromBody] Guest p_guestModel)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, GuestService.SaveGuest(p_guest));
+                return Request.CreateResponse(HttpStatusCode.OK, GuestService.SaveGuest(p_guestModel));
             }
             catch (Exception ex)
             {
@@ -60,11 +60,11 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Put([FromBody] Guest p_guest)
+        public HttpResponseMessage Put([FromBody] Guest p_guestModel)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, GuestService.SaveGuest(p_guest));
+                return Request.CreateResponse(HttpStatusCode.OK, GuestService.SaveGuest(p_guestModel));
             }
             catch (Exception ex)
             {

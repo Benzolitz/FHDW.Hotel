@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHDW.Hotel.BLL", "BLL\FHDW.Hotel.BLL.csproj", "{BE929F15-AE23-46E5-8EBE-D94DF4C52BBB}"
 EndProject
@@ -14,11 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHDW.Hotel.Web", "Web\FHDW.Hotel.Web.csproj", "{1BFE58FD-BCA8-4097-B01A-D07DCB458F08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHDW.Hotel.WebUI", "WebUI\FHDW.Hotel.WebUI.csproj", "{E2ED7EFC-2C63-4700-97B9-3AE8A7926111}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9DC7AE75-E5DA-45FD-B0B4-80005F45C201}"
-	ProjectSection(SolutionItems) = preProject
-		Files\CreateDatabase.sql = Files\CreateDatabase.sql
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

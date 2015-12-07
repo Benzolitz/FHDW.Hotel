@@ -1,8 +1,5 @@
-﻿using System;
-using System.Data.SqlClient;
-using FHDW.Hotel.DomainModel;
+﻿using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
-using MySql.Data.MySqlClient;
 
 namespace FHDW.Hotel.Repository.Repositories
 {
@@ -19,33 +16,8 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <creator>Viktoria Pierenkemper</creator>
         public Guest GetByEmail(string p_email)
         {
-            string myConnectionString = "SERVER=localhost;" +
-                                       "DATABASE=FhdwHotelContext;" +
-                                       "UID=root;" +
-                                       "PASSWORD=admin;";
-
-            MySqlConnection connection = new MySqlConnection(myConnectionString);
-            MySqlCommand command = connection.CreateCommand();
-
-            command.CommandText = @"SELECT * FROM guest WHERE Emailaddress = @Emailaddress";
-
-            MySqlDataReader Reader;
-            connection.Open();
-            Reader = command.ExecuteReader();
-            while (Reader.Read())
-            {
-                string row = "";
-                for (int i = 0; i < Reader.FieldCount; i++)
-                    row += Reader.GetValue(i).ToString() + ", ";
-                Console.WriteLine(row);
-            }
-            
-            command.Parameters.Add(new SqlParameter("@Emailadress", p_email));
-            
             return new Guest();
-                
         }
-
 
         /// <summary>
         /// Insert a new Guest into the database.
@@ -55,21 +27,6 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <creator>Viktoria Pierenkemper</creator>
         public Guest Insert(Guest p_guest)
         {
-            var cmd = new SqlCommand
-            {
-                CommandText = @"INSERT INTO guest (ID, Firstname, Lastname, Emailaddress, Birthplace, Birthday, Password, Telephone )
-                                VALUES (@ID, @Firstname, @Lastname, @Emailaddress, @Birthplace, @Birthday, @Password, @Telephone)"
-            };
-
-            cmd.Parameters.Add(new SqlParameter("@ID", p_guest.ID));
-            cmd.Parameters.Add(new SqlParameter("@Firstname", p_guest.Firstname));
-            cmd.Parameters.Add(new SqlParameter("@Lastname", p_guest.Lastname));
-            cmd.Parameters.Add(new SqlParameter("@Emailaddress", p_guest.Emailaddress));
-            cmd.Parameters.Add(new SqlParameter("@Birthplace", p_guest.Birthplace));
-            cmd.Parameters.Add(new SqlParameter("@Birthday", p_guest.Birthday));
-            cmd.Parameters.Add(new SqlParameter("@@Password", p_guest.Password));
-            cmd.Parameters.Add(new SqlParameter("@@Telephone", p_guest.Telephone));
-
             return new Guest();
         }
 
@@ -81,20 +38,6 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <creator>Viktoria Pierenkemper</creator>
         public Guest Update(Guest p_guest)
         {
-            var cmd = new SqlCommand
-            {
-                CommandText = @"UPDATE guest
-	                            SET Firstname = @Firstname,
-		                            Lastname =  @Lastname,
-                                    Emailaddress = @Emailaddress, 
-                                    Birthplace = @Birthplace, 
-                                    Birthday =  @Birthday, 
-                                    Password = @Password, 
-                                    Telephone =  @Telephone
-                                    
-	                                WHERE ID = @ID"
-            };
-
              return new Guest();
         }
     }

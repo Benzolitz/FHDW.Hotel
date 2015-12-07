@@ -4,6 +4,11 @@
         <name>FHDW.Hotel.DomainModel</name>
     </assembly>
     <members>
+        <member name="T:FHDW.Hotel.DomainModel.Address">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:FHDW.Hotel.DomainModel.Admin">
             <summary>
             
@@ -34,6 +39,19 @@
             
             </summary>
         </member>
+        <member name="T:FHDW.Hotel.DomainModel.EnumExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.DomainModel.EnumExtensions.ParseEnum``1(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="T:FHDW.Hotel.DomainModel.Guest">
             <summary>
             
@@ -47,6 +65,11 @@
         <member name="T:FHDW.Hotel.DomainModel.Room">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Room.Category">
+            <summary>
+            Don't map enums, because they will be saved as integer. We want strings.
             </summary>
         </member>
     </members>

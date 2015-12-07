@@ -40,6 +40,31 @@
             <param name="p_booking"></param>
             <returns></returns>
         </member>
+        <member name="T:FHDW.Hotel.BLL.DatabaseService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.BLL.DatabaseService.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.BLL.DatabaseService.CreateDatabaseWithTestData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.BLL.DatabaseService.CreateDatabase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.BLL.DatabaseService.AddTestDataInDatabase">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:FHDW.Hotel.BLL.GuestService">
             <summary>
             Handle all Requests for the Guest.

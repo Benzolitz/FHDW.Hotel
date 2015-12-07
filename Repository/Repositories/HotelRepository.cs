@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
+using System.Linq;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository.Database;
-using MySql.Data.MySqlClient;
+using NHibernate.Util;
 
 namespace FHDW.Hotel.Repository.Repositories
 {
@@ -19,7 +20,15 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <returns>List with all Hotels. If no Hotel exists, return an empty List.</returns>
         public ICollection<DomainModel.Hotel> GetCollection()
         {
-            return getHotelTestdata();
+            using (var connection = base.currentConnection)
+            {
+                connection.Open();
+                
+                using (var context = new FhdwHotelContext(connection, false))
+                {
+                    return context.Hotel.Include(h => h.Address).ToList();
+                }
+            }
         }
 
         /// <summary>
@@ -30,14 +39,15 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <creator>Viktoria Pierenkemper</creator>
         public DomainModel.Hotel GetById(int p_id)
         {
-            var cmd = new SqlCommand
+            using (var connection = base.currentConnection)
             {
-                CommandText = @"SELECT * FROM hotel WHERE ID = @ID"
-            };
+                connection.Open();
 
-            cmd.Parameters.Add(new SqlParameter("@ID", p_id));
-
-            return new DomainModel.Hotel();
+                using (var context = new FhdwHotelContext(connection, false))
+                {
+                    return context.Hotel.Include(h => h.Address).First(h => h.ID == p_id);
+                }
+            }
         }
 
         #region Testdata
