@@ -26,6 +26,9 @@ namespace FHDW.Hotel.Repository.Repositories
                 
                 using (var context = new FhdwHotelContext(connection, false))
                 {
+                    /*
+                    Hole alle Hotels (context.Hotel) mit ihren Adressen (Include(...)) und wandel das Ergebniss in eine Liste (ToList()).
+                    */
                     return context.Hotel.Include(h => h.Address).ToList();
                 }
             }
@@ -45,6 +48,9 @@ namespace FHDW.Hotel.Repository.Repositories
 
                 using (var context = new FhdwHotelContext(connection, false))
                 {
+                    /*
+                    Wir möchten einen Datensatz aus der Tabelle Hotel (context.Hotel), der die Adresse beinhaltet (Include(...)), aber nur den ersten der mit der übergebenen ID übereinstimmt (First(h => h.ID == p_id)).
+                    */
                     return context.Hotel.Include(h => h.Address).First(h => h.ID == p_id);
                 }
             }
