@@ -4,17 +4,12 @@
         <name>FHDW.Hotel.Repository</name>
     </assembly>
     <members>
-        <member name="T:FHDW.Hotel.Repository.Database.FhdwHotelContext">
+        <member name="T:FHDW.Hotel.Repository.Database.FHDWHotelContext">
             <summary>
             
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Repository.Database.FhdwHotelContext.#ctor">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:FHDW.Hotel.Repository.Database.FhdwHotelContext.#ctor(System.Data.Common.DbConnection,System.Boolean)">
+        <member name="M:FHDW.Hotel.Repository.Database.FHDWHotelContext.#ctor(System.Data.Common.DbConnection,System.Boolean)">
             <summary>
             
             </summary>
