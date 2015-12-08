@@ -1,5 +1,9 @@
 ﻿using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
+using FHDW.Hotel.Repository.Database;
+using System.Linq;
+using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace FHDW.Hotel.Repository.Repositories
 {
@@ -16,7 +20,13 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <creator>Viktoria Pierenkemper</creator>
         public Guest GetByEmail(string p_email)
         {
-            return new Guest();
+            using (var context = new FhdwHotelContext())
+            {
+                /*
+                Wir möchten einen Datensatz aus der Tabelle Guest (context.Guest), der die EmailAdresse beinhaltet (Include(...)), aber nur den der mit der übergebenen EmailAdresse übereinstimmt.
+                */
+                return context.Guest.Include(h => h.Emailaddress).First(h => h.Emailaddress == p_email);
+            }
         }
 
         /// <summary>
@@ -25,9 +35,17 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <param name="p_guest">The new Guest.</param>
         /// <returns>The Newly created Guest. NULL, or Exception if an error occurs.</returns>
         /// <creator>Viktoria Pierenkemper</creator>
-        public Guest Insert(Guest p_guest)
+        public DomainModel.Guest Insert(DomainModel.Guest p_guest)
         {
-            return new Guest();
+            using (var context = new FhdwHotelContext())
+            {
+
+
+                context.Guest.Add(p_guest);
+                context.SaveChanges();
+            };
+
+            return p_guest;
         }
 
         /// <summary>
@@ -38,7 +56,16 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <creator>Viktoria Pierenkemper</creator>
         public Guest Update(Guest p_guest)
         {
-             return new Guest();
+            using (var context = new FhdwHotelContext())
+            {
+                var address = context.Address.SingleOrDefault(h => h.ID == p_guest.ContactAddress.ID);        
+                p_guest.ContactAddress = address;
+
+                context.Guest.Add(p_guest);
+                context.SaveChanges();
+            };
+
+            return p_guest;
         }
     }
 }
