@@ -52,8 +52,9 @@ namespace FHDW.Hotel.Repository.Repositories
             using (var context = new FhdwHotelContext())
             {
                 /*
-                     Hole alle Rooms (context.Room) in dem Hotel (Include(...)) und wandel das Ergebniss in eine Liste (ToList()).
+                     Hole alle Rooms (context.Room) in einem Hotel die zum gewünschten Zeitraum frei sind (Where...) und wandel das Ergebniss in eine Liste (ToList()).
                 */
+                context.Room.Where(h => h.Hotel.ID == p_hotelId).ToList();
             }
             return null;
         }
