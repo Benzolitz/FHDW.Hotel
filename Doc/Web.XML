@@ -129,7 +129,7 @@
             
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Put(FHDW.Hotel.DomainModel.Booking,System.Int32,System.Int32,System.Int32)">
+        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Put(FHDW.Hotel.DomainModel.CurrentBooking)">
             <summary>
             
             </summary>

@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Admin.cs" />
+    <Compile Include="CurrentBooking.cs" />
     <Compile Include="Booking.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Guest.cs" />

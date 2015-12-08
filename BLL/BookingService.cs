@@ -1,4 +1,5 @@
-﻿using FHDW.Hotel.DomainModel;
+﻿using System.Collections.Generic;
+using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository.Repositories;
 
@@ -41,43 +42,53 @@ namespace FHDW.Hotel.BLL
         /// <param name="p_doubleRoomCount"></param>
         /// <param name="p_familyRoomCount"></param>
         /// <returns></returns>
-        public Booking Save(Booking p_booking, int p_singleRoomCount, int p_doubleRoomCount, int p_familyRoomCount)
+        public Booking Save(CurrentBooking p_booking)
         {
             var availableRooms = RoomRepository.GetAvailableRooms(p_booking.Hotel.ID, p_booking.Arrival, p_booking.Departure);
             var single = 0;
             var doubleR = 0;
             var family = 0;
 
+            var booking = new Booking
+            {
+                Hotel = p_booking.Hotel,
+                Arrival = p_booking.Arrival,
+                Departure = p_booking.Departure,
+                Guest = p_booking.Guest,
+                Rooms = new List<Room>()
+            };
+
+
             foreach (var availableRoom in availableRooms)
             {
                 switch (availableRoom.Type)
                 {
                     case Enums.RoomType.Single:
-                        if (single < p_singleRoomCount)
+                        if (single < p_booking.singleRoomCnt)
                         {
                             single++;
-                            p_booking.Rooms.Add(availableRoom);
+                            booking.Rooms.Add(availableRoom);
                         }
 
                         break;
                     case Enums.RoomType.Double:
-                        if (doubleR < p_doubleRoomCount)
+                        if (doubleR < p_booking.doubleRoomCnt)
                         {
                             doubleR++;
-                            p_booking.Rooms.Add(availableRoom);
+                            booking.Rooms.Add(availableRoom);
                         }
 
                         break;
                     case Enums.RoomType.Family:
-                        if (family < p_familyRoomCount)
+                        if (family < p_booking.familyRoomCnt)
                         {
                             family++;
-                            p_booking.Rooms.Add(availableRoom);
+                            booking.Rooms.Add(availableRoom);
                         }
                         break;
                 }
             }
-            return BookingRepository.Insert(p_booking);
+            return BookingRepository.Insert(booking);
         }
     }
 }

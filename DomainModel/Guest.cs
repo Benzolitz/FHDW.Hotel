@@ -18,10 +18,7 @@ namespace FHDW.Hotel.DomainModel
         [Required]
         public string Lastname { get; set; }
 
-        [Required]
         public string Emailaddress { get; set; }
-
-        [Required]
         public string Password { get; set; }
 
         [Required]

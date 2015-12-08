@@ -59,7 +59,7 @@ namespace FHDW.Hotel.Repository.Repositories
                     .Where(r => r.Hotel.ID == p_hotelId)
                     .Where(r => !r.Bookings.Any())
                     .Where(r => r.Bookings.FirstOrDefault(bo => bo.Arrival > p_arrival) != null)
-                    .Where(r => r.Bookings.SingleOrDefault(bo => bo.Departure < p_departure) != null)
+                    .Where(r => r.Bookings.FirstOrDefault(bo => bo.Departure < p_departure) != null)
                     .ToList();
             }
         }

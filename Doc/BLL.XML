@@ -40,7 +40,7 @@
             <param name="p_booking"></param>
             <returns></returns>
         </member>
-        <member name="M:FHDW.Hotel.BLL.BookingService.Save(FHDW.Hotel.DomainModel.Booking,System.Int32,System.Int32,System.Int32)">
+        <member name="M:FHDW.Hotel.BLL.BookingService.Save(FHDW.Hotel.DomainModel.CurrentBooking)">
             <summary>
             
             </summary>

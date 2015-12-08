@@ -30,11 +30,11 @@ namespace FHDW.Hotel.Web.Controllers
         /// </summary>
         /// <param name="p_bookingModel"></param>
         /// <returns></returns>
-        public HttpResponseMessage Put([FromBody] Booking p_booking, [FromBody] int p_singleRoomCount, [FromBody] int p_doubleRoomCount, [FromBody] int p_familyRoomCount)
+        public HttpResponseMessage Put([FromBody] CurrentBooking p_booking)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, BookingService.Save(p_booking, p_singleRoomCount, p_doubleRoomCount, p_familyRoomCount));
+                return Request.CreateResponse(HttpStatusCode.OK, BookingService.Save(p_booking));
             }
             catch (Exception ex)
             {

@@ -48,6 +48,7 @@ namespace FHDW.Hotel.BLL
         {
             if (p_guest == null) return null;
 
+            p_guest.Password = Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(p_guest.Password)));
             return p_guest.ID == 0 ? GuestRepository.Insert(p_guest) : GuestRepository.Update(p_guest);
         }
     }

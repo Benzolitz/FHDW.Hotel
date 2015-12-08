@@ -14,6 +14,11 @@
             
             </summary>
         </member>
+        <member name="T:FHDW.Hotel.DomainModel.CurrentBooking">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:FHDW.Hotel.DomainModel.Booking">
             <summary>
             
