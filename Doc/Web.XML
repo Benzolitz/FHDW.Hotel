@@ -18,8 +18,8 @@
             <summary>
             Check if the given Logindata is valid and return an Adminobject.
             </summary>
-            <param name="p_username">Username of the Admin.</param>
-            <param name="p_password">Password of the Admin.</param>
+            <param name="p_username">Username of the AdminModel.</param>
+            <param name="p_password">Password of the AdminModel.</param>
             <returns>A valid Adminobject or NULL.</returns>
         </member>
         <member name="T:FHDW.Hotel.Web.Controllers.BaseController">
@@ -133,7 +133,7 @@
             <summary>
             
             </summary>
-            <param name="p_booking"></param>
+            <param name="p_bookingModel"></param>
             <returns></returns>
         </member>
         <member name="T:FHDW.Hotel.Web.Controllers.GuestController">
@@ -239,6 +239,11 @@
             <returns></returns>
         </member>
         <member name="T:FHDW.Hotel.Web.WebApiApplication">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.WebApiApplication.#ctor">
             <summary>
             
             </summary>

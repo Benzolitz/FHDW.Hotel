@@ -96,7 +96,8 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, RoomService.Save(p_room));
+                var room = RoomService.Save(p_room);
+                return Request.CreateResponse(HttpStatusCode.OK, room);
             }
             catch (Exception ex)
             {

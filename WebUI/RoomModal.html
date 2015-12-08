@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Zimmerverwaltung</title>
+    <meta charset="utf-8" />
+
+    <!-- JS-Frameworks -->
+    <script src="Scripts/jquery-2.1.4.js"></script>
+    <script src="Scripts/knockout-3.4.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+
+    <!-- DomainModels -->
+    <script src="Scripts/app/Models/Room.js"></script>
+    <script src="Scripts/app/Models/Enums.js"></script>
+
+    <!-- Services -->
+    <script src="Scripts/app/Services/RoomModalService.js"></script>
+
+    <!-- CSS-Frameworks -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><span data-bind="text: HotelName"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="txtRoomNumber" class="col-md-2 control-label">Raumnummer</label>
+                            <div class="col-md-10">
+                                <input type="text" id="txtRoomNumber" class="form-control" data-bind="value: RoomNumber">
+                            </div>
+                            <div style="margin-top: 10px;"></div>
+                            <label for="selRoomType" class="col-md-2 control-label">Typ</label>
+                            <div class="col-md-10">
+                                <select id="selRoomType" class="form-control" data-bind="value: RoomType">
+                                    <option value="0">Single</option>
+                                    <option value="1">Double</option>
+                                    <option value="2">Family</option>
+                                </select>
+                            </div>
+                            <div style="margin-top: 10px;"></div>
+                            <label for="selRoomCategory" class="col-md-2 control-label">Kategorie</label>
+                            <div class="col-md-10">
+                                <select id="selRoomCategory" class="form-control" data-bind="value: RoomCategory">
+                                    <option value="0">Standard</option>
+                                    <option value="1">Comfort</option>
+                                    <option value="2">Superior</option>
+                                </select>
+                            </div>
+                            <div style="margin-top: 10px;"></div>
+                            <label for="txtRoomPrice" class="col-md-2 control-label">Preis</label>
+                            <div class="col-md-10">
+                                <input type="text" id="txtRoomPrice" class="form-control" data-bind="value: RoomPrice">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-bind="click: $root.Save">Save</button>
+                    <button type="button" class="btn btn-default" data-bind="click: $root.Close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        ko.applyBindings(new Services.RoomModalService());
+    </script>
+</body>
+</html>

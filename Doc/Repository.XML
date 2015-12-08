@@ -4,54 +4,68 @@
         <name>FHDW.Hotel.Repository</name>
     </assembly>
     <members>
-        <member name="T:FHDW.Hotel.Repository.AdminRepository">
+        <member name="T:FHDW.Hotel.Repository.Database.FhdwHotelContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.Database.FhdwHotelContext.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.Repository.Repositories.AdminRepository">
             <summary>
             Every Request returning an Admin-Object will be handled in this Repository.
             </summary>
         </member>
-        <member name="T:FHDW.Hotel.Repository.BaseRepository">
-            <summary>
-            
-            </summary>
-            <creator>Viktoria Pierenkemper</creator>
-        </member>
-        <member name="M:FHDW.Hotel.Repository.BaseRepository.#ctor">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:FHDW.Hotel.Repository.AdminRepository.GetByUsername(System.String)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.AdminRepository.GetByUsername(System.String)">
             <summary>
             Request an Admin-Object from the Database, with the username.
             </summary>
             <param name="p_username">Username of the Administrator.</param>
             <returns>The found Adminobject will be returned. If no Admin was found, NULL will be returned. </returns>
         </member>
-        <member name="T:FHDW.Hotel.Repository.BookingRepository">
+        <member name="T:FHDW.Hotel.Repository.Repositories.BookingRepository">
             <summary>
             
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Repository.BookingRepository.Insert(FHDW.Hotel.DomainModel.Booking)">
-            <summary>
-            
-            </summary>
-            <param name="p_booking"></param>
-            <returns></returns>
-        </member>
-        <member name="M:FHDW.Hotel.Repository.BookingRepository.Update(FHDW.Hotel.DomainModel.Booking)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.BookingRepository.Insert(FHDW.Hotel.DomainModel.Booking)">
             <summary>
             
             </summary>
             <param name="p_booking"></param>
             <returns></returns>
         </member>
-        <member name="T:FHDW.Hotel.Repository.GuestRepository">
+        <member name="M:FHDW.Hotel.Repository.Repositories.BookingRepository.Update(FHDW.Hotel.DomainModel.Booking)">
+            <summary>
+            
+            </summary>
+            <param name="p_booking"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FHDW.Hotel.Repository.Repositories.DatabaseRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.Repositories.DatabaseRepository.CreateDatabase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Repository.Repositories.DatabaseRepository.InsertTestData(System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Address},System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Admin},System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Booking},System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Guest},System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Hotel},System.Collections.Generic.ICollection{FHDW.Hotel.DomainModel.Room})">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.Repository.Repositories.GuestRepository">
             <summary>
             Every Request returning a Guest-Object will be handled in this Repository.
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Repository.GuestRepository.GetByEmail(System.String)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.GuestRepository.GetByEmail(System.String)">
             <summary>
             Get a specific Guest by their Emailaddress.
             </summary>
@@ -59,7 +73,7 @@
             <returns>The requested Guest. If no Guest exists, return NULL.</returns>
             <creator>Viktoria Pierenkemper</creator>
         </member>
-        <member name="M:FHDW.Hotel.Repository.GuestRepository.Insert(FHDW.Hotel.DomainModel.Guest)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.GuestRepository.Insert(FHDW.Hotel.DomainModel.Guest)">
             <summary>
             Insert a new Guest into the database.
             </summary>
@@ -67,7 +81,7 @@
             <returns>The Newly created Guest. NULL, or Exception if an error occurs.</returns>
             <creator>Viktoria Pierenkemper</creator>
         </member>
-        <member name="M:FHDW.Hotel.Repository.GuestRepository.Update(FHDW.Hotel.DomainModel.Guest)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.GuestRepository.Update(FHDW.Hotel.DomainModel.Guest)">
             <summary>
             Update an existing Guest in the databse.
             </summary>
@@ -75,18 +89,18 @@
             <returns>The updated Guest-Object. NULL, or Exception if an error occurs.</returns>
             <creator>Viktoria Pierenkemper</creator>
         </member>
-        <member name="T:FHDW.Hotel.Repository.HotelRepository">
+        <member name="T:FHDW.Hotel.Repository.Repositories.HotelRepository">
             <summary>
             Every Request returning a Hotel-Object will be handled in this Repository.
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Repository.HotelRepository.GetCollection">
+        <member name="M:FHDW.Hotel.Repository.Repositories.HotelRepository.GetCollection">
             <summary>
             Get a List of all Hotels in the database.
             </summary>
             <returns>List with all Hotels. If no Hotel exists, return an empty List.</returns>
         </member>
-        <member name="M:FHDW.Hotel.Repository.HotelRepository.GetById(System.Int32)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.HotelRepository.GetById(System.Int32)">
             <summary>
             Get a specific Hotel.
             </summary>
@@ -94,19 +108,19 @@
             <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
             <creator>Viktoria Pierenkemper</creator>
         </member>
-        <member name="T:FHDW.Hotel.Repository.RoomRepository">
+        <member name="T:FHDW.Hotel.Repository.Repositories.RoomRepository">
             <summary>
             Every Request returning a Room-Object will be handled in this Repository.
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Repository.RoomRepository.GetById(System.Int32)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.RoomRepository.GetById(System.Int32)">
             <summary>
             Get a specific Room by ID.
             </summary>
             <param name="p_id">ID of the Room.</param>
             <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
         </member>
-        <member name="M:FHDW.Hotel.Repository.RoomRepository.GetCollectionByHotel(FHDW.Hotel.DomainModel.Hotel)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.RoomRepository.GetCollectionByHotel(FHDW.Hotel.DomainModel.Hotel)">
             <summary>
             
             </summary>
@@ -114,7 +128,7 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:FHDW.Hotel.Repository.RoomRepository.GetAvailableRooms(System.Int32,System.DateTime,System.DateTime)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.RoomRepository.GetAvailableRooms(System.Int32,System.DateTime,System.DateTime)">
             <summary>
             Get a List of all Rooms, wich are not already booked in a specific timeframe.
             </summary>
@@ -123,21 +137,21 @@
             <param name="p_departure">The Departuredate of the Guest.</param>
             <returns>List with all Rooms. If no Room exists, return an empty List.</returns>
         </member>
-        <member name="M:FHDW.Hotel.Repository.RoomRepository.Insert(FHDW.Hotel.DomainModel.Room)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.RoomRepository.Insert(FHDW.Hotel.DomainModel.Room)">
             <summary>
             Insert a new Room into the databse.
             </summary>
             <param name="p_room">The new Room.</param>
             <returns>The Newly created Room-Object. NULL, or Exception if an error occurs.</returns>
         </member>
-        <member name="M:FHDW.Hotel.Repository.RoomRepository.Update(FHDW.Hotel.DomainModel.Room)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.RoomRepository.Update(FHDW.Hotel.DomainModel.Room)">
             <summary>
             Update an existing Room in the Database.
             </summary>
             <param name="p_room">Room to Update.</param>
             <returns>The updated Room-Object. NULL, or Exception if an error occurs.</returns>
         </member>
-        <member name="M:FHDW.Hotel.Repository.RoomRepository.Delete(FHDW.Hotel.DomainModel.Room)">
+        <member name="M:FHDW.Hotel.Repository.Repositories.RoomRepository.Delete(FHDW.Hotel.DomainModel.Room)">
             <summary>
             
             </summary>

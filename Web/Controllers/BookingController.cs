@@ -28,13 +28,13 @@ namespace FHDW.Hotel.Web.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="p_booking"></param>
+        /// <param name="p_bookingModel"></param>
         /// <returns></returns>
-        public HttpResponseMessage Put([FromBody] Booking p_booking)
+        public HttpResponseMessage Put([FromBody] Booking p_bookingModel)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, BookingService.Save(p_booking));
+                return Request.CreateResponse(HttpStatusCode.OK, BookingService.Save(p_bookingModel));
             }
             catch (Exception ex)
             {

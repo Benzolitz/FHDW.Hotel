@@ -26,8 +26,8 @@ namespace FHDW.Hotel.Web.Controllers
         /// <summary>
         /// Check if the given Logindata is valid and return an Adminobject.
         /// </summary>
-        /// <param name="p_username">Username of the Admin.</param>
-        /// <param name="p_password">Password of the Admin.</param>
+        /// <param name="p_username">Username of the AdminModel.</param>
+        /// <param name="p_password">Password of the AdminModel.</param>
         /// <returns>A valid Adminobject or NULL.</returns>
         public HttpResponseMessage Get([FromUri(Name = "Username")]string p_username, [FromUri(Name = "Password")]string p_password)
         {

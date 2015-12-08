@@ -1,6 +1,10 @@
-﻿using System.Net.Http.Headers;
+﻿using System;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
+using FHDW.Hotel.BLL;
+using Newtonsoft.Json;
 
 namespace FHDW.Hotel.Web
 {
@@ -9,12 +13,25 @@ namespace FHDW.Hotel.Web
     /// </summary>
     public class WebApiApplication : HttpApplication
     {
+        #region Dependencies
+        public DatabaseService DatabaseService;
+        #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public WebApiApplication()
+        {
+            DatabaseService = new DatabaseService();
+        }
+
         /// <summary>
         /// 
         /// </summary>
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(Register);
+            DatabaseService.CreateDatabaseWithTestData();
         }
 
         /// <summary>
@@ -25,7 +42,7 @@ namespace FHDW.Hotel.Web
         {
             config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute("DefaultApi", "api/{controller}");
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));;
         }
     }
 }

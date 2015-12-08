@@ -2,12 +2,12 @@
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 
-namespace FHDW.Hotel.Repository
+namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
     /// Every Request returning an Admin-Object will be handled in this Repository.
     /// </summary>
-    public class AdminRepository : BaseRepository, IAdminRepository
+    public class AdminRepository : IAdminRepository
     {
         /// <summary>
         /// Request an Admin-Object from the Database, with the username.

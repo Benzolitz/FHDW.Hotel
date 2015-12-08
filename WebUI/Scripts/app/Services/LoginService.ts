@@ -21,7 +21,7 @@
         private checkCookie(): void {
             var cookie = this._cookieService.GetCookie("FHDW.Hotel.Admin");
             if (cookie) {
-                window.location.href = "Administration.html";
+                window.location.href = "RoomManagement.html";
             }
         }
 
@@ -29,7 +29,7 @@
             this._adminRequest.GetAdminData(this.Username(), this.Password()).then((p_admin : Models.Admin) => {
                 if (p_admin) {
                     this._cookieService.CreateCookie(p_admin);
-                    window.location.href = "Administration.html";
+                    window.location.href = "RoomManagement.html";
                 } else {
                     $("#divLoginNotifier").val("Benutzername, oder Passwort falsch!");
                 }

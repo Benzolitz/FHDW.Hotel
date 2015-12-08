@@ -1,7 +1,7 @@
 ﻿module Enums {
     export enum RoomType {
         Single = 0,
-        Doubble = 1,
+        Double = 1,
         Family = 2
     }
 
