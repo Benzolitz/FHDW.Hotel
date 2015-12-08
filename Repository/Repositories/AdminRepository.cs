@@ -1,6 +1,10 @@
 ﻿using System.Data.SqlClient;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
+using FHDW.Hotel.Repository.Database;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace FHDW.Hotel.Repository.Repositories
 {
@@ -16,19 +20,10 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <returns>The found Adminobject will be returned. If no Admin was found, NULL will be returned. </returns>
         public Admin GetByUsername(string p_username)
         {
-            var cmd = new SqlCommand
+            using (var context = new FhdwHotelContext())
             {
-                CommandText = @"SELECT * FROM admin WHERE Username = @Username"
-            };
-
-            cmd.Parameters.Add(new SqlParameter("@Username", p_username));
-
-
-            
-            
-            return p_username.ToLower() == "root"
-                ? new Admin { ID = 1, Username = "root", Password = "zlymc9E7NhGNVKfPE66wygEjg793HnE0IbTR/YQfU5o=" } // Passwörter werden als Hash in der Datenbank gespeichert.
-                : null;
+                return context.Admin.SingleOrDefault(a => a.Username.ToLower() == p_username.ToLower());
+            }
         }
     }
 }

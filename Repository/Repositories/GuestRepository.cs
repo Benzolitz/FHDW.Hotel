@@ -25,7 +25,7 @@ namespace FHDW.Hotel.Repository.Repositories
                 /*
                 Wir möchten einen Datensatz aus der Tabelle Guest (context.Guest), der die EmailAdresse beinhaltet (Include(...)), aber nur den der mit der übergebenen EmailAdresse übereinstimmt.
                 */
-                return context.Guest.Include(h => h.Emailaddress).First(h => h.Emailaddress == p_email);
+                return context.Guest.SingleOrDefault(h => h.Emailaddress.ToLower() == p_email.ToLower());
             }
         }
 
@@ -39,7 +39,11 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
+                var contactAddress = context.Address.SingleOrDefault(h => h.ID == p_guest.ContactAddress.ID);
+                p_guest.ContactAddress = contactAddress;
 
+                var BillingAddress = context.Address.SingleOrDefault(h => h.ID == p_guest.BillingAddress.ID);
+                p_guest.BillingAddress = BillingAddress;
 
                 context.Guest.Add(p_guest);
                 context.SaveChanges();
@@ -60,6 +64,9 @@ namespace FHDW.Hotel.Repository.Repositories
             {
                 var address = context.Address.SingleOrDefault(h => h.ID == p_guest.ContactAddress.ID);        
                 p_guest.ContactAddress = address;
+
+                var BillingAddress = context.Address.SingleOrDefault(h => h.ID == p_guest.BillingAddress.ID);
+                p_guest.BillingAddress = BillingAddress;
 
                 context.Guest.Add(p_guest);
                 context.SaveChanges();

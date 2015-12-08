@@ -5,6 +5,7 @@ using System.Linq;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository.Database;
+using System.Data.Entity;
 
 namespace FHDW.Hotel.Repository.Repositories
 {
@@ -52,9 +53,10 @@ namespace FHDW.Hotel.Repository.Repositories
             using (var context = new FhdwHotelContext())
             {
                 /*
-                     Hole alle Rooms (context.Room) in einem Hotel die zum gewünschten Zeitraum frei sind (Where...) und wandel das Ergebniss in eine Liste (ToList()).
+                     Hole alle Rooms (context.Room) in einem bestimmten Hotel die zum gewünschten Zeitraum frei sind (Where...) und wandel das Ergebniss in eine Liste (ToList()).
                 */
-                context.Room.Where(h => h.Hotel.ID == p_hotelId).ToList();
+                var rooms = context.Room.Include(r => r.Bookings).Where(r => r.Hotel.ID == p_hotelId).Where(r => !r.Bookings.Any()).Where(r => r.Bookings.FirstOrDefault(bo => bo.Arrival > p_arrival) != null).Where(r => r.Bookings.SingleOrDefault(bo => bo.Departure < p_departure) != null).ToList();
+                
             }
             return null;
         }
