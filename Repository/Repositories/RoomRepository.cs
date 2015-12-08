@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using FHDW.Hotel.DomainModel;
@@ -12,7 +11,7 @@ namespace FHDW.Hotel.Repository.Repositories
     /// <summary>
     /// Every Request returning a Room-Object will be handled in this Repository.
     /// </summary>
-    public class RoomRepository : BaseRepository, IRoomRepository
+    public class RoomRepository : IRoomRepository
     {
         /// <summary>
         /// Get a specific Room by ID.
@@ -21,14 +20,9 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
         public Room GetById(int p_id)
         {
-            using (var connection = base.currentConnection)
+            using (var context = new FhdwHotelContext())
             {
-                connection.Open();
-
-                using (var context = new FhdwHotelContext(connection, false))
-                {
-                    return context.Room.First(r => r.ID == p_id);
-                }
+                return context.Room.First(r => r.ID == p_id);
             }
         }
 
@@ -40,14 +34,9 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <exception cref="NotImplementedException"></exception>
         public ICollection<Room> GetCollectionByHotel(DomainModel.Hotel p_hotel)
         {
-            using (var connection = base.currentConnection)
+            using (var context = new FhdwHotelContext())
             {
-                connection.Open();
-
-                using (var context = new FhdwHotelContext(connection, false))
-                {
-                    return context.Room.Where(r => r.Hotel.ID == p_hotel.ID).ToList();
-                }
+                return context.Room.Where(r => r.Hotel.ID == p_hotel.ID).ToList();
             }
         }
 
@@ -83,20 +72,15 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <returns>The Newly created Room-Object. NULL, or Exception if an error occurs.</returns>
         public Room Insert(Room p_room)
         {
-            using (var connection = base.currentConnection)
+            using (var context = new FhdwHotelContext())
             {
-                connection.Open();
+                var hotel = context.Hotel.SingleOrDefault(h => h.ID == p_room.Hotel.ID);
+                p_room.Hotel = hotel;
 
-                using (var context = new FhdwHotelContext(connection, false))
-                {
-                    var hotel = context.Hotel.SingleOrDefault(h => h.ID == p_room.Hotel.ID);
-                    p_room.Hotel = hotel;
+                context.Room.Add(p_room);
+                context.SaveChanges();
 
-                    context.Room.Add(p_room);
-                    context.SaveChanges();
-
-                    return p_room;
-                }
+                return p_room;
             }
         }
 

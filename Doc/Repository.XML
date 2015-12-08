@@ -14,13 +14,6 @@
             
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Repository.Database.FhdwHotelContext.#ctor(System.Data.Common.DbConnection,System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="p_existingConnection"></param>
-            <param name="p_contextOwnsConnection"></param>
-        </member>
         <member name="T:FHDW.Hotel.Repository.Repositories.AdminRepository">
             <summary>
             Every Request returning an Admin-Object will be handled in this Repository.
@@ -32,17 +25,6 @@
             </summary>
             <param name="p_username">Username of the Administrator.</param>
             <returns>The found Adminobject will be returned. If no Admin was found, NULL will be returned. </returns>
-        </member>
-        <member name="T:FHDW.Hotel.Repository.Repositories.BaseRepository">
-            <summary>
-            
-            </summary>
-            <creator>Viktoria Pierenkemper</creator>
-        </member>
-        <member name="M:FHDW.Hotel.Repository.Repositories.BaseRepository.#ctor">
-            <summary>
-            
-            </summary>
         </member>
         <member name="T:FHDW.Hotel.Repository.Repositories.BookingRepository">
             <summary>

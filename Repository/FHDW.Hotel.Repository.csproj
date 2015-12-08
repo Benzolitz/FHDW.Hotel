@@ -70,7 +70,6 @@
   <ItemGroup>
     <Compile Include="Database\FHDWHotelContext.cs" />
     <Compile Include="Repositories\AdminRepository.cs" />
-    <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\BookingRepository.cs" />
     <Compile Include="Repositories\DatabaseRepository.cs" />
     <Compile Include="Repositories\GuestRepository.cs" />

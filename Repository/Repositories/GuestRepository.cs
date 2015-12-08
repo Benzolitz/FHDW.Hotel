@@ -6,7 +6,7 @@ namespace FHDW.Hotel.Repository.Repositories
     /// <summary>
     /// Every Request returning a Guest-Object will be handled in this Repository.
     /// </summary>
-    public class GuestRepository : BaseRepository, IGuestRepository
+    public class GuestRepository : IGuestRepository
     {
         /// <summary>
         /// Get a specific Guest by their Emailaddress.

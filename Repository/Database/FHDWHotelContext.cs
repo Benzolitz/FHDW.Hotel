@@ -1,5 +1,4 @@
-﻿using System.Data.Common;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using FHDW.Hotel.DomainModel;
 using MySql.Data.Entity;
 
@@ -21,19 +20,9 @@ namespace FHDW.Hotel.Repository.Database
         /// <summary>
         /// 
         /// </summary>
-        public FhdwHotelContext() : base("fhdwhotel")
+        public FhdwHotelContext() : base("name=fhdwhotel")
         {
             
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_existingConnection"></param>
-        /// <param name="p_contextOwnsConnection"></param>
-        public FhdwHotelContext(DbConnection p_existingConnection, bool p_contextOwnsConnection) : base(p_existingConnection, p_contextOwnsConnection)
-        {
-
         }
     }
 }
