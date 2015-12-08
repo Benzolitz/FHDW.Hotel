@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
+using FHDW.Hotel.Repository.Database;
 
 namespace FHDW.Hotel.Repository.Repositories
 {
@@ -18,13 +20,15 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
         public Room GetById(int p_id)
         {
-            var cmd = new SqlCommand
+            using (var connection = base.currentConnection)
             {
-                CommandText = @"SELECT * FROM room WHERE ID = @ID"
-            };
+                connection.Open();
 
-            cmd.Parameters.Add(new SqlParameter("@ID", p_id));
-            return new Room();
+                using (var context = new FhdwHotelContext(connection, false))
+                {
+                    return context.Room.First(r => r.ID == p_id);
+                }
+            }
         }
 
         /// <summary>
@@ -35,7 +39,15 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <exception cref="NotImplementedException"></exception>
         public ICollection<Room> GetCollectionByHotel(DomainModel.Hotel p_hotel)
         {
-            return getTestData(p_hotel);
+            using (var connection = base.currentConnection)
+            {
+                connection.Open();
+
+                using (var context = new FhdwHotelContext(connection, false))
+                {
+                    return context.Room.Where(r => r.Hotel.ID == p_hotel.ID).ToList();
+                }
+            }
         }
 
         /// <summary>
@@ -128,176 +140,5 @@ namespace FHDW.Hotel.Repository.Repositories
             //Ich hab das hier mal geändert in p_id da hier doch anhand der id gelöscht wird also nicht über p_room ==> Prüfen bitte?
             return new Room();
         }
-
-        #region TestData!
-        private ICollection<Room> getTestData(DomainModel.Hotel p_hotel)
-        {
-            return new List<Room>
-            {
-                new Room
-                {
-                    ID = 1,
-                    Category = Enums.RoomCategory.Standard,
-                    PersonCount = 1,
-                    Type = Enums.RoomType.Single,
-                    Price = 22,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 2,
-                    Category = Enums.RoomCategory.Standard,
-                    PersonCount = 1,
-                    Type = Enums.RoomType.Single,
-                    Price = 22,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 3,
-                    Category = Enums.RoomCategory.Standard,
-                    PersonCount = 2,
-                    Type = Enums.RoomType.Double,
-                    Price = 33,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 4,
-                    Category = Enums.RoomCategory.Standard,
-                    PersonCount = 2,
-                    Type = Enums.RoomType.Double,
-                    Price = 33,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 5,
-                    Category = Enums.RoomCategory.Standard,
-                    PersonCount = 5,
-                    Type = Enums.RoomType.Family,
-                    Price = 50,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 6,
-                    Category = Enums.RoomCategory.Standard,
-                    PersonCount = 5,
-                    Type = Enums.RoomType.Family,
-                    Price = 50,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 7,
-                    Category = Enums.RoomCategory.Comfort,
-                    PersonCount = 1,
-                    Type = Enums.RoomType.Single,
-                    Price = 60,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 8,
-                    Category = Enums.RoomCategory.Comfort,
-                    PersonCount = 1,
-                    Type = Enums.RoomType.Single,
-                    Price = 60,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 9,
-                    Category = Enums.RoomCategory.Comfort,
-                    PersonCount = 2,
-                    Type = Enums.RoomType.Double,
-                    Price = 100,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 10,
-                    Category = Enums.RoomCategory.Comfort,
-                    PersonCount = 2,
-                    Type = Enums.RoomType.Double,
-                    Price = 100,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 11,
-                    Category = Enums.RoomCategory.Comfort,
-                    PersonCount = 5,
-                    Type = Enums.RoomType.Family,
-                    Price = 110,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 12,
-                    Category = Enums.RoomCategory.Comfort,
-                    PersonCount = 5,
-                    Type = Enums.RoomType.Family,
-                    Price = 110,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 13,
-                    Category = Enums.RoomCategory.Superior,
-                    PersonCount = 1,
-                    Type = Enums.RoomType.Single,
-                    Price = 150,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 14,
-                    Category = Enums.RoomCategory.Superior,
-                    PersonCount = 1,
-                    Type = Enums.RoomType.Single,
-                    Price = 150,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 15,
-                    Category = Enums.RoomCategory.Superior,
-                    PersonCount = 2,
-                    Type = Enums.RoomType.Double,
-                    Price = 222,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 16,
-                    Category = Enums.RoomCategory.Superior,
-                    PersonCount = 2,
-                    Type = Enums.RoomType.Double,
-                    Price = 222,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 17,
-                    Category = Enums.RoomCategory.Superior,
-                    PersonCount = 5,
-                    Type = Enums.RoomType.Family,
-                    Price = 250,
-                    RoomNumber = "123"
-                },
-                new Room
-                {
-                    ID = 18,
-                    Category = Enums.RoomCategory.Superior,
-                    PersonCount = 5,
-                    Type = Enums.RoomType.Family,
-                    Price = 250,
-                    RoomNumber = "123"
-                }
-            };
-        }
-        #endregion
     }
 }

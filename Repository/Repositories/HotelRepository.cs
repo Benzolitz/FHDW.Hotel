@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.SqlClient;
 using System.Linq;
-using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository.Database;
-using NHibernate.Util;
 
 namespace FHDW.Hotel.Repository.Repositories
 {
@@ -49,44 +46,11 @@ namespace FHDW.Hotel.Repository.Repositories
                 using (var context = new FhdwHotelContext(connection, false))
                 {
                     /*
-                    Wir möchten einen Datensatz aus der Tabelle Hotel (context.Hotel), der die Adresse beinhaltet (Include(...)), aber nur den ersten der mit der übergebenen ID übereinstimmt (First(h => h.ID == p_id)).
+                    Wir möchten einen Datensatz aus der Tabelle Hotel (context.Hotel), der die Adresse beinhaltet (Include(...)), aber nur den ersten der mit der übergebenen ID übereinstimmt.
                     */
                     return context.Hotel.Include(h => h.Address).First(h => h.ID == p_id);
                 }
             }
         }
-
-        #region Testdata
-        private ICollection<DomainModel.Hotel> getHotelTestdata()
-        {
-            var hotel1 = new DomainModel.Hotel
-            {
-                ID = 1,
-                Name = "Keine Ahnung",
-                Address = new Address
-                {
-                    ID = 1,
-                    City = "Hannover",
-                    PostalCode = "12345",
-                    Street = "Dieser Weg 1"
-                }
-            };
-
-            var hotel2 = new DomainModel.Hotel
-            {
-                ID = 2,
-                Name = "Hotel Eins",
-                Address = new Address
-                {
-                    ID = 1,
-                    City = "Paderborn",
-                    PostalCode = "32165",
-                    Street = "Irgendwo 666"
-                }
-            };
-
-            return new List<DomainModel.Hotel> { hotel1, hotel2 };
-        }
-        #endregion
     }
 }
