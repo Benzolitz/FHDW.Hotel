@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using FHDW.Hotel.DomainModel;
@@ -82,21 +83,21 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <returns>The Newly created Room-Object. NULL, or Exception if an error occurs.</returns>
         public Room Insert(Room p_room)
         {
-            var cmd = new SqlCommand
+            using (var connection = base.currentConnection)
             {
-                CommandText = @"INSERT INTO room (ID, RoomNumber, Price, HotelID, TypeID, CategoryID)
-                                VALUES (@ID, @RoomNumber, @Price, @HotelID, @TypeID, @CategoryID)"
-            };
+                connection.Open();
 
-            cmd.Parameters.Add(new SqlParameter("@ID", p_room.ID));
-            cmd.Parameters.Add(new SqlParameter("@RoomNumber", p_room.RoomNumber));
-            cmd.Parameters.Add(new SqlParameter("@Price", p_room.Price));
-            cmd.Parameters.Add(new SqlParameter("@HotelID", p_room.Hotel));
-            cmd.Parameters.Add(new SqlParameter("@TypeID", p_room.Type));
-            cmd.Parameters.Add(new SqlParameter("@CategoryID", p_room.Category));
+                using (var context = new FhdwHotelContext(connection, false))
+                {
+                    var hotel = context.Hotel.SingleOrDefault(h => h.ID == p_room.Hotel.ID);
+                    p_room.Hotel = hotel;
 
+                    context.Room.Add(p_room);
+                    context.SaveChanges();
 
-            return new Room();
+                    return p_room;
+                }
+            }
         }
 
         /// <summary>
