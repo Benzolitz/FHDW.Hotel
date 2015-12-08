@@ -1,9 +1,8 @@
-﻿using FHDW.Hotel.DomainModel;
+﻿using System;
+using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository.Database;
 using System.Linq;
-using System.Collections.Generic;
-using System.Data.Entity;
 
 namespace FHDW.Hotel.Repository.Repositories
 {
@@ -25,7 +24,7 @@ namespace FHDW.Hotel.Repository.Repositories
                 /*
                 Wir möchten einen Datensatz aus der Tabelle Guest (context.Guest), der die EmailAdresse beinhaltet (Include(...)), aber nur den der mit der übergebenen EmailAdresse übereinstimmt.
                 */
-                return context.Guest.SingleOrDefault(h => h.Emailaddress.ToLower() == p_email.ToLower());
+                return context.Guest.SingleOrDefault(g => g.Emailaddress.ToLower() == p_email.ToLower());
             }
         }
 
@@ -35,21 +34,31 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <param name="p_guest">The new Guest.</param>
         /// <returns>The Newly created Guest. NULL, or Exception if an error occurs.</returns>
         /// <creator>Viktoria Pierenkemper</creator>
-        public DomainModel.Guest Insert(DomainModel.Guest p_guest)
+        public Guest Insert(Guest p_guest)
         {
             using (var context = new FhdwHotelContext())
             {
-                var contactAddress = context.Address.SingleOrDefault(h => h.ID == p_guest.ContactAddress.ID);
-                p_guest.ContactAddress = contactAddress;
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        p_guest.ContactAddress = context.Address.SingleOrDefault(a => a.ID == p_guest.ContactAddress.ID);
+                        p_guest.BillingAddress = context.Address.SingleOrDefault(a => a.ID == p_guest.BillingAddress.ID);
 
-                var BillingAddress = context.Address.SingleOrDefault(h => h.ID == p_guest.BillingAddress.ID);
-                p_guest.BillingAddress = BillingAddress;
+                        context.Guest.Add(p_guest);
+                        context.SaveChanges();
+                        transaction.Commit();
 
-                context.Guest.Add(p_guest);
-                context.SaveChanges();
-            };
-
-            return p_guest;
+                        return p_guest;
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        transaction.Rollback();
+                        return null;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -62,17 +71,27 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                var address = context.Address.SingleOrDefault(h => h.ID == p_guest.ContactAddress.ID);        
-                p_guest.ContactAddress = address;
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        p_guest.ContactAddress = context.Address.SingleOrDefault(a => a.ID == p_guest.ContactAddress.ID);
+                        p_guest.BillingAddress = context.Address.SingleOrDefault(a => a.ID == p_guest.BillingAddress.ID);
 
-                var BillingAddress = context.Address.SingleOrDefault(h => h.ID == p_guest.BillingAddress.ID);
-                p_guest.BillingAddress = BillingAddress;
+                        context.Guest.Add(p_guest);
+                        context.SaveChanges();
+                        transaction.Commit();
 
-                context.Guest.Add(p_guest);
-                context.SaveChanges();
-            };
-
-            return p_guest;
+                        return p_guest;
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        transaction.Rollback();
+                        return null;
+                    }
+                }
+            }
         }
     }
 }

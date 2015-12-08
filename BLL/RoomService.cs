@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
-using FHDW.Hotel.Repository;
 using FHDW.Hotel.Repository.Repositories;
 
 namespace FHDW.Hotel.BLL

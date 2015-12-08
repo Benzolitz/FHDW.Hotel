@@ -36,7 +36,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleGeneralError(ex);
+                return HandleGeneralError(ex);
             }
         }
 
@@ -52,7 +52,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleGeneralError(ex);
+                return HandleGeneralError(ex);
             }
         }
 
@@ -68,7 +68,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleGeneralError(ex);
+                return HandleGeneralError(ex);
             }
         }
 
@@ -84,7 +84,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleGeneralError(ex);
+                return HandleGeneralError(ex);
             }
         }
 
@@ -96,12 +96,11 @@ namespace FHDW.Hotel.Web.Controllers
         {
             try
             {
-                var room = RoomService.Save(p_room);
-                return Request.CreateResponse(HttpStatusCode.OK, room);
+                return Request.CreateResponse(HttpStatusCode.OK, RoomService.Save(p_room));
             }
             catch (Exception ex)
             {
-                return base.HandleGeneralError(ex);
+                return HandleGeneralError(ex);
             }
         }
 
@@ -109,7 +108,7 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Delete(int p_id)
+        public HttpResponseMessage Delete([FromUri]int p_id)
         {
             try
             {
@@ -117,7 +116,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleGeneralError(ex);
+                return HandleGeneralError(ex);
             }
         }
 
@@ -125,7 +124,7 @@ namespace FHDW.Hotel.Web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public HttpResponseMessage Delete(Room p_room)
+        public HttpResponseMessage Delete([FromUri]Room p_room)
         {
             try
             {
@@ -133,7 +132,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleGeneralError(ex);
+                return HandleGeneralError(ex);
             }
         }
     }

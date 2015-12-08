@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
@@ -16,9 +17,21 @@ namespace FHDW.Hotel.Repository.Repositories
         /// </summary>
         public void CreateDatabase()
         {
-            using (var contextDb = new FhdwHotelContext())
+            using (var context = new FhdwHotelContext())
             {
-                contextDb.Database.CreateIfNotExists();
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        transaction.Rollback();
+                    }
+                }
+                context.Database.CreateIfNotExists();
             }
         }
 
@@ -29,14 +42,53 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                if (p_addresses != null && !context.Address.Any()) context.Address.AddRange(p_addresses);
-                if (p_admins != null && !context.Admin.Any()) context.Admin.AddRange(p_admins);
-                if (p_bookings != null && !context.Booking.Any()) context.Booking.AddRange(p_bookings);
-                if (p_guests != null && !context.Guest.Any()) context.Guest.AddRange(p_guests);
-                if (p_hotels != null && !context.Hotel.Any()) context.Hotel.AddRange(p_hotels);
-                if (p_rooms != null && !context.Room.Any()) context.Room.AddRange(p_rooms);
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        if (p_admins != null && !context.Admin.Any())
+                        {
+                            context.Admin.AddRange(p_admins);
+                            context.SaveChanges();
+                        }
+                        
+                        if (p_addresses != null && !context.Address.Any())
+                        {
+                            context.Address.AddRange(p_addresses);
+                            context.SaveChanges();
+                        }
 
-                context.SaveChanges();
+                        if (p_hotels != null && !context.Hotel.Any())
+                        {
+                            foreach (var hotel in p_hotels)
+                            {
+                                hotel.Address = context.Address.SingleOrDefault(a => a.ID == hotel.Address.ID);
+                                context.Hotel.Add(hotel);
+                                context.SaveChanges();
+                            }
+                        }
+
+                        if (p_rooms != null && !context.Room.Any())
+                        {
+                            foreach (var room in p_rooms)
+                            {
+                                room.Hotel = context.Hotel.SingleOrDefault(h => h.ID == room.Hotel.ID);
+                                context.Room.Add(room);
+                                context.SaveChanges();
+                            }
+                        }
+
+                        if (p_bookings != null && !context.Booking.Any()) context.Booking.AddRange(p_bookings);
+                        if (p_guests != null && !context.Guest.Any()) context.Guest.AddRange(p_guests);
+
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        transaction.Rollback();
+                    }
+                }
             }
         }
     }

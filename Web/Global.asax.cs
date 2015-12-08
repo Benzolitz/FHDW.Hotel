@@ -1,10 +1,7 @@
-﻿using System;
-using System.Net.Http.Formatting;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
 using FHDW.Hotel.BLL;
-using Newtonsoft.Json;
 
 namespace FHDW.Hotel.Web
 {

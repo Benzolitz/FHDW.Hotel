@@ -3,7 +3,6 @@ using System.Security.Cryptography;
 using System.Text;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
-using FHDW.Hotel.Repository;
 using FHDW.Hotel.Repository.Repositories;
 
 namespace FHDW.Hotel.BLL
@@ -37,8 +36,7 @@ namespace FHDW.Hotel.BLL
             var admin = AdminRepository.GetByUsername(p_username);
 
             if (admin == null) return null;
-
-            return Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(p_password))) != admin.Password ? null : admin;
+            return Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(p_password))) == admin.Password ? admin : null;
         }
     }
 }

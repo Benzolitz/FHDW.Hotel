@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository.Repositories;
@@ -45,10 +48,50 @@ namespace FHDW.Hotel.BLL
         public void AddTestDataInDatabase()
         {
             // Address, Admin, Bookings, Guests, Hotels, Rooms
-            DatabaseRepository.InsertTestData(null, null, null, null, GetHotelTestData(), GetRoomTestData());
+            DatabaseRepository.InsertTestData(GetAddressTestData(), GetAdminTestData(), null, null, GetHotelTestData(), GetRoomTestData());
         }
 
         #region TESTDATA
+        private static ICollection<Address> GetAddressTestData()
+        {
+            return new List<Address>
+            {
+                new Address
+                    {
+                        City = "Paderborn",
+                        PostalCode = "33100",
+                        Street = "Fürstenallee 3-5"
+                    },new Address
+                    {
+                        City = "Lippstadt",
+                        PostalCode = "59557",
+                        Street = "Konrad-Adenauer-Ring 22"
+                    },new Address
+                    {
+                        City = "Bielefeld",
+                        PostalCode = "33602",
+                        Street = "Irgendwostraße 5"
+                    },new Address
+                    {
+                        City = "Kassel",
+                        PostalCode = "34117",
+                        Street = "Hier und da Weg 666"
+                    }
+            };
+        }
+
+        private static ICollection<Admin> GetAdminTestData()
+        {
+            return new List<Admin>
+            {
+                new Admin
+                {
+                    Username = "root",
+                    Password = Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes("toor")))
+                }
+            };
+        }
+
         private static ICollection<DomainModel.Hotel> GetHotelTestData()
         {
             return new List<DomainModel.Hotel>
@@ -56,292 +99,52 @@ namespace FHDW.Hotel.BLL
                 new DomainModel.Hotel
                 {
                     Name = "Eins",
-                    Address = new Address
-                    {
-                        City = "Paderborn",
-                        PostalCode = "33100",
-                        Street = "Fürstenallee 3-5"
-                    },
-                    Rooms = new List<Room>
-                    {
-                        new Room
-                        {
-                            RoomNumber = "1",
-                            Category = Enums.RoomCategory.Standard,
-                            Type = Enums.RoomType.Single,
-                            PersonCount = 1,
-                            Price = 11
-                        }
-                    }
+                    Address = new Address { ID = 1 }
                 },
                 new DomainModel.Hotel
                 {
                     Name = "Zwei",
-                    Address = new Address
-                    {
-                        City = "Lippstadt",
-                        PostalCode = "33100",
-                        Street = "Fürstenallee 3-5"
-                    },
-                    Rooms = new List<Room>
-                    {
-                        new Room
-                        {
-                            RoomNumber = "2",
-                            Category = Enums.RoomCategory.Standard,
-                            Type = Enums.RoomType.Single,
-                            PersonCount = 1,
-                            Price = 11
-                        }
-                    }
+                    Address = new Address { ID = 2 }
                 },
                 new DomainModel.Hotel
                 {
                     Name = "Drei",
-                    Address = new Address
-                    {
-                        City = "Bielefeld",
-                        PostalCode = "33100",
-                        Street = "Fürstenallee 3-5"
-                    },
-                    Rooms = new List<Room>
-                    {
-                        new Room
-                        {
-                            RoomNumber = "3",
-                            Category = Enums.RoomCategory.Standard,
-                            Type = Enums.RoomType.Single,
-                            PersonCount = 1,
-                            Price = 11
-                        }
-                    }
+                    Address = new Address { ID = 3 }
                 },
                 new DomainModel.Hotel
                 {
                     Name = "Vier",
-                    Address = new Address
-                    {
-                        City = "Kassel",
-                        PostalCode = "33100",
-                        Street = "Fürstenallee 3-5"
-                    },
-                    Rooms = new List<Room>
-                    {
-                        new Room
-                        {
-                            RoomNumber = "4",
-                            Category = Enums.RoomCategory.Standard,
-                            Type = Enums.RoomType.Single,
-                            PersonCount = 1,
-                            Price = 11
-                        }
-                    }
+                    Address = new Address { ID = 4 }
                 }
             };
         }
 
         private static ICollection<Room> GetRoomTestData()
         {
-            var hoteleins = new DomainModel.Hotel
-            {
-                ID = 1,
-                Name = "Eins",
-                Address = new Address
-                {
-                    City = "1",
-                    PostalCode = "1",
-                    Street = "1"
-                }
-            };
+            var hotelEins = new DomainModel.Hotel { ID = 1 };
+            var hotelZwei = new DomainModel.Hotel { ID = 2 };
+            var hotelDrei = new DomainModel.Hotel { ID = 3 };
+            var hotelVier = new DomainModel.Hotel { ID = 4 };
 
-            return new List<Room>
+            var rooms = new List<Room>();
+
+            for (var i = 0; i < 4; i++)
             {
-                #region Hotel 1
-                #region Single
-                new Room
+                for (var j = 2; j < 20; j++)
                 {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Standard,
-                    Type = Enums.RoomType.Single,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "001"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Comfort,
-                    Type = Enums.RoomType.Single,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "002"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Superior,
-                    Type = Enums.RoomType.Single,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "003"
-                },
-                #endregion
-                #region Double
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Standard,
-                    Type = Enums.RoomType.Double,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "011"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Comfort,
-                    Type = Enums.RoomType.Double,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "012"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Superior,
-                    Type = Enums.RoomType.Double,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "013"
-                },
-                #endregion
-                #region Family
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Standard,
-                    Type = Enums.RoomType.Family,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "021"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Comfort,
-                    Type = Enums.RoomType.Family,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "022"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Superior,
-                    Type = Enums.RoomType.Family,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "033"
-                },
-                #endregion
-                #endregion
-                #region Hotel 2
-                #region Single
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Standard,
-                    Type = Enums.RoomType.Single,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "001"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Standard,
-                    Type = Enums.RoomType.Single,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "002"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Standard,
-                    Type = Enums.RoomType.Single,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "003"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Standard,
-                    Type = Enums.RoomType.Single,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "004"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Standard,
-                    Type = Enums.RoomType.Single,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "005"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Comfort,
-                    Type = Enums.RoomType.Single,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "006"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Superior,
-                    Type = Enums.RoomType.Single,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "003"
-                },
-                #endregion
-                #region Double
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Standard,
-                    Type = Enums.RoomType.Double,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "011"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Comfort,
-                    Type = Enums.RoomType.Double,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "012"
-                },
-                new Room
-                {
-                    Hotel = hoteleins,
-                    Category = Enums.RoomCategory.Superior,
-                    Type = Enums.RoomType.Double,
-                    PersonCount = 1,
-                    Price = 11,
-                    RoomNumber = "013"
+                    rooms.Add(new Room
+                    {
+                        Hotel = i == 1 ? hotelEins : i == 2 ? hotelZwei : i == 3 ? hotelDrei : hotelVier,
+                        Category = Enums.RoomCategory.Standard,
+                        Type = j % 2 == 0 ? Enums.RoomType.Single : j % 3 == 0 ? Enums.RoomType.Double : Enums.RoomType.Family,
+                        PersonCount = j % 2 == 0 ? 1 : j % 3 == 0 ? 2 : 6,
+                        Price = j % 2 == 0 ? 11.11f : j % 3 == 0 ? 22.22f : 30f,
+                        RoomNumber = String.Format("0{0}{1}", i, j)
+                    });
                 }
-                #endregion
-                #endregion
-            };
+            }
+
+            return rooms;
         }
         #endregion
     }

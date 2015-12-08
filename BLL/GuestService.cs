@@ -1,6 +1,8 @@
-﻿using FHDW.Hotel.DomainModel;
+﻿using System;
+using System.Security.Cryptography;
+using System.Text;
+using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
-using FHDW.Hotel.Repository;
 using FHDW.Hotel.Repository.Repositories;
 
 namespace FHDW.Hotel.BLL
@@ -31,7 +33,10 @@ namespace FHDW.Hotel.BLL
         /// <returns></returns>
         public Guest CheckLogin(string p_email, string p_password)
         {
-            return GuestRepository.GetByEmail(p_email);
+            var guest = GuestRepository.GetByEmail(p_email);
+
+            if (guest == null) return null;
+            return Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(p_password))) == guest.Password ? guest : null;
         }
 
         /// <summary>

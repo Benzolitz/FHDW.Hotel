@@ -1,9 +1,6 @@
-﻿using System.Data.SqlClient;
-using FHDW.Hotel.DomainModel;
+﻿using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository.Database;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace FHDW.Hotel.Repository.Repositories

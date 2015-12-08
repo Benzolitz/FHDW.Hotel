@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository.Database;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace FHDW.Hotel.Repository.Repositories
 {
@@ -23,7 +23,7 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                return context.Room.First(r => r.ID == p_id);
+                return context.Room.FirstOrDefault(r => r.ID == p_id);
             }
         }
 
@@ -55,10 +55,13 @@ namespace FHDW.Hotel.Repository.Repositories
                 /*
                      Hole alle Rooms (context.Room) in einem bestimmten Hotel die zum gewünschten Zeitraum frei sind (Where...) und wandel das Ergebniss in eine Liste (ToList()).
                 */
-                var rooms = context.Room.Include(r => r.Bookings).Where(r => r.Hotel.ID == p_hotelId).Where(r => !r.Bookings.Any()).Where(r => r.Bookings.FirstOrDefault(bo => bo.Arrival > p_arrival) != null).Where(r => r.Bookings.SingleOrDefault(bo => bo.Departure < p_departure) != null).ToList();
-                
+                return context.Room.Include(b => b.Bookings)
+                    .Where(r => r.Hotel.ID == p_hotelId)
+                    .Where(r => !r.Bookings.Any())
+                    .Where(r => r.Bookings.FirstOrDefault(bo => bo.Arrival > p_arrival) != null)
+                    .Where(r => r.Bookings.SingleOrDefault(bo => bo.Departure < p_departure) != null)
+                    .ToList();
             }
-            return null;
         }
 
         /// <summary>
@@ -70,13 +73,26 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                var hotel = context.Hotel.SingleOrDefault(h => h.ID == p_room.Hotel.ID);
-                p_room.Hotel = hotel;
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var hotel = context.Hotel.SingleOrDefault(h => h.ID == p_room.Hotel.ID);
+                        p_room.Hotel = hotel;
 
-                context.Room.Add(p_room);
-                context.SaveChanges();
+                        context.Room.Add(p_room);
+                        context.SaveChanges();
 
-                return p_room;
+                        transaction.Commit();
+                        return p_room;
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        transaction.Rollback();
+                        return null;
+                    }
+                }
             }
         }
 
@@ -89,14 +105,27 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                var hotel = context.Hotel.SingleOrDefault(h => h.ID == p_room.Hotel.ID);
-	            p_room.Hotel = hotel;
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var hotel = context.Hotel.SingleOrDefault(h => h.ID == p_room.Hotel.ID);
+                        p_room.Hotel = hotel;
 
-                context.Room.Add(p_room);
-                context.SaveChanges();
+                        context.Room.AddOrUpdate(p_room);
+                        context.SaveChanges();
+                        transaction.Commit();
+
+                        return p_room;
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        transaction.Rollback();
+                        return null;
+                    }
+                }
             };
-
-            return p_room;
         }
 
         /// <summary>
@@ -108,11 +137,26 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                context.Room.Remove(p_room);
-                context.SaveChanges();
-            };
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var roomToDelete = context.Room.SingleOrDefault(r => r.ID == p_room.ID);
 
-            return p_room;
+                        context.Room.Remove(roomToDelete);
+                        context.SaveChanges();
+                        transaction.Commit();
+
+                        return roomToDelete;
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        transaction.Rollback();
+                        return null;
+                    }
+                }
+            }
         }
     }
 }

@@ -39,7 +39,7 @@ namespace FHDW.Hotel.Repository.Repositories
                 /*
                 Wir möchten einen Datensatz aus der Tabelle Hotel (context.Hotel), der die Adresse beinhaltet (Include(...)), aber nur den ersten der mit der übergebenen ID übereinstimmt.
                 */
-                return context.Hotel.Include(h => h.Address).First(h => h.ID == p_id);
+                return context.Hotel.Include(a => a.Address).FirstOrDefault(h => h.ID == p_id);
             }
         }
     }

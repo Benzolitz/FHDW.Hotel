@@ -36,7 +36,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleGeneralError(ex);
+                return HandleGeneralError(ex);
             }
         }
 
@@ -52,7 +52,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleGeneralError(ex);
+                return HandleGeneralError(ex);
             }
         }
 
@@ -68,7 +68,7 @@ namespace FHDW.Hotel.Web.Controllers
             }
             catch (Exception ex)
             {
-                return base.HandleGeneralError(ex);
+                return HandleGeneralError(ex);
             }
         }
     }

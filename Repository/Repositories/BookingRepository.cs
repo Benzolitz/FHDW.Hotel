@@ -1,8 +1,7 @@
-﻿using FHDW.Hotel.DomainModel;
+﻿using System;
+using FHDW.Hotel.DomainModel;
 using FHDW.Hotel.IRepository;
 using FHDW.Hotel.Repository.Database;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace FHDW.Hotel.Repository.Repositories
@@ -21,14 +20,26 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                var hotel = context.Hotel.SingleOrDefault(h => h.ID == p_booking.Hotel.ID);
-                p_booking.Hotel = hotel;
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        p_booking.Hotel = context.Hotel.SingleOrDefault(h => h.ID == p_booking.Hotel.ID);
 
-                context.Booking.Add(p_booking);
-                context.SaveChanges();
-            };
+                        context.Booking.Add(p_booking);
+                        context.SaveChanges();
 
-            return p_booking;
+                        transaction.Commit();
+                        return p_booking;
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        transaction.Rollback();
+                        return null;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -40,14 +51,27 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                var hotel = context.Hotel.SingleOrDefault(h => h.ID == p_booking.Hotel.ID);
-                p_booking.Hotel = hotel;
 
-                context.Booking.Add(p_booking);
-                context.SaveChanges();
-            };
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        p_booking.Hotel = context.Hotel.SingleOrDefault(h => h.ID == p_booking.Hotel.ID);
 
-            return p_booking;
+                        context.Booking.Add(p_booking);
+                        context.SaveChanges();
+
+                        transaction.Commit();
+                        return p_booking;
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        transaction.Rollback();
+                        return null;
+                    }
+                }
+            }
         }
     }
 }
