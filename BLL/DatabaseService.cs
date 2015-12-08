@@ -48,7 +48,7 @@ namespace FHDW.Hotel.BLL
         public void AddTestDataInDatabase()
         {
             // Address, Admin, Bookings, Guests, Hotels, Rooms
-            DatabaseRepository.InsertTestData(GetAddressTestData(), GetAdminTestData(), null, null, GetHotelTestData(), GetRoomTestData());
+            DatabaseRepository.InsertTestData(GetAddressTestData(), GetAdminTestData(), null, GetGuestTestData(), GetHotelTestData(), GetRoomTestData());
         }
 
         #region TESTDATA
@@ -61,21 +61,30 @@ namespace FHDW.Hotel.BLL
                         City = "Paderborn",
                         PostalCode = "33100",
                         Street = "Fürstenallee 3-5"
-                    },new Address
+                    },
+                new Address
                     {
                         City = "Lippstadt",
                         PostalCode = "59557",
                         Street = "Konrad-Adenauer-Ring 22"
-                    },new Address
+                    },
+                new Address
                     {
                         City = "Bielefeld",
                         PostalCode = "33602",
                         Street = "Irgendwostraße 5"
-                    },new Address
+                    },
+                new Address
                     {
                         City = "Kassel",
                         PostalCode = "34117",
                         Street = "Hier und da Weg 666"
+                    },
+                new Address
+                    {
+                        City = "Bad Westernkotten",
+                        PostalCode = "59597",
+                        Street = "Testweg 1"
                     }
             };
         }
@@ -88,6 +97,24 @@ namespace FHDW.Hotel.BLL
                 {
                     Username = "root",
                     Password = Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes("toor")))
+                }
+            };
+        }
+
+        private static ICollection<Guest> GetGuestTestData()
+        {
+            return new List<Guest>
+            {
+                new Guest
+                {
+                    ContactAddress = new Address { ID = 5 },
+                    Birthday = new DateTime(1991, 6, 21),
+                    Birthplace = "Dort",
+                    Emailaddress = "lucas@engel.de",
+                    Firstname = "Lucas",
+                    Lastname = "Engel",
+                    Password = Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes("123456"))),
+                    Telephone = "+49 123456789"
                 }
             };
         }

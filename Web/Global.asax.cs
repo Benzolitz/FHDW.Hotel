@@ -20,6 +20,7 @@ namespace FHDW.Hotel.Web
         public WebApiApplication()
         {
             DatabaseService = new DatabaseService();
+            DatabaseService.CreateDatabaseWithTestData();
         }
 
         /// <summary>
@@ -28,7 +29,6 @@ namespace FHDW.Hotel.Web
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(Register);
-            DatabaseService.CreateDatabaseWithTestData();
         }
 
         /// <summary>

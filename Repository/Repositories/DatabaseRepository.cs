@@ -51,7 +51,7 @@ namespace FHDW.Hotel.Repository.Repositories
                             context.Admin.AddRange(p_admins);
                             context.SaveChanges();
                         }
-                        
+
                         if (p_addresses != null && !context.Address.Any())
                         {
                             context.Address.AddRange(p_addresses);
@@ -64,8 +64,8 @@ namespace FHDW.Hotel.Repository.Repositories
                             {
                                 hotel.Address = context.Address.SingleOrDefault(a => a.ID == hotel.Address.ID);
                                 context.Hotel.Add(hotel);
-                                context.SaveChanges();
                             }
+                            context.SaveChanges();
                         }
 
                         if (p_rooms != null && !context.Room.Any())
@@ -74,12 +74,22 @@ namespace FHDW.Hotel.Repository.Repositories
                             {
                                 room.Hotel = context.Hotel.SingleOrDefault(h => h.ID == room.Hotel.ID);
                                 context.Room.Add(room);
-                                context.SaveChanges();
                             }
+                            context.SaveChanges();
+                        }
+
+                        if (p_guests != null && !context.Guest.Any())
+                        {
+                            foreach (var guest in p_guests)
+                            {
+                                if (guest.ContactAddress != null) guest.ContactAddress = context.Address.SingleOrDefault(a => a.ID == guest.ContactAddress.ID);
+                                if (guest.BillingAddress != null) guest.BillingAddress = context.Address.SingleOrDefault(a => a.ID == guest.BillingAddress.ID);
+                                context.Guest.Add(guest);
+                            }
+                            context.SaveChanges();
                         }
 
                         if (p_bookings != null && !context.Booking.Any()) context.Booking.AddRange(p_bookings);
-                        if (p_guests != null && !context.Guest.Any()) context.Guest.AddRange(p_guests);
 
                         transaction.Commit();
                     }
