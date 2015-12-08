@@ -20,6 +20,8 @@
             this._roomRequest = new Data.RoomRequest();
             this._hotelRequest = new Data.HotelRequest();
             this.getHotelData();
+
+            (<any>$("#accHotels")).collapse();
         }
 
         private checkCookie(): void {
@@ -66,16 +68,8 @@
 
 
         //#region GUI-Methods
-        public NextHotel(): void {
-            $("#sliHotels > div:first")
-                .fadeOut(100)
-                .next()
-                .fadeIn(1000)
-                .end()
-                .appendTo("#sliHotels");
-        }
-        public PreviousHotel(): void {
-            // TODO: Add previous logic
+        public GetHotelName(p_hotel: Models.Hotel): string {
+            return "Hotel " + p_hotel.Name + " (" + p_hotel.Address.City + ")";
         }
 
         public GetRoomTypeName(p_roomType: Enums.RoomType): string {
@@ -92,7 +86,7 @@
 
 
             localStorage.setItem("RoomModal", JSON.stringify(newRoom));
-            var roomModal = window.open("RoomModal.html", "Zimmerverwaltung", "toolbar=0,status=0,menubar=0,fullscreen=no,width=520,height=400");
+            var roomModal = window.open("RoomModal.html", "Zimmerverwaltung", "toolbar=0,status=0,menubar=0,fullscreen=no,width=520,height=445");
 
             roomModal.onunload = () => {
                 this.SaveRoom();
@@ -104,7 +98,7 @@
             p_room.Hotel.ID = p_hotelId;
 
             localStorage.setItem("RoomModal", JSON.stringify(p_room));
-            var roomModal = window.open("RoomModal.html", "Zimmerverwaltung", "toolbar=0,status=0,menubar=0,fullscreen=no,width=520,height=400");
+            var roomModal = window.open("RoomModal.html", "Zimmerverwaltung", "toolbar=0,status=0,menubar=0,fullscreen=no,width=520,height=445");
 
             roomModal.onunload = () => {
                 this.SaveRoom();
@@ -114,7 +108,6 @@
         public SaveRoom(): void {
             var room = localStorage.getItem("RoomModal");
             if (room) {
-                console.log(JSON.parse(room));
                 this._roomRequest.Put(JSON.parse(room)).then((p_room: Models.Room) => {
                     
                 });

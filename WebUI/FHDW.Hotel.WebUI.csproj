@@ -23,26 +23,44 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Administration.html" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="RoomManagement.html" />
     <Content Include="Login.html" />
     <Content Include="RoomModal.html" />
-    <Content Include="Scripts\Framework\jquery.min.js" />
-    <Content Include="Scripts\Framework\knockout.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\knockout-3.4.0.debug.js" />
+    <Content Include="Scripts\knockout-3.4.0.js" />
     <Content Include="Theme\Administration.css" />
-    <Content Include="Theme\Framework\bootstrap-theme.min.css" />
-    <Content Include="Theme\Framework\bootstrap.min.css" />
-    <Content Include="Theme\Framework\font-awesome.min.css" />
-    <Content Include="Theme\Framework\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Scripts\Framework\bootstrap.min.js" />
     <Content Include="Theme\Login.css" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Theme\Framework\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Theme\Framework\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Theme\Framework\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Theme\Framework\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -79,7 +97,7 @@
     <TypeScriptCompile Include="Scripts\app\Models\Admin.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Scripts\app\Services\AdministrationService.ts" />
+    <TypeScriptCompile Include="Scripts\app\Services\RoomManagementService.ts" />
     <TypeScriptCompile Include="Scripts\app\Services\CookieService.ts" />
     <TypeScriptCompile Include="Scripts\app\Services\LoginService.ts" />
     <TypeScriptCompile Include="Scripts\app\Services\RoomModalService.ts" />
