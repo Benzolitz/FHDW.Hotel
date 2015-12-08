@@ -11,7 +11,11 @@
         public RoomCategory = ko.observable<Enums.RoomCategory>();
         // endregion
 
+        private pressedSave: boolean = false;
+
         constructor() {
+            $(window).unload(() => { if (!this.pressedSave) localStorage.setItem("RoomModal", ""); });
+
             var roomString = localStorage.getItem("RoomModal");
             var room: Models.Room = JSON.parse(roomString);
 
@@ -34,6 +38,7 @@
         }
 
         public Save(): void {
+            this.pressedSave = true;
             this.Room().RoomNumber = this.RoomNumber();
             this.Room().Type = this.RoomType();
             this.Room().Category = this.RoomCategory();
@@ -44,7 +49,6 @@
         }
 
         public Close(): void {
-            localStorage.setItem("RoomModal", "");
             window.close();
         }
     }

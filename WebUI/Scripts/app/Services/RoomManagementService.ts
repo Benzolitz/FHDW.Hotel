@@ -93,9 +93,8 @@
             }
         }
 
-        public EditRoom(p_room: Models.Room, p_hotelId: number): void {
-            p_room.Hotel = new Models.Hotel();
-            p_room.Hotel.ID = p_hotelId;
+        public EditRoom(p_room: Models.Room, p_hotel: Models.Hotel): void {
+            p_room.Hotel = p_hotel;
 
             localStorage.setItem("RoomModal", JSON.stringify(p_room));
             var roomModal = window.open("RoomModal.html", "Zimmerverwaltung", "toolbar=0,status=0,menubar=0,fullscreen=no,width=520,height=445");
@@ -115,10 +114,10 @@
             localStorage.setItem("RoomModal", "");
         }
 
-        public DeleteRoom(p_room: Models.Room, p_hotelId: number): void {
+        public DeleteRoom(p_room: Models.Room): void {
             if (confirm("Sind Sie sicher, dass Sie den Raum " + p_room.RoomNumber + " löschen möchten?")) {
-                this._roomRequest.Delete(p_room).then((p_room: Models.Room) => {
-                    alert("Der Raum wurde erfolgreich gelöscht!");
+                this._roomRequest.DeleteById(p_room.ID).then((p_room: Models.Room) => {
+                    alert("Der Raum " + p_room.RoomNumber + " wurde erfolgreich gelöscht!");
                 });
             }
         }
