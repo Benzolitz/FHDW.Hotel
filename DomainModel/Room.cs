@@ -30,6 +30,7 @@ namespace FHDW.Hotel.DomainModel
             get { return Type.ToString(); }
             set { Type = EnumExtensions.ParseEnum<Enums.RoomType>(value); }
         }
+
         public Hotel Hotel { get; set; }
         public ICollection<Booking> Bookings { get; set; }
 

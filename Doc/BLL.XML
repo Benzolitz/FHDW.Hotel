@@ -40,6 +40,16 @@
             <param name="p_booking"></param>
             <returns></returns>
         </member>
+        <member name="M:FHDW.Hotel.BLL.BookingService.Save(FHDW.Hotel.DomainModel.Booking,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="p_booking"></param>
+            <param name="p_singleRoomCount"></param>
+            <param name="p_doubleRoomCount"></param>
+            <param name="p_familyRoomCount"></param>
+            <returns></returns>
+        </member>
         <member name="T:FHDW.Hotel.BLL.DatabaseService">
             <summary>
             
