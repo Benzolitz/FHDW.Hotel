@@ -54,7 +54,7 @@
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\knockout-3.4.0.debug.js" />
     <Content Include="Scripts\knockout-3.4.0.js" />
-    <Content Include="Theme\Administration.css" />
+    <Content Include="Theme\RoomManagement.css" />
     <Content Include="Theme\Login.css" />
     <Content Include="web.config" />
   </ItemGroup>
