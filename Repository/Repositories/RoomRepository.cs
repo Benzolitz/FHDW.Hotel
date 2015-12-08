@@ -49,20 +49,13 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <returns>List with all Rooms. If no Room exists, return an empty List.</returns>
         public ICollection<Room> GetAvailableRooms(int p_hotelId, DateTime p_arrival, DateTime p_departure)
         {
-            var cmd = new SqlCommand
+            using (var context = new FhdwHotelContext())
             {
-                CommandText = @"SELECT * FROM room 
-                                WHERE HotelID = @Hotelid AND
-                                      booking.Arrival = @Arrival AND
-                                      booking.Departure = @Departure"
-
-            };
-
-            cmd.Parameters.Add(new SqlParameter("@HotelID", p_hotelId));
-            cmd.Parameters.Add(new SqlParameter("@Arrival", p_arrival));
-            cmd.Parameters.Add(new SqlParameter("@Departure", p_departure));
-
-            return new List<Room>();
+                /*
+                     Hole alle Rooms (context.Room) in dem Hotel (Include(...)) und wandel das Ergebniss in eine Liste (ToList()).
+                */
+            }
+            return null;
         }
 
         /// <summary>
@@ -91,39 +84,32 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <returns>The updated Room-Object. NULL, or Exception if an error occurs.</returns>
         public Room Update(Room p_room)
         {
-            var cmd = new SqlCommand
+            using (var context = new FhdwHotelContext())
             {
-                CommandText = @"UPDATE room
-	                            SET RoomNumber =@RoomNumber, 
-                                    Price = @Price, 
-                                    HotelID = @HotelID, 
-                                    TypeID = @TypeID, 
-                                    CategoryID = @CategoryID
-                                    
-	                                WHERE ID = @ID"
+                var hotel = context.Hotel.SingleOrDefault(h => h.ID == p_room.Hotel.ID);
+	            p_room.Hotel = hotel;
+
+                context.Room.Add(p_room);
+                context.SaveChanges();
             };
 
-            cmd.Parameters.Add(new SqlParameter("@ID, @RoomNumber, @Price, @HotelID, @TypeID, @CategoryID", p_room));
-
-            return new Room();
+            return p_room;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="p_id"></param>
+        /// <param name="p_room"></param>
         /// <returns>The deleted Room-Object. NULL, or Exception if an error occurs.</returns>
-        public Room Delete(Room p_id)
+        public Room Delete(Room p_room)
         {
-            var cmd = new SqlCommand
+            using (var context = new FhdwHotelContext())
             {
-                CommandText = @"DELETE FROM room 
-                                WHERE ID = @ID"
+                context.Room.Remove(p_room);
+                context.SaveChanges();
             };
 
-            cmd.Parameters.Add(new SqlParameter("@id", p_id));
-            //Ich hab das hier mal geändert in p_id da hier doch anhand der id gelöscht wird also nicht über p_room ==> Prüfen bitte?
-            return new Room();
+            return p_room;
         }
     }
 }
