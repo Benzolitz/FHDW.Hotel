@@ -7,8 +7,9 @@ using FHDW.Hotel.Repository.Database;
 namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
-    /// Every Request returning a Hotel-Object will be handled in this Repository.
+    /// Repository for all Hotel-related queries. 
     /// </summary>
+    /// <author>Viktoria Pierenkemper, Lucas Engel</author>
     public class HotelRepository : IHotelRepository
     {
         /// <summary>
@@ -19,9 +20,6 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                /*
-                Hole alle Hotels (context.Hotel) mit ihren Adressen (Include(...)) und wandel das Ergebniss in eine Liste (ToList()).
-                */
                 return context.Hotel.Include(h => h.Address).ToList();
             }
         }
@@ -36,9 +34,6 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                /*
-                Wir möchten einen Datensatz aus der Tabelle Hotel (context.Hotel), der die Adresse beinhaltet (Include(...)), aber nur den ersten der mit der übergebenen ID übereinstimmt.
-                */
                 return context.Hotel.Include(a => a.Address).FirstOrDefault(h => h.ID == p_id);
             }
         }

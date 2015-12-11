@@ -10,8 +10,9 @@ using System.Data.Entity.Migrations;
 namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
-    /// Every Request returning a Room-Object will be handled in this Repository.
+    /// Repository for all Room-related queries. 
     /// </summary>
+    /// <author>Viktoria Pierenkemper, Lucas Engel</author>
     public class RoomRepository : IRoomRepository
     {
         /// <summary>

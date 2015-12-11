@@ -6,8 +6,9 @@ using System.Linq;
 namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
-    /// Every Request returning an Admin-Object will be handled in this Repository.
+    /// Repository for all Admin-related queries.
     /// </summary>
+    /// <author>Viktoria Pierenkemper, Lucas Engel</author>
     public class AdminRepository : IAdminRepository
     {
         /// <summary>

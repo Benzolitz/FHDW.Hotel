@@ -8,12 +8,13 @@ using FHDW.Hotel.Repository.Database;
 namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
-    /// 
+    /// Repository for the testdata. 
     /// </summary>
+    /// <author>Lucas Engel</author>
     public class DatabaseRepository : IDatabaseRepository
     {
         /// <summary>
-        /// 
+        /// Create a new Database, if non exists.
         /// </summary>
         public void CreateDatabase()
         {
@@ -36,7 +37,7 @@ namespace FHDW.Hotel.Repository.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Insert a wide variety on testdata into the database.
         /// </summary>
         public void InsertTestData(ICollection<Address> p_addresses, ICollection<Admin> p_admins, ICollection<Booking> p_bookings, ICollection<Guest> p_guests, ICollection<DomainModel.Hotel> p_hotels, ICollection<Room> p_rooms)
         {

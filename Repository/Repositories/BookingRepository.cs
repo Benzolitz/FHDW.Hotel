@@ -8,15 +8,16 @@ using System.Linq;
 namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
-    /// 
+    /// Repository for all Booking-related queries. 
     /// </summary>
+    /// <author>Viktoria Pierenkemper, Lucas Engel</author>
     public class BookingRepository : IBookingRepository
     {
         /// <summary>
-        /// 
+        /// Insert a new booking into the database.
         /// </summary>
-        /// <param name="p_booking"></param>
-        /// <returns></returns>
+        /// <param name="p_booking">Bookingobject without an ID.</param>
+        /// <returns>Filled Bookingobject.</returns>
         public Booking Insert(Booking p_booking)
         {
             using (var context = new FhdwHotelContext())
@@ -58,10 +59,10 @@ namespace FHDW.Hotel.Repository.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Update an existing Booking entry.
         /// </summary>
-        /// <param name="p_booking"></param>
-        /// <returns></returns>
+        /// <param name="p_booking">Bookingobject with an ID.</param>
+        /// <returns>Updated Bookingobject.</returns>
         public Booking Update(Booking p_booking)
         {
             using (var context = new FhdwHotelContext())

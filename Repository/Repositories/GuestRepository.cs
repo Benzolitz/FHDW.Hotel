@@ -8,8 +8,9 @@ using System.Linq;
 namespace FHDW.Hotel.Repository.Repositories
 {
     /// <summary>
-    /// Every Request returning a Guest-Object will be handled in this Repository.
+    /// Repository for all Guest-related queries. 
     /// </summary>
+    /// <author>Viktoria Pierenkemper, Lucas Engel</author>
     public class GuestRepository : IGuestRepository
     {
         /// <summary>
@@ -22,9 +23,6 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                /*
-                Wir möchten einen Datensatz aus der Tabelle Guest (context.Guest), der die EmailAdresse beinhaltet (Include(...)), aber nur den der mit der übergebenen EmailAdresse übereinstimmt.
-                */
                 return context.Guest
                     .Include(g => g.ContactAddress)
                     .Include(g=> g.BillingAddress)
