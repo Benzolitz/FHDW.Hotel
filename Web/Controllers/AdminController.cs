@@ -7,34 +7,34 @@ using FHDW.Hotel.BLL;
 namespace FHDW.Hotel.Web.Controllers
 {
     /// <summary>
-    /// 
+    /// Handle all Admin-Requests (/api/Admin)
     /// </summary>
+    /// <author>Lucas Engel</author>
     public class AdminController : BaseController
     {
         #region Dependencies
-        private readonly AdminService AdminService;
+        private readonly AdminService _adminService;
         #endregion
 
         /// <summary>
-        /// 
+        /// Initialize the AdminController.
         /// </summary>
         public AdminController()
         {
-            AdminService = new AdminService();
+            _adminService = new AdminService();
         }
 
         /// <summary>
-        /// Check if the given Logindata is valid and return an Adminobject.
+        /// Check if Logindata is valid. (/api/Admin?Username=xxx&Password=yyy)
         /// </summary>
-        /// <param name="p_username">Username of the AdminModel.</param>
-        /// <param name="p_password">Password of the AdminModel.</param>
-        /// <returns>A valid Adminobject or NULL.</returns>
+        /// <param name="p_username">Username</param>
+        /// <param name="p_password">Password</param>
+        /// <returns>Filled Adminobject, or NULL.</returns>
         public HttpResponseMessage Get([FromUri(Name = "Username")]string p_username, [FromUri(Name = "Password")]string p_password)
         {
             try
             {
-                var admin = AdminService.CheckLogin(p_username, p_password);
-                return Request.CreateResponse(HttpStatusCode.OK, admin);
+                return Request.CreateResponse(HttpStatusCode.OK, _adminService.CheckLogin(p_username, p_password));
             }
             catch (Exception ex)
             {

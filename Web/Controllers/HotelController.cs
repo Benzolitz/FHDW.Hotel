@@ -7,31 +7,32 @@ using FHDW.Hotel.BLL;
 namespace FHDW.Hotel.Web.Controllers
 {
     /// <summary>
-    /// 
+    /// Handle all Hotel-Requests (/api/Hotel)
     /// </summary>
+    /// <author>Lucas Engel</author>
     public class HotelController : BaseController
     {
         #region Dependencies
-        private HotelService HotelService { get; set; }
+        private readonly HotelService _hotelService;
         #endregion
 
         /// <summary>
-        /// 
+        /// Initialize the HotelController.
         /// </summary>
         public HotelController()
         {
-            HotelService = new HotelService();
+            _hotelService = new HotelService();
         }
 
         /// <summary>
-        /// 
+        /// Get a List with all Hotels present in the database.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Filled, or empy Collection.</returns>
         public HttpResponseMessage Get()
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, HotelService.GetCollection());
+                return Request.CreateResponse(HttpStatusCode.OK, _hotelService.GetCollection());
             }
             catch (Exception ex)
             {
@@ -40,14 +41,15 @@ namespace FHDW.Hotel.Web.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Get a specific Hotel with their ID. (/api/hotel?ID=1)
         /// </summary>
-        /// <returns></returns>
+        /// <param name="p_id">ID of the Hotel.</param>
+        /// <returns>Hotelobject, or NULL.</returns>
         public HttpResponseMessage Get([FromUri(Name = "ID")] int p_id)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, HotelService.GetById(p_id));
+                return Request.CreateResponse(HttpStatusCode.OK, _hotelService.GetById(p_id));
             }
             catch (Exception ex)
             {

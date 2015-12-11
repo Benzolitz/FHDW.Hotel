@@ -8,31 +8,34 @@ using FHDW.Hotel.DomainModel;
 namespace FHDW.Hotel.Web.Controllers
 {
     /// <summary>
-    /// 
+    /// Handle all Guest-Requests (/api/Guest)
     /// </summary>
+    /// <author>Lucas Engel</author>
     public class GuestController : BaseController
     {
         #region Dependencies
-        private GuestService GuestService { get; set; }
+        private readonly GuestService _guestService;
         #endregion
 
         /// <summary>
-        /// 
+        /// Initialize the GuestController.
         /// </summary>
         public GuestController()
         {
-            GuestService = new GuestService();
+            _guestService = new GuestService();
         }
 
-        /// <summary>
-        /// 
+        /// <summary> 
+        /// Check if Logindata is valid. (/api/Guest?EMail=xxx&Password=yyy)
         /// </summary>
-        /// <returns></returns>
+        /// <param name="p_username">Username</param>
+        /// <param name="p_password">Password</param>
+        /// <returns>Filled Guestobject, or NULL.</returns>
         public HttpResponseMessage Get([FromUri(Name = "EMail")] string p_email, [FromUri(Name = "Password")] string p_password)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, GuestService.CheckLogin(p_email, p_password));
+                return Request.CreateResponse(HttpStatusCode.OK, _guestService.CheckLogin(p_email, p_password));
             }
             catch (Exception ex)
             {
@@ -41,14 +44,15 @@ namespace FHDW.Hotel.Web.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Add a new Guest to the Database.
         /// </summary>
-        /// <returns></returns>
-        public HttpResponseMessage Post([FromBody] Guest p_guestModel)
+        /// <param name="p_guest">Guestobject without an ID.</param>
+        /// <returns>The same Guestobject with an ID, or NULL.</returns>
+        public HttpResponseMessage Post([FromBody] Guest p_guest)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, GuestService.SaveGuest(p_guestModel));
+                return Request.CreateResponse(HttpStatusCode.OK, _guestService.SaveGuest(p_guest));
             }
             catch (Exception ex)
             {
@@ -57,14 +61,15 @@ namespace FHDW.Hotel.Web.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Update an existing Guest in the Database. 
         /// </summary>
-        /// <returns></returns>
-        public HttpResponseMessage Put([FromBody] Guest p_guestModel)
+        /// <param name="p_guest">Guestobject with an ID.</param>
+        /// <returns>The same Guestobject, or NULL.</returns>
+        public HttpResponseMessage Put([FromBody] Guest p_guest)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, GuestService.SaveGuest(p_guestModel));
+                return Request.CreateResponse(HttpStatusCode.OK, _guestService.SaveGuest(p_guest));
             }
             catch (Exception ex)
             {

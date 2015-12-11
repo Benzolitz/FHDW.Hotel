@@ -6,25 +6,21 @@ using FHDW.Hotel.BLL;
 namespace FHDW.Hotel.Web
 {
     /// <summary>
-    /// 
+    /// Global configuration of the server. Only gets initialized once the server starts.
     /// </summary>
+    /// <author>Lucas Engel</author>
     public class WebApiApplication : HttpApplication
     {
-        #region Dependencies
-        public DatabaseService DatabaseService;
-        #endregion
-
         /// <summary>
-        /// 
+        /// Initilize the Application.
         /// </summary>
         public WebApiApplication()
         {
-            DatabaseService = new DatabaseService();
-            DatabaseService.CreateDatabaseWithTestData();
+            new DatabaseService().CreateDatabaseWithTestData();
         }
 
         /// <summary>
-        /// 
+        /// Call once, when the application first starts.
         /// </summary>
         protected void Application_Start()
         {
@@ -32,14 +28,14 @@ namespace FHDW.Hotel.Web
         }
 
         /// <summary>
-        /// 
+        /// Set configurations for the server.
         /// </summary>
-        /// <param name="config"></param>
-        public static void Register(HttpConfiguration config)
+        /// <param name="p_config">Current serverconfiguration.</param>
+        public static void Register(HttpConfiguration p_config)
         {
-            config.MapHttpAttributeRoutes();
-            config.Routes.MapHttpRoute("DefaultApi", "api/{controller}");
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));;
+            p_config.MapHttpAttributeRoutes();
+            p_config.Routes.MapHttpRoute("DefaultApi", "api/{controller}");
+            p_config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));;
         }
     }
 }
