@@ -6,258 +6,272 @@
     <members>
         <member name="T:FHDW.Hotel.Web.Controllers.AdminController">
             <summary>
-            
+            Handle all Admin-Requests (/api/Admin)
             </summary>
+            <author>Lucas Engel</author>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.AdminController.#ctor">
             <summary>
-            
+            Initialize the AdminController.
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.AdminController.Get(System.String,System.String)">
-            <summary>
-            Check if the given Logindata is valid and return an Adminobject.
-            </summary>
-            <param name="p_username">Username of the AdminModel.</param>
-            <param name="p_password">Password of the AdminModel.</param>
-            <returns>A valid Adminobject or NULL.</returns>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:FHDW.Hotel.Web.Controllers.AdminController.Get(System.String,System.String)" -->
         <member name="T:FHDW.Hotel.Web.Controllers.BaseController">
             <summary>
             The BaseController will be used as the super class for all controller.
             Redundant Methods and workloads will be handled here.
             </summary>
+            <author>Lucas Engel</author>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleBadRequestError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return a Bad Request response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleUnauthorizationError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return am Unauthorized response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleForbiddenError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return a Forbidden response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleNotFoundError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return a Not Found response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleNotAcceptableError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return a Not Acceptable response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandlRequestTimeoutError(System.Exception)">
+        <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleRequestTimeoutError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return a Request Timeout response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleConflictError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return a Conflict response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleGoneError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return a Gone response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleLengthRequiredError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return a Length required response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandlePreconditionFailedError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return a Precondition failed response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleExpectationFailedError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return an Exceptio failed response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleInternalServerError(System.Exception)">
             <summary>
-            
+            Handle all Exception which will return an Internal Server Error response.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BaseController.HandleGeneralError(System.Exception)">
             <summary>
-            
+            Handle all general Exception for which no response types are availble.
             </summary>
-            <param name="p_exception"></param>
-            <returns></returns>
+            <param name="p_exception">Exception that will be returned.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="T:FHDW.Hotel.Web.Controllers.BookingController">
             <summary>
-            
+            Handle all Booking-Requests (/api/Booking)
             </summary>
+            <author>Lucas Engel</author>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BookingController.#ctor">
             <summary>
-            
+            Initialize the BookingController.
             </summary>
+        </member>
+        <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Post(FHDW.Hotel.DomainModel.CurrentBooking)">
+            <summary>
+            Add a new Booking to the Database.
+            </summary>
+            <param name="p_booking">Bookingobject without an ID.</param>
+            <returns>The same Bookingobject with an ID, or NULL.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.BookingController.Put(FHDW.Hotel.DomainModel.CurrentBooking)">
             <summary>
-            
+            Update an existing Booking in the Database. 
             </summary>
-            <param name="p_bookingModel"></param>
-            <returns></returns>
+            <param name="p_booking">Bookingobject with an ID.</param>
+            <returns>The same Bookingobject, or NULL.</returns>
         </member>
         <member name="T:FHDW.Hotel.Web.Controllers.GuestController">
             <summary>
-            
+            Handle all Guest-Requests (/api/Guest)
             </summary>
+            <author>Lucas Engel</author>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.GuestController.#ctor">
             <summary>
-            
+            Initialize the GuestController.
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Get(System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:FHDW.Hotel.Web.Controllers.GuestController.Get(System.String,System.String)" -->
         <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Post(FHDW.Hotel.DomainModel.Guest)">
             <summary>
-            
+            Add a new Guest to the Database.
             </summary>
-            <returns></returns>
+            <param name="p_guest">Guestobject without an ID.</param>
+            <returns>The same Guestobject with an ID, or NULL.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.GuestController.Put(FHDW.Hotel.DomainModel.Guest)">
             <summary>
-            
+            Update an existing Guest in the Database. 
             </summary>
-            <returns></returns>
+            <param name="p_guest">Guestobject with an ID.</param>
+            <returns>The same Guestobject, or NULL.</returns>
         </member>
         <member name="T:FHDW.Hotel.Web.Controllers.HotelController">
             <summary>
-            
+            Handle all Hotel-Requests (/api/Hotel)
             </summary>
+            <author>Lucas Engel</author>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.HotelController.#ctor">
             <summary>
-            
+            Initialize the HotelController.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.HotelController.Get">
             <summary>
-            
+            Get a List with all Hotels present in the database.
             </summary>
-            <returns></returns>
+            <returns>Filled, or empy Collection.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.HotelController.Get(System.Int32)">
             <summary>
-            
+            Get a specific Hotel with their ID. (/api/hotel?ID=1)
             </summary>
-            <returns></returns>
+            <param name="p_id">ID of the Hotel.</param>
+            <returns>Hotelobject, or NULL.</returns>
         </member>
         <member name="T:FHDW.Hotel.Web.Controllers.RoomController">
             <summary>
-            
+            Handle all Room-Requests (/api/Room)
             </summary>
+            <author>Lucas Engel</author>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.#ctor">
             <summary>
-            
+            Initialize the RoomController.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.Int32)">
             <summary>
-            
+            Get a specific Room by their ID.
             </summary>
-            <returns></returns>
+            <param name="p_id">ID of the room.</param>
+            <returns>Roomobject, or NULL.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(FHDW.Hotel.DomainModel.Hotel)">
             <summary>
-            
+            Get a Collection of all Rooms in a Hotel.
             </summary>
-            <returns></returns>
+            <param name="p_hotel">Hotelobject with at least the ID of the Hotel.</param>
+            <returns>Filled, or empty Collection.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Get(System.Int32,System.DateTime,System.DateTime)">
             <summary>
-            
+            Get all Rooms wich are availble between a specific timeframe.
             </summary>
-            <returns></returns>
+            <param name="p_id">ID of the desired Hotel.</param>
+            <param name="p_arrival">Arrivaldate.</param>
+            <param name="p_departure">Departuredate.</param>
+            <returns>Filled, or empty Collection.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Post(FHDW.Hotel.DomainModel.Room)">
             <summary>
-            
+            Add a new Room to the database.
             </summary>
-            <returns></returns>
+            <param name="p_room">The new Roomobject without an ID.</param>
+            <returns>Roomobject with a set ID.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Put(FHDW.Hotel.DomainModel.Room)">
             <summary>
-            
+            Update an existing Room.
             </summary>
-            <returns></returns>
+            <param name="p_room">Roomobject with an ID set.</param>
+            <returns>The same Roomobject, or NULL.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Delete(System.Int32)">
             <summary>
-            
+            Delete a room in the database.
             </summary>
-            <returns></returns>
+            <param name="p_id">ID of the room.</param>
+            <returns>The deleted Roomobject, or NULL.</returns>
         </member>
         <member name="M:FHDW.Hotel.Web.Controllers.RoomController.Delete(FHDW.Hotel.DomainModel.Room)">
             <summary>
-            
+            Delete a room in the database.
             </summary>
-            <returns></returns>
+            <param name="p_room">Roomobject with set ID.</param>
+            <returns>The deleted Roomobject, or NULL.</returns>
         </member>
         <member name="T:FHDW.Hotel.Web.WebApiApplication">
             <summary>
-            
+            Global configuration of the server. Only gets initialized once the server starts.
             </summary>
+            <author>Lucas Engel</author>
         </member>
         <member name="M:FHDW.Hotel.Web.WebApiApplication.#ctor">
             <summary>
-            
+            Initilize the Application.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.Web.WebApiApplication.Application_Start">
             <summary>
-            
+            Call once, when the application first starts.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.Web.WebApiApplication.Register(System.Web.Http.HttpConfiguration)">
             <summary>
-            
+            Set configurations for the server.
             </summary>
-            <param name="config"></param>
+            <param name="p_config">Current serverconfiguration.</param>
         </member>
     </members>
 </doc>

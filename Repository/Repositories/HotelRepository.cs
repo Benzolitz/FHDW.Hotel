@@ -29,7 +29,6 @@ namespace FHDW.Hotel.Repository.Repositories
         /// </summary>
         /// <param name="p_id">ID of the Hotel</param>
         /// <returns>The requested Hotel. If no Hotel exists, return NULL.</returns>
-        /// <creator>Viktoria Pierenkemper</creator>
         public DomainModel.Hotel GetById(int p_id)
         {
             using (var context = new FhdwHotelContext())

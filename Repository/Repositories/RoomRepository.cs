@@ -29,11 +29,10 @@ namespace FHDW.Hotel.Repository.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Get a Collection of all Rooms from one Hotel
         /// </summary>
-        /// <param name="p_hotel"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <param name="p_hotel">Hotelobject with an ID set</param>
+        /// <returns>Collection of Rooms.</returns>
         public ICollection<Room> GetCollectionByHotel(DomainModel.Hotel p_hotel)
         {
             using (var context = new FhdwHotelContext())
@@ -53,9 +52,6 @@ namespace FHDW.Hotel.Repository.Repositories
         {
             using (var context = new FhdwHotelContext())
             {
-                /*
-                     Hole alle Rooms (context.Room) in einem bestimmten Hotel die zum gewünschten Zeitraum frei sind (Where...) und wandel das Ergebniss in eine Liste (ToList()).
-                */
                 return context.Room.Include(b => b.Bookings)
                     .Where(r => r.Hotel.ID == p_hotelId)
                     .Where(r => !r.Bookings.Any())
@@ -130,9 +126,9 @@ namespace FHDW.Hotel.Repository.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Delete a room from the database.
         /// </summary>
-        /// <param name="p_room"></param>
+        /// <param name="p_room">Roomobject with the ID set.</param>
         /// <returns>The deleted Room-Object. NULL, or Exception if an error occurs.</returns>
         public Room Delete(Room p_room)
         {
