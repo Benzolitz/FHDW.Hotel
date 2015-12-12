@@ -5,40 +5,40 @@ using FHDW.Hotel.Repository.Repositories;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// Handle all Requests for the Hotel.
+    /// Handles all logical decisions for the Hotelobject.
     /// </summary>
     /// <creator>Lucas Engel</creator>
     public class HotelService
     {
         #region Dependencies
-        private IHotelRepository HotelRepository { get; set; }
+        private readonly IHotelRepository _hotelRepository;
         #endregion
 
         /// <summary>
-        /// Initialize the HotelService.
+        /// Initialize the Service.
         /// </summary>
         public HotelService()
         {
-            HotelRepository = new HotelRepository();
+            _hotelRepository = new HotelRepository();
         }
 
         /// <summary>
-        /// GetById a Collection of all Hotels.
+        /// Get a Collection of all Hotels.
         /// </summary>
-        /// <returns>Hotel-Collection</returns>
+        /// <returns>Filled or Empty Collection</returns>
         public ICollection<DomainModel.Hotel> GetCollection()
         {
-            return HotelRepository.GetCollection();
+            return _hotelRepository.GetCollection();
         }
 
         /// <summary>
-        /// 
+        /// Get a specific Hotel by ID
         /// </summary>
-        /// <param name="p_id"></param>
-        /// <returns></returns>
+        /// <param name="p_id">ID of the Hotel</param>
+        /// <returns>Filled Hotelobject, or NULL</returns>
         public DomainModel.Hotel GetById(int p_id)
         {
-            return HotelRepository.GetById(p_id);
+            return _hotelRepository.GetById(p_id);
         }
     }
 }

@@ -6,48 +6,43 @@ using FHDW.Hotel.Repository.Repositories;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// 
+    /// Handles all logical decisions for the Bookingobject.
     /// </summary>
+    /// <author>Lucas Engel</author>
     public class BookingService
     {
         #region Dependencies
-        private IBookingRepository BookingRepository;
-        private IRoomRepository RoomRepository;
+        private readonly IBookingRepository _bookingRepository;
+        private readonly IRoomRepository _roomRepository;
         #endregion
 
         /// <summary>
-        /// 
+        /// Initialize the Service
         /// </summary>
         public BookingService()
         {
-            BookingRepository = new BookingRepository();
-            RoomRepository = new RoomRepository();
+            _bookingRepository = new BookingRepository();
+            _roomRepository = new RoomRepository();
         }
 
         /// <summary>
-        /// 
+        /// Save a booking. Depending on the ID, the booking will be inserted, or updated.
         /// </summary>
-        /// <param name="p_booking"></param>
-        /// <returns></returns>
+        /// <param name="p_booking">Bookingobject</param>
+        /// <returns>Full Bookingobject, or NULL</returns>
         public Booking Save(Booking p_booking)
         {
-            return p_booking.ID == 0 ? BookingRepository.Insert(p_booking) : BookingRepository.Update(p_booking);
+            return p_booking.ID == 0 ? _bookingRepository.Insert(p_booking) : _bookingRepository.Update(p_booking);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="p_booking"></param>
-        /// <param name="p_singleRoomCount"></param>
-        /// <param name="p_doubleRoomCount"></param>
-        /// <param name="p_familyRoomCount"></param>
         /// <returns></returns>
         public Booking Save(CurrentBooking p_booking)
         {
-            var availableRooms = RoomRepository.GetAvailableRooms(p_booking.Hotel.ID, p_booking.Arrival, p_booking.Departure);
-            var single = 0;
-            var doubleR = 0;
-            var family = 0;
+            var availableRooms = _roomRepository.GetAvailableRooms(p_booking.Hotel.ID, p_booking.Arrival, p_booking.Departure);
 
             var booking = new Booking
             {
@@ -57,38 +52,13 @@ namespace FHDW.Hotel.BLL
                 Guest = p_booking.Guest,
                 Rooms = new List<Room>()
             };
-
-
+            
             foreach (var availableRoom in availableRooms)
             {
-                switch (availableRoom.Type)
-                {
-                    case Enums.RoomType.Single:
-                        if (single < p_booking.singleRoomCnt)
-                        {
-                            single++;
-                            booking.Rooms.Add(availableRoom);
-                        }
-
-                        break;
-                    case Enums.RoomType.Double:
-                        if (doubleR < p_booking.doubleRoomCnt)
-                        {
-                            doubleR++;
-                            booking.Rooms.Add(availableRoom);
-                        }
-
-                        break;
-                    case Enums.RoomType.Family:
-                        if (family < p_booking.familyRoomCnt)
-                        {
-                            family++;
-                            booking.Rooms.Add(availableRoom);
-                        }
-                        break;
-                }
+                booking.Rooms.Add(availableRoom);
             }
-            return BookingRepository.Insert(booking);
+
+            return _bookingRepository.Insert(booking);
         }
     }
 }

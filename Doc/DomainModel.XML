@@ -6,12 +6,47 @@
     <members>
         <member name="T:FHDW.Hotel.DomainModel.Address">
             <summary>
-            
+            Addressmodel
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Address.ID">
+            <summary>
+            ID of the address
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Address.Street">
+            <summary>
+            Street of the address
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Address.PostalCode">
+            <summary>
+            Postalcode of the address
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Address.City">
+            <summary>
+            City of the address
             </summary>
         </member>
         <member name="T:FHDW.Hotel.DomainModel.Admin">
             <summary>
-            
+            Adminmodel
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Admin.ID">
+            <summary>
+            ID of the admin
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Admin.Username">
+            <summary>
+            Username of the admin
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Admin.Password">
+            <summary>
+            Password of the admin
             </summary>
         </member>
         <member name="T:FHDW.Hotel.DomainModel.CurrentBooking">
@@ -21,60 +56,192 @@
         </member>
         <member name="T:FHDW.Hotel.DomainModel.Booking">
             <summary>
-            
+            Bookingmodel
             </summary>
         </member>
-        <member name="T:FHDW.Hotel.DomainModel.Enums">
+        <member name="P:FHDW.Hotel.DomainModel.Booking.ID">
             <summary>
-            
+            ID of the booking
             </summary>
         </member>
-        <member name="T:FHDW.Hotel.DomainModel.Enums.RoomType">
+        <member name="P:FHDW.Hotel.DomainModel.Booking.Arrival">
             <summary>
-            
+            Arrivaldate of the Booking
             </summary>
         </member>
-        <member name="T:FHDW.Hotel.DomainModel.Enums.RoomCategory">
+        <member name="P:FHDW.Hotel.DomainModel.Booking.Departure">
             <summary>
-            
+            Departuredate of the booking
             </summary>
         </member>
-        <member name="T:FHDW.Hotel.DomainModel.Enums.SortOrder">
+        <member name="P:FHDW.Hotel.DomainModel.Booking.Guest">
             <summary>
-            
+            Guest who is booking
             </summary>
         </member>
-        <member name="T:FHDW.Hotel.DomainModel.EnumExtensions">
+        <member name="P:FHDW.Hotel.DomainModel.Booking.Hotel">
             <summary>
-            
+            Hotel that is booked for
             </summary>
         </member>
-        <member name="M:FHDW.Hotel.DomainModel.EnumExtensions.ParseEnum``1(System.String)">
+        <member name="P:FHDW.Hotel.DomainModel.Booking.Rooms">
             <summary>
-            
+            Rooms that will be booked
             </summary>
-            <param name="value"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
         </member>
         <member name="T:FHDW.Hotel.DomainModel.Guest">
             <summary>
-            
+            Guestmodel
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Guest.ID">
+            <summary>
+            ID of the Guest
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Guest.Firstname">
+            <summary>
+            Fiestname of the Guest
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Guest.Lastname">
+            <summary>
+            Lastname of the Guest
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Guest.Emailaddress">
+            <summary>
+            Emailaddress of the Guest
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Guest.Password">
+            <summary>
+            Password of the Guest
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Guest.Birthday">
+            <summary>
+            Birthday of the Guest
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Guest.Birthplace">
+            <summary>
+            Birtplace of the Guest
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Guest.Telephone">
+            <summary>
+            Telephonenumber of the Guest
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Guest.ContactAddress">
+            <summary>
+            Contactaddress of the Guest
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Guest.BillingAddress">
+            <summary>
+            Billingaddress of the Guest
             </summary>
         </member>
         <member name="T:FHDW.Hotel.DomainModel.Hotel">
             <summary>
-            
+            Hotelmodel
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Hotel.ID">
+            <summary>
+            ID of the Hotel
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Hotel.Name">
+            <summary>
+            Name of the Hotel
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Hotel.Address">
+            <summary>
+            Address of the Hotel
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Hotel.Rooms">
+            <summary>
+            Rooms that the Hotel posseses
             </summary>
         </member>
         <member name="T:FHDW.Hotel.DomainModel.Room">
             <summary>
-            
+            Roomodel
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Room.ID">
+            <summary>
+            ID of the Room
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Room.RoomNumber">
+            <summary>
+            Number of the Room
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Room.PersonCount">
+            <summary>
+            Personcount of the Room
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Room.Price">
+            <summary>
+            Price of the Room
             </summary>
         </member>
         <member name="P:FHDW.Hotel.DomainModel.Room.Category">
             <summary>
-            Don't map enums, because they will be saved as integer. We want strings.
+            Category of the Room
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Room.Type">
+            <summary>
+            Type of the Room
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Room.Hotel">
+            <summary>
+            Hotel that the Room is added to
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.Room.Bookings">
+            <summary>
+            All bookings of the Room
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.DomainModel.RoomCategory">
+            <summary>
+            Roomcategorymodel
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.RoomCategory.ID">
+            <summary>
+            ID of the category
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.RoomCategory.Category">
+            <summary>
+            Categoryname
+            </summary>
+        </member>
+        <member name="T:FHDW.Hotel.DomainModel.RoomType">
+            <summary>
+            Roomtypemodel
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.RoomType.ID">
+            <summary>
+            ID of the Type
+            </summary>
+        </member>
+        <member name="P:FHDW.Hotel.DomainModel.RoomType.Type">
+            <summary>
+            Typename
             </summary>
         </member>
     </members>

@@ -9,24 +9,24 @@ using FHDW.Hotel.Repository.Repositories;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// 
+    /// Handles all logical decisions for the Testdata.
     /// </summary>
     public class DatabaseService
     {
         #region Dependencies
-        public IDatabaseRepository DatabaseRepository;
+        private readonly IDatabaseRepository _databaseRepository;
         #endregion
 
         /// <summary>
-        /// 
+        /// Initilize Service.
         /// </summary>
         public DatabaseService()
         {
-            DatabaseRepository = new DatabaseRepository();
+            _databaseRepository = new DatabaseRepository();
         }
 
         /// <summary>
-        /// 
+        /// Create a new Database and add Testdata.
         /// </summary>
         public void CreateDatabaseWithTestData()
         {
@@ -35,20 +35,20 @@ namespace FHDW.Hotel.BLL
         }
 
         /// <summary>
-        /// 
+        /// Create a new Database
         /// </summary>
         public void CreateDatabase()
         {
-            DatabaseRepository.CreateDatabase();
+            _databaseRepository.CreateDatabase();
         }
 
         /// <summary>
-        /// 
+        /// Add Testdata to the Database
         /// </summary>
         public void AddTestDataInDatabase()
         {
             // Address, Admin, Bookings, Guests, Hotels, Rooms
-            DatabaseRepository.InsertTestData(GetAddressTestData(), GetAdminTestData(), null, GetGuestTestData(), GetHotelTestData(), GetRoomTestData());
+            _databaseRepository.InsertTestData(GetAddressTestData(), GetAdminTestData(), null, GetGuestTestData(), GetHotelTestData(), GetRoomTestData(), GetRoomTypeTestData(), GetRoomCategoryTestData());
         }
 
         #region TESTDATA
@@ -148,11 +148,6 @@ namespace FHDW.Hotel.BLL
 
         private static ICollection<Room> GetRoomTestData()
         {
-            var hotelEins = new DomainModel.Hotel { ID = 1 };
-            var hotelZwei = new DomainModel.Hotel { ID = 2 };
-            var hotelDrei = new DomainModel.Hotel { ID = 3 };
-            var hotelVier = new DomainModel.Hotel { ID = 4 };
-
             var rooms = new List<Room>();
 
             for (var i = 0; i < 4; i++)
@@ -161,9 +156,9 @@ namespace FHDW.Hotel.BLL
                 {
                     rooms.Add(new Room
                     {
-                        Hotel = i == 1 ? hotelEins : i == 2 ? hotelZwei : i == 3 ? hotelDrei : hotelVier,
-                        Category = Enums.RoomCategory.Standard,
-                        Type = j % 2 == 0 ? Enums.RoomType.Single : j % 3 == 0 ? Enums.RoomType.Double : Enums.RoomType.Family,
+                        Hotel = i == 1 ? new DomainModel.Hotel { ID = 1 } : i == 2 ? new DomainModel.Hotel { ID = 2 } : i == 3 ? new DomainModel.Hotel { ID = 3 } : new DomainModel.Hotel { ID = 4 },
+                        Category = j % 2 == 0 ? new RoomCategory { ID = 1 } : j % 3 == 0 ? new RoomCategory { ID = 2 } : new RoomCategory { ID = 3 },
+                        Type = j % 2 == 0 ? new RoomType { ID = 1 } : j % 3 == 0 ? new RoomType { ID = 2 } : new RoomType { ID = 3 },
                         PersonCount = j % 2 == 0 ? 1 : j % 3 == 0 ? 2 : 6,
                         Price = j % 2 == 0 ? 11.11f : j % 3 == 0 ? 22.22f : 30f,
                         RoomNumber = String.Format("0{0}{1}", i, j)
@@ -172,6 +167,50 @@ namespace FHDW.Hotel.BLL
             }
 
             return rooms;
+        }
+
+        private static ICollection<RoomCategory> GetRoomCategoryTestData()
+        {
+            return new List<RoomCategory>
+            {
+                new RoomCategory
+                {
+                    ID = 1,
+                    Category = "Standard"
+                },
+                new RoomCategory
+                {
+                    ID = 2,
+                    Category = "Keine"
+                },
+                new RoomCategory
+                {
+                    ID = 3,
+                    Category = "Ahnung"
+                }
+            };
+        }
+
+        private static ICollection<RoomType> GetRoomTypeTestData()
+        {
+            return new List<RoomType>
+            {
+                new RoomType
+                {
+                    ID = 1,
+                    Type = "Standard"
+                },
+                new RoomType
+                {
+                    ID = 2,
+                    Type = "Keine"
+                },
+                new RoomType
+                {
+                    ID = 3,
+                    Type = "Ahnung"
+                }
+            };
         }
         #endregion
     }

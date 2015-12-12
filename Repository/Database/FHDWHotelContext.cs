@@ -42,6 +42,16 @@ namespace FHDW.Hotel.Repository.Database
         public DbSet<Room> Room { get; set; }
 
         /// <summary>
+        /// Roomtypetable
+        /// </summary>
+        public DbSet<RoomType> RoomType { get; set; }
+
+        /// <summary>
+        /// Roomcategorytable
+        /// </summary>
+        public DbSet<RoomCategory> RoomCategory { get; set; }
+
+        /// <summary>
         /// Initialize the Schema and use the name "fhdwhotel".
         /// </summary>
         public FhdwHotelContext() : base("name=fhdwhotel")

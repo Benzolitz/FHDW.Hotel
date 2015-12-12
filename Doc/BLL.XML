@@ -6,9 +6,9 @@
     <members>
         <member name="T:FHDW.Hotel.BLL.AdminService">
             <summary>
-            Handle all Requests for the Admin.
+            Handles all logical decisions for the Adminobject.
             </summary>
-            <creator>Lucas Engel</creator>
+            <author>Lucas Engel</author>
         </member>
         <member name="M:FHDW.Hotel.BLL.AdminService.#ctor">
             <summary>
@@ -25,134 +25,131 @@
         </member>
         <member name="T:FHDW.Hotel.BLL.BookingService">
             <summary>
-            
+            Handles all logical decisions for the Bookingobject.
             </summary>
+            <author>Lucas Engel</author>
         </member>
         <member name="M:FHDW.Hotel.BLL.BookingService.#ctor">
             <summary>
-            
+            Initialize the Service
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.BookingService.Save(FHDW.Hotel.DomainModel.Booking)">
             <summary>
-            
+            Save a booking. Depending on the ID, the booking will be inserted, or updated.
             </summary>
-            <param name="p_booking"></param>
-            <returns></returns>
+            <param name="p_booking">Bookingobject</param>
+            <returns>Full Bookingobject, or NULL</returns>
         </member>
         <member name="M:FHDW.Hotel.BLL.BookingService.Save(FHDW.Hotel.DomainModel.CurrentBooking)">
             <summary>
             
             </summary>
             <param name="p_booking"></param>
-            <param name="p_singleRoomCount"></param>
-            <param name="p_doubleRoomCount"></param>
-            <param name="p_familyRoomCount"></param>
             <returns></returns>
         </member>
         <member name="T:FHDW.Hotel.BLL.DatabaseService">
             <summary>
-            
+            Handles all logical decisions for the Testdata.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.DatabaseService.#ctor">
             <summary>
-            
+            Initilize Service.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.DatabaseService.CreateDatabaseWithTestData">
             <summary>
-            
+            Create a new Database and add Testdata.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.DatabaseService.CreateDatabase">
             <summary>
-            
+            Create a new Database
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.DatabaseService.AddTestDataInDatabase">
             <summary>
-            
+            Add Testdata to the Database
             </summary>
         </member>
         <member name="T:FHDW.Hotel.BLL.GuestService">
             <summary>
-            Handle all Requests for the Guest.
+            Handles all logical decisions for the Guestobject.
             </summary>
             <creator>Lucas Engel</creator>
         </member>
         <member name="M:FHDW.Hotel.BLL.GuestService.#ctor">
             <summary>      
-            Initialize the GuestService.
+            Initialize the Service.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.GuestService.CheckLogin(System.String,System.String)">
             <summary>
-            
+            Check if the Logindata is correct.
             </summary>
-            <param name="p_email"></param>
-            <param name="p_password"></param>
-            <returns></returns>
+            <param name="p_email">Emailaddress</param>
+            <param name="p_password">Password</param>
+            <returns>Guestobject, or NULL</returns>
         </member>
         <member name="M:FHDW.Hotel.BLL.GuestService.SaveGuest(FHDW.Hotel.DomainModel.Guest)">
             <summary>
-            
+            Add, or Update a Guest.
             </summary>
-            <param name="p_guest"></param>
-            <returns></returns>
+            <param name="p_guest">Guestobject</param>
+            <returns>Updated, or added Guest.</returns>
         </member>
         <member name="T:FHDW.Hotel.BLL.HotelService">
             <summary>
-            Handle all Requests for the Hotel.
+            Handles all logical decisions for the Hotelobject.
             </summary>
             <creator>Lucas Engel</creator>
         </member>
         <member name="M:FHDW.Hotel.BLL.HotelService.#ctor">
             <summary>
-            Initialize the HotelService.
+            Initialize the Service.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.HotelService.GetCollection">
             <summary>
-            GetById a Collection of all Hotels.
+            Get a Collection of all Hotels.
             </summary>
-            <returns>Hotel-Collection</returns>
+            <returns>Filled or Empty Collection</returns>
         </member>
         <member name="M:FHDW.Hotel.BLL.HotelService.GetById(System.Int32)">
             <summary>
-            
+            Get a specific Hotel by ID
             </summary>
-            <param name="p_id"></param>
-            <returns></returns>
+            <param name="p_id">ID of the Hotel</param>
+            <returns>Filled Hotelobject, or NULL</returns>
         </member>
         <member name="T:FHDW.Hotel.BLL.RoomService">
             <summary>
-            Handle all Requests for the Room.
+            Handles all logical decisions for the Roomobject.
             </summary>
             <creator>Lucas Engel</creator>
         </member>
         <member name="M:FHDW.Hotel.BLL.RoomService.#ctor">
             <summary>
-            Initialize the RoomService.
+            Initialize the Service.
             </summary>
         </member>
         <member name="M:FHDW.Hotel.BLL.RoomService.GetById(System.Int32)">
             <summary>
-            
+            Get a specific Room by ID.
             </summary>
-            <param name="p_id"></param>
-            <returns></returns>
+            <param name="p_id">ID of the Room.</param>
+            <returns>Filled Roomobject, or NULL</returns>
         </member>
         <member name="M:FHDW.Hotel.BLL.RoomService.GetCollectionByHotel(FHDW.Hotel.DomainModel.Hotel)">
             <summary>
-            
+            Get a Collection of Rooms wich are possesed by a Hotel.
             </summary>
-            <returns></returns>
-            <exception cref="T:System.NotImplementedException"></exception>
+            <returns>Filled or empty Collection</returns>
         </member>
         <member name="M:FHDW.Hotel.BLL.RoomService.GetAvailableRooms(System.Int32,System.DateTime,System.DateTime)">
             <summary>
-            
+            Get all availble Rooms
             </summary>
             <param name="p_hotelId"></param>
             <param name="p_arrival"></param>
@@ -161,21 +158,21 @@
         </member>
         <member name="M:FHDW.Hotel.BLL.RoomService.Save(FHDW.Hotel.DomainModel.Room)">
             <summary>
-            
+            Insert or Update a Room depending on the ID.
             </summary>
             <param name="p_room"></param>
             <returns></returns>
         </member>
         <member name="M:FHDW.Hotel.BLL.RoomService.Delete(FHDW.Hotel.DomainModel.Room)">
             <summary>
-            
+            Delete a Room.
             </summary>
             <param name="p_room"></param>
             <returns></returns>
         </member>
         <member name="M:FHDW.Hotel.BLL.RoomService.DeleteById(System.Int32)">
             <summary>
-            
+            Delete a Room.
             </summary>
             <param name="p_id"></param>
             <returns></returns>

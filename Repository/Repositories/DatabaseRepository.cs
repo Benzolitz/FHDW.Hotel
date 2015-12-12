@@ -45,7 +45,9 @@ namespace FHDW.Hotel.Repository.Repositories
         /// <param name="p_guests">A Collection with Guestobjects</param>
         /// <param name="p_hotels">A Collection with Hotelobjects</param>
         /// <param name="p_rooms">A Collection with Roomobjects</param>
-        public void InsertTestData(ICollection<Address> p_addresses, ICollection<Admin> p_admins, ICollection<Booking> p_bookings, ICollection<Guest> p_guests, ICollection<DomainModel.Hotel> p_hotels, ICollection<Room> p_rooms)
+        /// <param name="p_roomTypes">A Collection of RoomTypes</param>
+        /// <param name="p_roomCategories">A Collection of Roomcategories.</param>
+        public void InsertTestData(ICollection<Address> p_addresses, ICollection<Admin> p_admins, ICollection<Booking> p_bookings, ICollection<Guest> p_guests, ICollection<DomainModel.Hotel> p_hotels, ICollection<Room> p_rooms, ICollection<RoomType> p_roomTypes, ICollection<RoomCategory> p_roomCategories)
         {
             using (var context = new FhdwHotelContext())
             {
@@ -53,6 +55,18 @@ namespace FHDW.Hotel.Repository.Repositories
                 {
                     try
                     {
+                        if (p_roomTypes != null && !context.RoomType.Any())
+                        {
+                            context.RoomType.AddRange(p_roomTypes);
+                            context.SaveChanges();
+                        }
+
+                        if (p_roomCategories != null && !context.RoomCategory.Any())
+                        {
+                            context.RoomCategory.AddRange(p_roomCategories);
+                            context.SaveChanges();
+                        }
+
                         if (p_admins != null && !context.Admin.Any())
                         {
                             context.Admin.AddRange(p_admins);

@@ -7,45 +7,44 @@ using FHDW.Hotel.Repository.Repositories;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// Handle all Requests for the Room.
+    /// Handles all logical decisions for the Roomobject.
     /// </summary>
     /// <creator>Lucas Engel</creator>
     public class RoomService
     {
         #region Dependencies
-        private IRoomRepository RoomRepository { get; set; }
+        private readonly IRoomRepository _roomRepository;
         #endregion
 
         /// <summary>
-        /// Initialize the RoomService.
+        /// Initialize the Service.
         /// </summary>
         public RoomService()
         {
-            RoomRepository = new RoomRepository();
+            _roomRepository = new RoomRepository();
         }
 
         /// <summary>
-        /// 
+        /// Get a specific Room by ID.
         /// </summary>
-        /// <param name="p_id"></param>
-        /// <returns></returns>
+        /// <param name="p_id">ID of the Room.</param>
+        /// <returns>Filled Roomobject, or NULL</returns>
         public Room GetById(int p_id)
         {
-            return RoomRepository.GetById(p_id);
+            return _roomRepository.GetById(p_id);
         }
 
         /// <summary>
-        /// 
+        /// Get a Collection of Rooms wich are possesed by a Hotel.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <returns>Filled or empty Collection</returns>
         public ICollection<Room> GetCollectionByHotel(DomainModel.Hotel p_hotel)
         {
-            return RoomRepository.GetCollectionByHotel(p_hotel);
+            return _roomRepository.GetCollectionByHotel(p_hotel);
         }
 
         /// <summary>
-        /// 
+        /// Get all availble Rooms
         /// </summary>
         /// <param name="p_hotelId"></param>
         /// <param name="p_arrival"></param>
@@ -53,37 +52,37 @@ namespace FHDW.Hotel.BLL
         /// <returns></returns>
         public ICollection<Room> GetAvailableRooms(int p_hotelId, DateTime p_arrival, DateTime p_departure)
         {
-            return RoomRepository.GetAvailableRooms(p_hotelId, p_arrival, p_departure);
+            return _roomRepository.GetAvailableRooms(p_hotelId, p_arrival, p_departure);
         }
 
         /// <summary>
-        /// 
+        /// Insert or Update a Room depending on the ID.
         /// </summary>
         /// <param name="p_room"></param>
         /// <returns></returns>
         public Room Save(Room p_room)
         {
-            return p_room.ID == 0 ? RoomRepository.Insert(p_room) : RoomRepository.Update(p_room);
+            return p_room.ID == 0 ? _roomRepository.Insert(p_room) : _roomRepository.Update(p_room);
         }
 
         /// <summary>
-        /// 
+        /// Delete a Room.
         /// </summary>
         /// <param name="p_room"></param>
         /// <returns></returns>
         public Room Delete(Room p_room)
         {
-            return RoomRepository.Delete(p_room);
+            return _roomRepository.Delete(p_room);
         }
 
         /// <summary>
-        /// 
+        /// Delete a Room.
         /// </summary>
         /// <param name="p_id"></param>
         /// <returns></returns>
         public Room DeleteById(int p_id)
         {
-            var room = RoomRepository.GetById(p_id);
+            var room = _roomRepository.GetById(p_id);
             return Delete(room);
         }
     }

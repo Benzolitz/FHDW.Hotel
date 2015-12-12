@@ -1,47 +1,52 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FHDW.Hotel.DomainModel
 {
     /// <summary>
-    /// 
+    /// Roomodel
     /// </summary>
     [Table("Room")]
     public class Room
     {
+        /// <summary>
+        /// ID of the Room
+        /// </summary>
         public int ID { get; set; }
-        public string RoomNumber { get; set; }
-        public int PersonCount { get; set; }
-        public float Price { get; set; }
-
-        [Column("Category")]
-        [Required]
-        public string CategoryMapping
-        {
-            get { return Category.ToString(); }
-            set { Category = EnumExtensions.ParseEnum<Enums.RoomCategory>(value); }
-        }
-
-        [Column("Type")]
-        [Required]
-        public string TypeMapping
-        {
-            get { return Type.ToString(); }
-            set { Type = EnumExtensions.ParseEnum<Enums.RoomType>(value); }
-        }
-
-        public Hotel Hotel { get; set; }
-        public ICollection<Booking> Bookings { get; set; }
-
 
         /// <summary>
-        /// Don't map enums, because they will be saved as integer. We want strings.
+        /// Number of the Room
         /// </summary>
-        [NotMapped]
-        public Enums.RoomCategory Category { get; set; }
+        public string RoomNumber { get; set; }
 
-        [NotMapped]
-        public Enums.RoomType Type { get; set; }
+        /// <summary>
+        /// Personcount of the Room
+        /// </summary>
+        public int PersonCount { get; set; }
+
+        /// <summary>
+        /// Price of the Room
+        /// </summary>
+        public float Price { get; set; }
+
+        /// <summary>
+        /// Category of the Room
+        /// </summary>
+        public RoomCategory Category { get; set; }
+
+        /// <summary>
+        /// Type of the Room
+        /// </summary>
+        public RoomType Type { get; set; }
+
+        /// <summary>
+        /// Hotel that the Room is added to
+        /// </summary>
+        public Hotel Hotel { get; set; }
+
+        /// <summary>
+        /// All bookings of the Room
+        /// </summary>
+        public ICollection<Booking> Bookings { get; set; }
     }
 }

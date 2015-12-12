@@ -8,13 +8,13 @@ using FHDW.Hotel.Repository.Repositories;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// Handle all Requests for the Admin.
+    /// Handles all logical decisions for the Adminobject.
     /// </summary>
-    /// <creator>Lucas Engel</creator>
+    /// <author>Lucas Engel</author>
     public class AdminService
     {
         #region Dependencies
-        private readonly IAdminRepository AdminRepository;
+        private readonly IAdminRepository _adminRepository;
         #endregion
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace FHDW.Hotel.BLL
         /// </summary>
         public AdminService()
         {
-            AdminRepository = new AdminRepository();
+            _adminRepository = new AdminRepository();
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace FHDW.Hotel.BLL
         /// <returns>Adminobject if correct. NULL if incorrect.</returns>
         public Admin CheckLogin(string p_username, string p_password)
         {
-            var admin = AdminRepository.GetByUsername(p_username);
+            var admin = _adminRepository.GetByUsername(p_username);
 
             if (admin == null) return null;
             return Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(p_password))) == admin.Password ? admin : null;

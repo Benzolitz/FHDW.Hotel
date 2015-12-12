@@ -8,48 +8,48 @@ using FHDW.Hotel.Repository.Repositories;
 namespace FHDW.Hotel.BLL
 {
     /// <summary>
-    /// Handle all Requests for the Guest.
+    /// Handles all logical decisions for the Guestobject.
     /// </summary>
     /// <creator>Lucas Engel</creator>
     public class GuestService
     {
         #region Dependencies
-        private IGuestRepository GuestRepository { get; set; }
+        private readonly IGuestRepository _guestRepository;
         #endregion
 
         /// <summary>      
-        /// Initialize the GuestService.
+        /// Initialize the Service.
         /// </summary>
         public GuestService()
         {
-            GuestRepository = new GuestRepository();
+            _guestRepository = new GuestRepository();
         }
 
         /// <summary>
-        /// 
+        /// Check if the Logindata is correct.
         /// </summary>
-        /// <param name="p_email"></param>
-        /// <param name="p_password"></param>
-        /// <returns></returns>
+        /// <param name="p_email">Emailaddress</param>
+        /// <param name="p_password">Password</param>
+        /// <returns>Guestobject, or NULL</returns>
         public Guest CheckLogin(string p_email, string p_password)
         {
-            var guest = GuestRepository.GetByEmail(p_email);
+            var guest = _guestRepository.GetByEmail(p_email);
 
             if (guest == null) return null;
             return Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(p_password))) == guest.Password ? guest : null;
         }
 
         /// <summary>
-        /// 
+        /// Add, or Update a Guest.
         /// </summary>
-        /// <param name="p_guest"></param>
-        /// <returns></returns>
+        /// <param name="p_guest">Guestobject</param>
+        /// <returns>Updated, or added Guest.</returns>
         public Guest SaveGuest(Guest p_guest)
         {
             if (p_guest == null) return null;
 
             p_guest.Password = Convert.ToBase64String(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(p_guest.Password)));
-            return p_guest.ID == 0 ? GuestRepository.Insert(p_guest) : GuestRepository.Update(p_guest);
+            return p_guest.ID == 0 ? _guestRepository.Insert(p_guest) : _guestRepository.Update(p_guest);
         }
     }
 }
